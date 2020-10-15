@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         $this -> call([
 
-            ImageSeeder::class,
             VisitSeeder::class,
             ImageSeeder::class,
             ApartmentSeeder::class
