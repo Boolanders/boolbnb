@@ -11,10 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            
-            ImageSeeder::class,
-            VisitSeeder::class
-        ]);
+        $this->call([]);
     }
 }
