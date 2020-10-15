@@ -7,6 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Service::class, function (Faker $faker) {
     return [
-        'name' => $faker -> randomElement('WI-FI', 'Swimming Pool', 'Free Parking', 'SPA', 'H24 Check-In'),
+        'name' => $faker ->randomElement($array = array ('WI-FI', 'Swimming Pool', 'Free Parking', 'SPA', 'H24 Check-In')) // 'b' 
+        
+        // randomElement('WI-FI', 'Swimming Pool', 'Free Parking', 'SPA', 'H24 Check-In'),
     ];
 });

@@ -9,7 +9,7 @@ class Message extends Model
     protected $fillable = [
         'message',
         'email',
-        'apartment_id',
+        'apartment_id'
     ];
 
     public function apartment(){

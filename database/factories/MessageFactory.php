@@ -9,5 +9,6 @@ $factory->define(Message::class, function (Faker $faker) {
     return [
         'message' => $faker -> text($maxNbChars = 200),
         'email'   => $faker -> email(),
+        'apartment_id' => $faker -> randomDigit()
     ];
 });
