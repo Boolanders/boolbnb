@@ -1,9 +1,8 @@
 <?php
 
-use App\Apartment;
 use Illuminate\Database\Seeder;
 
-class ApartmentSeeder extends Seeder
+class SponsorshipSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +10,7 @@ class ApartmentSeeder extends Seeder
      * @return void
      */
     public function run() {
-        
-        factory(Apartment::class, 10) -> create();
+
+        factory(Sponsorship::class, 3) -> create();
     }
 }
