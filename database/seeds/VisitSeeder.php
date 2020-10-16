@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Visit;
+use App\Apartment;
 
 class VisitSeeder extends Seeder
 {
@@ -12,6 +13,15 @@ class VisitSeeder extends Seeder
      */
     public function run() {
 
-        factory(Visit::class, 100) -> create();
+        factory(Visit::class, 10)
+            -> make()
+            -> each(function($vis) {
+
+            $apt = Apartment::inRandomOrder() -> first();
+            $vis -> apartment() -> associate($apt);
+
+            $vis -> save();
+    
+        });
     }
 }

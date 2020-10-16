@@ -8,11 +8,11 @@ class Visit extends Model
 {
     protected $fillable = [
 
-        'appartment_id'
+        'apartment_id'
     ];
 
-    public function appartment() {
+    public function apartment() {
 
-        return $this -> belogsTo(Appartment::class);
+        return $this -> belongsTo(Apartment::class);
     }
 }

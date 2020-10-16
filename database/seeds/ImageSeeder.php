@@ -1,5 +1,6 @@
 <?php
 
+use App\Apartment;
 use Illuminate\Database\Seeder;
 use App\Image;
 
@@ -12,6 +13,15 @@ class ImageSeeder extends Seeder
      */
     public function run() {
 
-        factory(Image::class, 10) -> create();
+        factory(Image::class, 10)
+            -> make()
+            -> each(function($img) {
+
+            $apt = Apartment::inRandomOrder() -> first();
+            $img -> apartment() -> associate($apt);
+
+            $img -> save();
+    
+        });
     }
 }
