@@ -16,7 +16,8 @@ class Apartment extends Model
         'mq',
         'visible',
         'latitude',
-        'longitude'
+        'longitude',
+        'user_id'
     ];
 
     public function messages() {
@@ -36,7 +37,7 @@ class Apartment extends Model
 
     public function users() {
         
-        return $this -> belongsToMany(User::class);
+        return $this -> belongsTo(User::class);
     }
 
     public function services() {

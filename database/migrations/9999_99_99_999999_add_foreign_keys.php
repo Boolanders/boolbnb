@@ -34,14 +34,11 @@ class AddForeignKeys extends Migration
                    -> on('apartments');
         });
 
-        Schema::table('apartment_user', function (Blueprint $table) {
+        Schema::table('apartments', function (Blueprint $table) {
             
-            $table -> foreign('apartment_id', 'apt-usr')
+            $table -> foreign('user_id', 'apt-usr')
                    -> references('id')
-                   -> on('apartments');
-            $table -> foreign('user_id', 'usr-apt')
-                   -> references('id')
-                   -> on('users'); 
+                   -> on('users');
         });
 
         Schema::table('apartment_service', function (Blueprint $table) {
@@ -88,10 +85,9 @@ class AddForeignKeys extends Migration
             $table -> dropForeign('apt-msg');
         });
 
-        Schema::table('apartment_user', function (Blueprint $table) {
+        Schema::table('apartments', function (Blueprint $table) {
 
             $table -> dropForeign('apt-usr');
-            $table -> dropForeign('usr-apt');
         });
 
         Schema::table('apartment_service', function (Blueprint $table) {
