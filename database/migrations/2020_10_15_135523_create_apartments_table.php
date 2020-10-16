@@ -23,8 +23,8 @@ class CreateApartmentsTable extends Migration
             $table -> integer('bed_qt');
             $table -> integer('mq');
             $table -> boolean('visible');
-            $table -> float('latitude');
-            $table -> float('longitude');
+            $table -> decimal('latitude', 8, 6);
+            $table -> decimal('longitude', 9, 6);
             $table -> bigInteger('user_id') -> unsigned();
 
             $table->timestamps();
