@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use App\Apartment;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,17 @@ class ApartmentSeeder extends Seeder
      */
     public function run() {
         
-        factory(Apartment::class, 10) -> create();
+        factory(Apartment::class, 10)
+            -> make()
+            -> each(function($apt) {
+
+            $usr = User::inRandomOrder() -> first();
+            $apt -> users() -> associate($usr);
+
+            $apt -> save();
+    
+        });
+
+
     }
 }

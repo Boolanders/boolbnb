@@ -1,5 +1,6 @@
 <?php
 
+use App\Apartment;
 use App\Message;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,15 @@ class MessageSeeder extends Seeder
      */
     public function run()
     {
-        factory(Message::class, 50) -> create();
+        factory(Message::class, 10)
+            -> make()
+            -> each(function($msg) {
+
+            $apt = Apartment::inRandomOrder() -> first();
+            $msg -> apartments() -> associate($apt);
+
+            $msg -> save();
+    
+        });
     }
 }
