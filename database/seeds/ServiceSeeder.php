@@ -13,19 +13,19 @@ class ServiceSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Services') -> insert([
+        DB::table('services') -> insert([
             'name' => 'wi-fi'
         ]);
-        DB::table('Services') -> insert([
+        DB::table('services') -> insert([
             'name' => 'Swimming pool'
         ]);
-        DB::table('Services') -> insert([
+        DB::table('services') -> insert([
             'name' => 'Free parking'
         ]);
-        DB::table('Services') -> insert([
+        DB::table('services') -> insert([
             'name' => 'SPA'
         ]);
-        DB::table('Services') -> insert([
+        DB::table('services') -> insert([
             'name' => 'H24 Check-In'
         ]);
     }

@@ -13,15 +13,15 @@ class SponsorshipSeeder extends Seeder
      */
     public function run() {
 
-       DB::table('Sponsorships') -> insert([
+       DB::table('sponsorships') -> insert([
             'price' => '2.99',
             'hours' => '24',
        ]);
-       DB::table('Sponsorships') -> insert([
+       DB::table('sponsorships') -> insert([
         'price' => '5.99',
         'hours' => '48',
        ]);
-       DB::table('Sponsorships') -> insert([
+       DB::table('sponsorships') -> insert([
         'price' => '9.99',
         'hours' => '144',
        ]);
