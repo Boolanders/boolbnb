@@ -18,7 +18,7 @@ class VisitSeeder extends Seeder
             -> each(function($vis) {
 
             $apt = Apartment::inRandomOrder() -> first();
-            $vis -> apartments() -> associate($apt);
+            $vis -> apartment() -> associate($apt);
 
             $vis -> save();
     

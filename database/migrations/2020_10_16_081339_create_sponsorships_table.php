@@ -19,7 +19,8 @@ class CreateSponsorshipsTable extends Migration
             $table -> float('price', 8, 2);
             $table -> string('description');
             $table -> smallInteger('hours');
-            
+
+            $table -> timestamps();
         });
     }
 

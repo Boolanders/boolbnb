@@ -18,7 +18,7 @@ class ImageSeeder extends Seeder
             -> each(function($img) {
 
             $apt = Apartment::inRandomOrder() -> first();
-            $img -> apartments() -> associate($apt);
+            $img -> apartment() -> associate($apt);
 
             $img -> save();
     

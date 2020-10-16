@@ -18,7 +18,7 @@ class MessageSeeder extends Seeder
             -> each(function($msg) {
 
             $apt = Apartment::inRandomOrder() -> first();
-            $msg -> apartments() -> associate($apt);
+            $msg -> apartment() -> associate($apt);
 
             $msg -> save();
     

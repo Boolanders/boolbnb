@@ -9,11 +9,11 @@ class Image extends Model
     protected $fillable = [
     
         'img',
-        'appartment_id'    
+        'apartment_id'    
     ];
 
-    public function appartment() {
+    public function apartment() {
 
-        return $this -> belongsTo(Appartment::class);
+        return $this -> belongsTo(Apartment::class);
     }
 }

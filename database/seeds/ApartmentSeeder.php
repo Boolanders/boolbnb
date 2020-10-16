@@ -18,7 +18,7 @@ class ApartmentSeeder extends Seeder
             -> each(function($apt) {
 
             $usr = User::inRandomOrder() -> first();
-            $apt -> users() -> associate($usr);
+            $apt -> user() -> associate($usr);
 
             $apt -> save();
     
