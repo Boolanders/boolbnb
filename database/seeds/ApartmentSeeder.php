@@ -18,15 +18,25 @@ class ApartmentSeeder extends Seeder
         factory(Apartment::class, 10)
             -> make()
             -> each(function($apt) {
-                $srv = Service::inRandomOrder() -> take(rand(0, 5)) -> get();
-                $spr = Sponsorship::inRandomOrder() -> take(rand(0,5)) -> get();          
+                
+                $faker = \Faker\Factory::create();
+
                 $usr = User::inRandomOrder() -> first();
                 $apt -> user() -> associate($usr);
-
+                $sponsorships = Sponsorship::inRandomOrder() -> take(rand(0,3)) -> get();
 
                 $apt -> save();
-                $apt -> services() -> attach($srv);
-                $apt -> sponsorships() -> attach($spr, ['start_date' => '2020-10-10', 'end_date' => '2020-10-10']);
+                
+                foreach ($sponsorships as $spr) {
+
+                    $apt -> sponsorships()
+                            -> attach($spr,[
+                                'start_date' => $faker -> dateTimeBetween($startDate = '-15 days', $endDate = '+15 days', $timezone = null),
+                                'end_date'   => $faker -> dateTimeBetween($startDate = '-15 days', $endDate = '+15 days', $timezone = null),
+                            ]);
+                }
+
+               
     
         });
 

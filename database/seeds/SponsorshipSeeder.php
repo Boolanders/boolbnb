@@ -13,17 +13,27 @@ class SponsorshipSeeder extends Seeder
      */
     public function run() {
 
-       DB::table('sponsorships') -> insert([
-            'price' => '2.99',
-            'hours' => '24',
-       ]);
-       DB::table('sponsorships') -> insert([
-        'price' => '5.99',
-        'hours' => '48',
-       ]);
-       DB::table('sponsorships') -> insert([
-        'price' => '9.99',
-        'hours' => '144',
-       ]);
+        $sprData = [
+            [
+                'price' => '2.99',
+                'hours' => '24',
+            ],
+            [
+                'price' => '5.99',
+                'hours' => '48',
+            ],
+            [
+                'price' => '9.99',
+                'hours' => '144',
+            ]
+        ];
+
+        foreach ($sprData as $spr) {
+            
+            Sponsorship::create($spr);
+                     
+        }
+
+      
     }
 }

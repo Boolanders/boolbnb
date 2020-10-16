@@ -13,20 +13,19 @@ class ServiceSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('services') -> insert([
-            'name' => 'wi-fi'
-        ]);
-        DB::table('services') -> insert([
-            'name' => 'Swimming pool'
-        ]);
-        DB::table('services') -> insert([
-            'name' => 'Free parking'
-        ]);
-        DB::table('services') -> insert([
-            'name' => 'SPA'
-        ]);
-        DB::table('services') -> insert([
-            'name' => 'H24 Check-In'
-        ]);
+
+        $services = ['wi-fi', 'Swimming pool', 'Free parking', 'SPA', 'H24 Check-In' ];
+
+        foreach ($services as $srv) {
+
+            $apt = Apartment::inRandomOrder() -> take(rand(0,5)) -> get();
+
+            $newRecord = Service::create([
+                'name' => $srv
+            ]);
+
+            $newRecord -> apartments() -> attach($apt);
+        }
+        
     }
 }
