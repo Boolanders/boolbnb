@@ -13,14 +13,17 @@ class SponsorshipSeeder extends Seeder
      */
     public function run() {
 
-        factory(Sponsorship::class, 3)
-        -> create()
-        -> each(function($spr) {
-            
-            $apt = Apartment::inRandomOrder()
-                -> take(rand(1, 10))
-                -> get();
-            $spr -> apartments() -> attach($apt);
-        });
+       DB::table('Sponsorships') -> insert([
+            'price' => '2.99',
+            'hours' => '24',
+       ]);
+       DB::table('Sponsorships') -> insert([
+        'price' => '5.99',
+        'hours' => '48',
+       ]);
+       DB::table('Sponsorships') -> insert([
+        'price' => '9.99',
+        'hours' => '144',
+       ]);
     }
 }

@@ -8,7 +8,6 @@ class Sponsorship extends Model
 {
     protected $fillable = [
         'price',
-        'description',
         'hours'
     ];
 
