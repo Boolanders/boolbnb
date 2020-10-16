@@ -16,8 +16,8 @@ class CreateApartmentUserTable extends Migration
         Schema::create('apartment_user', function (Blueprint $table) {
             $table->id();
 
-            $table -> integer('user_id') -> unsigned();
-            $table -> integer('apartment_id') -> unsigned();
+            $table -> bigInteger('user_id') -> unsigned();
+            $table -> bigInteger('apartment_id') -> unsigned();
             
             $table->timestamps();
         });

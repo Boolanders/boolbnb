@@ -17,7 +17,7 @@ class CreateImagesTable extends Migration
             $table->id();
 
             $table ->string('img');
-            $table ->integer('appartment_id');
+            $table ->bigInteger('apartment_id') -> unsigned();
 
             $table->timestamps();
         });

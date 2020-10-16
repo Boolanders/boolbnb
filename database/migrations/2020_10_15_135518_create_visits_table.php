@@ -16,7 +16,7 @@ class CreateVisitsTable extends Migration
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
 
-            $table ->integer('appartment_id');
+            $table ->bigInteger('apartment_id') -> unsigned();
         
             $table->timestamps();
         });
