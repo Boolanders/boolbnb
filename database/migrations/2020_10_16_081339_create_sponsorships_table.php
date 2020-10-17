@@ -14,12 +14,14 @@ class CreateSponsorshipsTable extends Migration
     public function up()
     {
         Schema::create('sponsorships', function (Blueprint $table) {
-            $table -> id();
+            $table->id();
 
-            $table -> float('price', 8, 2);
-            $table -> smallInteger('hours');
-
-            $table -> timestamps();
+            $table -> bigInteger('apartment_id') -> unsigned();
+            $table -> bigInteger('promotion_id') -> unsigned();
+            $table -> date('start_date');
+            $table -> date('end_date');
+            
+            $table->timestamps();
         });
     }
 

@@ -51,14 +51,14 @@ class AddForeignKeys extends Migration
                    -> on('services'); 
         });
 
-        Schema::table('apartment_sponsorship', function (Blueprint $table) {
+        Schema::table('sponsorships', function (Blueprint $table) {
             
             $table -> foreign('apartment_id', 'apt-spr')
                    -> references('id')
                    -> on('apartments');
-            $table -> foreign('sponsorship_id', 'spr-apt')
+            $table -> foreign('promotion_id', 'spr-pro')
                    -> references('id')
-                   -> on('sponsorships'); 
+                   -> on('promotions'); 
         });
 
     }
@@ -96,10 +96,10 @@ class AddForeignKeys extends Migration
             $table -> dropForeign('srv-apt');
         });
 
-        Schema::table('apartment_sponsorship', function (Blueprint $table) {
+        Schema::table('sponsorships', function (Blueprint $table) {
             
             $table -> dropForeign('apt-spr');
-            $table -> dropForeign('spr-apt');
+            $table -> dropForeign('spr-pro');
         });
     }
 }

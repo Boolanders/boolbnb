@@ -1,6 +1,7 @@
 <?php
 
 use App\Apartment;
+use App\Promotion;
 use App\Sponsorship;
 use Illuminate\Database\Seeder;
 
@@ -13,26 +14,17 @@ class SponsorshipSeeder extends Seeder
      */
     public function run() {
 
-        $sprData = [
-            [
-                'price' => '2.99',
-                'hours' => '24',
-            ],
-            [
-                'price' => '5.99',
-                'hours' => '48',
-            ],
-            [
-                'price' => '9.99',
-                'hours' => '144',
-            ]
-        ];
+        factory(Sponsorship::class, 50) -> make()
+                                                -> each(function($spo){
+                                                    $apt = Apartment::inRandomOrder() -> first();
+                                                    $pro = Promotion::inRandomOrder() -> first();
 
-        foreach ($sprData as $spr) {
-            
-            Sponsorship::create($spr);
-                     
-        }
+                                                    $spo -> apartment() -> associate($apt);
+                                                    $spo -> promotion() -> associate($pro);
+
+                                                    $spo -> save();
+                                                    
+                                                });
 
       
     }

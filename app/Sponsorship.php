@@ -7,12 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Sponsorship extends Model
 {
     protected $fillable = [
-        'price',
-        'hours'
+        'start_date',
+        'end_date',
+        'aparment_id',
+        'promotion_id'
     ];
 
-    public function apartments(){
-        $this -> belongsToMany(Apartment::class)
-                -> withPivot('start_date','end_date');
+    public function apartment(){
+        return $this -> belongsTo(Apartment::class);
+    }
+
+    public function promotion(){
+        return $this -> belongsTo(Promotion::class);
     }
 }
