@@ -9,6 +9,7 @@ class Apartment extends Model
     protected $fillable = [
 
         'description',
+        'title',
         'address',
         'room_qt',
         'bathroom_qt',
@@ -17,7 +18,8 @@ class Apartment extends Model
         'visible',
         'latitude',
         'longitude',
-        'user_id'
+        'user_id',
+        'img'
     ];
 
     public function messages() {
