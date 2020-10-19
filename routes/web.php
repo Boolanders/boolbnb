@@ -9,3 +9,4 @@ Auth::routes();
 
 
 Route::get('/', 'GuestController@index') -> name('home');
+
