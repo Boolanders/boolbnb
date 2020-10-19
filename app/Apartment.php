@@ -18,8 +18,7 @@ class Apartment extends Model
         'visible',
         'latitude',
         'longitude',
-        'user_id',
-        'img'
+        'user_id'
     ];
 
     public function messages() {
