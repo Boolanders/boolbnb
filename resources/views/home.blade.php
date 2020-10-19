@@ -12,7 +12,7 @@
                 {{ $apt -> description }}
                 </div>
                 <div class="card-body">
-                  <img src="{{ $apt -> image -> img }}" alt="img">
+                  <img src="{{ $apt -> images -> img }}" alt="img">
                 </div>
             </div>
 
