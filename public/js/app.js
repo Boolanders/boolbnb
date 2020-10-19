@@ -49886,13 +49886,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! C:\Users\Vincenzo\Desktop\BooleanCareers\Github-Project\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Vincenzo\Desktop\BooleanCareers\Github-Project\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
->>>>>>> 8d9fc47e150c0adca41ec291457dcf4986bfe1f7
+__webpack_require__(/*! C:\Users\Vincenzo\Desktop\BooleanCareers\Github-project\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Vincenzo\Desktop\BooleanCareers\Github-project\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
