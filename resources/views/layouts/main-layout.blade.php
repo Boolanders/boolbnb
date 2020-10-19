@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <title>AirBnB</title>
+    <title>BoolBnB</title>
 </head>
 
 <body>
