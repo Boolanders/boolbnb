@@ -11,9 +11,7 @@ class GuestController extends Controller
     $date = date('y-m-d');
     $apts = Sponsorship::where('end_date', '>', $date)-> groupBy('apartment_id') -> select('apartment_id', 'apartments.*') -> join('apartments', 'apartments.id', '=', 'sponsorships.apartment_id') -> get();
 
-    dd($apts);
-
-       return view('home');
+       return view('home', compact('apts'));
    }
 
 
