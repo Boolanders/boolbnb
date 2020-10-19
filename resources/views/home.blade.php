@@ -3,17 +3,21 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+      <h1 class="col-md-12">Appartamenti in evidenza</h1>
+      @foreach ($apts as $apt)
+        <div class="col-md-2">
 
             <div class="card">
-                <div class="card-header"></div>
-                hello world
+                <div class="card-header">
+                {{ $apt -> description }}
+                </div>
                 <div class="card-body">
-                   ciao
+                  <img src="{{ $apt -> images -> img }}" alt="img">
                 </div>
             </div>
-            
+
         </div>
+      @endforeach
     </div>
 </div>
 @endsection
