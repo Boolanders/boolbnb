@@ -27,7 +27,6 @@ class CreateApartmentsTable extends Migration
             $table -> decimal('latitude', 8, 6);
             $table -> decimal('longitude', 9, 6);
             $table -> bigInteger('user_id') -> unsigned();
-            $table -> string('img');
 
             $table->timestamps();
         });
