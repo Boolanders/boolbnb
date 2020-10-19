@@ -14,12 +14,13 @@ class CreateApartmentServiceTable extends Migration
     public function up()
     {
         Schema::create('apartment_service', function (Blueprint $table) {
-            $table->id();
 
             $table -> bigInteger('apartment_id') -> unsigned();
             $table -> bigInteger('service_id') -> unsigned();
             
             $table->timestamps();
+
+            $table -> primary(['apartment_id', 'service_id']);
         });
     }
 

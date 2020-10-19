@@ -18,7 +18,7 @@ class ServiceSeeder extends Seeder
 
         foreach ($services as $srv) {
 
-            $apt = Apartment::inRandomOrder() -> take(rand(0,5)) -> get();
+            $apt = Apartment::inRandomOrder() -> take(rand(5,15)) -> get();
 
             $newRecord = Service::create([
                 'name' => $srv

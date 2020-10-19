@@ -14,7 +14,7 @@ class SponsorshipSeeder extends Seeder
      */
     public function run() {
 
-        factory(Sponsorship::class, 50) -> make()
+        factory(Sponsorship::class, 20) -> make()
                                                 -> each(function($spo){
                                                     $apt = Apartment::inRandomOrder() -> first();
                                                     $pro = Promotion::inRandomOrder() -> first();
