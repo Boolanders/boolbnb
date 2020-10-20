@@ -20,3 +20,5 @@ Route::get('/edit/{id}', 'LoggedController@edit')->name('apt-edit');
 Route::post('/update/{id}', 'LoggedController@update' ) -> name('apt-update');
 
 Route::get('/delete/{id}', 'LoggedController@delete') -> name('apt-delete');
+
+Route::get('/profile/{id}', 'LoggedController@profile') -> name('profile');

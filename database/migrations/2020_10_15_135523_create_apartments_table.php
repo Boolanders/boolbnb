@@ -23,9 +23,9 @@ class CreateApartmentsTable extends Migration
             $table -> integer('bathroom_qt');
             $table -> integer('bed_qt');
             $table -> integer('mq');
-            $table -> boolean('visible');
-            $table -> decimal('latitude', 8, 6);
-            $table -> decimal('longitude', 9, 6);
+            $table -> boolean('visible') -> default(1);
+            $table -> decimal('latitude', 8, 6) -> nullable();
+            $table -> decimal('longitude', 9, 6) -> nullable();
             $table -> bigInteger('user_id') -> unsigned();
 
             $table->timestamps();
