@@ -5,7 +5,7 @@
 
     <div class="form">
 
-        <form action="{{ route('apt-store') }}" method="post">
+        <form action="{{ route('apt-store') }}" enctype="multipart/form-data" method="post">
 
             @csrf
             @method ('post')

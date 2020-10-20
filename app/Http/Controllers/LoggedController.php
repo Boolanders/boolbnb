@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Service;
+use App\Image;
 use Illuminate\Support\Facades\Auth;
 
 class LoggedController extends Controller {
@@ -44,7 +45,22 @@ class LoggedController extends Controller {
             $newApt -> services() -> attach($data['services']);
 
         }
+        
+        
 
+        if($request -> hasFile('img')){
+
+            $name = $request -> img -> getClientOriginalName();
+        
+            $url = $request -> img -> storeAs('images' . $newApt -> id, $name, 'public');
+
+            $file = Image::create([
+                 'img' => '/storage/' . $url,
+                 'apartment_id' => $newApt -> id
+             ]);
+        }
+        
+        
         return redirect() -> route('profile', $id);
     }
 
