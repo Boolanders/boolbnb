@@ -10,7 +10,7 @@ class LoggedController extends Controller
     public function show($id) {
 
         $apt = Apartment::findOrFail($id);
-        return view ('apartment-show', compact('apt'));
+        return view ('show', compact('apt'));
     }
 
     public function create() {
@@ -40,7 +40,7 @@ class LoggedController extends Controller
     }
 
     public function delete($id) {
-        
+
         $apt= Apartment::findOrFail($id);
         $apt-> delete();
         return redirect() -> route('home');
