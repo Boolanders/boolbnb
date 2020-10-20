@@ -36,8 +36,8 @@ class LoggedController extends Controller {
 
     public function edit($id) {
 
-        $mail = Apartment::findOrFail($id);
-        return view('edit', compact('Apartment'));
+        $apt = Apartment::findOrFail($id);
+        return view('edit', compact('apt'));
     }
 
     public function update(request $request, $id){
@@ -45,7 +45,7 @@ class LoggedController extends Controller {
         $data = $request -> all();
         $apt = Apartment::findOrFail($id);
         $apt-> update($data);
-        return redirect() -> route('show', $id);
+        return redirect() -> route('profile', $id);
     }
 
     public function delete($id) {

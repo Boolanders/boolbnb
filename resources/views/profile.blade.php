@@ -10,10 +10,21 @@
 
             @foreach($apts as $apt)
          
-                <a href="{{ route('apt-show', $apt -> id) }}" class="list-group-item">{{ $apt -> title}}</a>
+                <div class="list-group-item">
+
+                <a href="{{ route('apt-show', $apt -> id) }}" >{{ $apt -> title}}</a>
+                
+                <a class="btn btn-sm btn-primary float-right" href="{{ route('apt-edit', $apt -> id) }}">EDIT</a>
+
+                <a class="btn btn-sm btn-danger float-right mr-2" href="">DELETE</a>
+
+                </div>
+
+
         
             @endforeach
-        
+
+
         </div>
     </div>
 </div>
