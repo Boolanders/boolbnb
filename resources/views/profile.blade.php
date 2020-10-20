@@ -16,7 +16,7 @@
                 
                 <a class="btn btn-sm btn-primary float-right" href="{{ route('apt-edit', $apt -> id) }}">EDIT</a>
 
-                <a class="btn btn-sm btn-danger float-right mr-2" href="">DELETE</a>
+                <a class="btn btn-sm btn-danger float-right mr-2" href="{{route('apt-delete', $apt -> id)}}">DELETE</a>
 
                 </div>
 

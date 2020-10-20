@@ -52,7 +52,7 @@ class LoggedController extends Controller {
 
         $apt= Apartment::findOrFail($id);
         $apt-> delete();
-        return redirect() -> route('home');
+        return redirect() -> route('profile', $id);
     }
 
 
