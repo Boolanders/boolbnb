@@ -13,7 +13,7 @@ class ImageSeeder extends Seeder
      */
     public function run() {
 
-        factory(Image::class, 10)
+        factory(Image::class, 100)
             -> make()
             -> each(function($img) {
 

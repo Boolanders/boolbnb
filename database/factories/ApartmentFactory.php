@@ -9,7 +9,8 @@ use Faker\Generator as Faker;
 $factory->define(Apartment::class, function (Faker $faker) {
     return [
         
-        'description' => $faker -> text($maxNbChars = 10), 
+        'description' => $faker -> text($maxNbChars = 100),
+        'title'       => $faker -> word(), 
         'address'     => $faker -> address(),
         'room_qt'     => $faker -> numberBetween($min = 2, $max = 5),
         'bathroom_qt' => $faker -> numberBetween($min = 1, $max = 3),

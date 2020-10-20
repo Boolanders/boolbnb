@@ -17,6 +17,7 @@ class CreateApartmentsTable extends Migration
             $table->id();
 
             $table -> text('description');
+            $table -> string('title');
             $table -> text('address');
             $table -> integer('room_qt');
             $table -> integer('bathroom_qt');
