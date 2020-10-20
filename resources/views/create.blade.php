@@ -50,26 +50,12 @@
                 <input type="file" id="img" name="img" accept="image/*">
             </div>
 
+            @foreach ($srvs as $srv)
             <div>
-                <label for="">wi-fi</label>
-                <input type="checkbox" name="wi-fi" value="1">
+                <label for="{{ $srv -> name }}">{{ $srv -> name }}</label>
+                <input type="checkbox" name="services[]" value="{{ $srv -> id }}">
             </div>
-            <div>
-                <label for="">Swimming pool</label>
-                <input type="checkbox" name="swimming pool" value="2">
-            </div>
-            <div>
-                <label for="">Fre Parking</label>
-                <input type="checkbox" name="Fre Parking" value="3">
-            </div>
-            <div>
-                <label for="">Spa</label>
-                <input type="checkbox" name="Spa" value="4">
-            </div>
-            <div>
-                <label for="">H24 Check-in</label>
-                <input type="checkbox" name="H24 Check-in" value="5">
-            </div>
+            @endforeach
 
             <button class="btn btn-primary" type="submit">Save</button>
         </form>
