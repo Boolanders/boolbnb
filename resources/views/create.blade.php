@@ -48,7 +48,27 @@
             <div>
                 <label for="img">Select image:</label>
                 <input type="file" id="img" name="img" accept="image/*">
-                <input type="submit">
+            </div>
+
+            <div>
+                <label for="">wi-fi</label>
+                <input type="checkbox" name="wi-fi" value="1">
+            </div>
+            <div>
+                <label for="">Swimming pool</label>
+                <input type="checkbox" name="swimming pool" value="2">
+            </div>
+            <div>
+                <label for="">Fre Parking</label>
+                <input type="checkbox" name="Fre Parking" value="3">
+            </div>
+            <div>
+                <label for="">Spa</label>
+                <input type="checkbox" name="Spa" value="4">
+            </div>
+            <div>
+                <label for="">H24 Check-in</label>
+                <input type="checkbox" name="H24 Check-in" value="5">
             </div>
 
             <button class="btn btn-primary" type="submit">Save</button>
