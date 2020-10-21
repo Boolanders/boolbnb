@@ -4608,6 +4608,10 @@ readers do not read off random characters that represent icons */
   font-weight: 900; }
 @charset "UTF-8";
 
+.margintop {
+  margin-top: 120px;
+}
+
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -15526,5 +15530,41 @@ a.text-dark:focus {
 
 .home img {
   width: 100%;
+}
+
+#profile {
+  margin-top: 100px;
+}
+
+#profile .center-cropped {
+  -o-object-fit: 0.5;
+     object-fit: 0.5;
+  /* Do not scale the image */
+  -o-object-position: center;
+     object-position: center;
+  /* Center the image within the element */
+  height: 100px;
+  width: 100px;
+}
+
+#profile .media-body .txt {
+  max-height: calc(100px - 25px - 0.5rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#profile .media-body h3 {
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#profile .btn-wrapper {
+  height: 100px;
+}
+
+.show h1 {
+  text-align: left;
+  color: green;
 }
 

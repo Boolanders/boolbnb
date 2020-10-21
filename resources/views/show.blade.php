@@ -1,7 +1,7 @@
 @extends('layouts.main-layout')
 @section('content')
 <div class="container">
-    <div class="form">
+    <div class="show margintop">
 
       <a class="btn btn-secondary" href="{{ route('profile', Auth::user() -> id) }}">Go Back</a>
 
