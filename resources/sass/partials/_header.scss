@@ -1,13 +1,31 @@
 .header{
 
-  .navbar-brand{
-    width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .col-md-8, .col-md-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  img {
+  img{
+
     width: 100%;
     height: auto;
+
   }
-  
+
+  .input-group{
+
+    width: 50%;
+  }
+
+  .nav-item a{
+
+    text-decoration: none;
+    
+  }
 
 }

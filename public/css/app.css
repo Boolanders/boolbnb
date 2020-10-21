@@ -15515,13 +15515,30 @@ a.text-dark:focus {
   }
 }
 
-.header .navbar-brand {
-  width: 15%;
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .col-md-8,
+.header .col-md-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header img {
   width: 100%;
   height: auto;
+}
+
+.header .input-group {
+  width: 50%;
+}
+
+.header .nav-item a {
+  text-decoration: none;
 }
 
 #create-cont {
