@@ -3,10 +3,12 @@
 <div class="container">
     <div class="form">
 
+      <a class="btn btn-secondary" href="{{ route('profile', Auth::user() -> id) }}">Go Back</a>
+
             <h1>{{ $apt -> title }}</h1>
             <h3>{{ $apt -> address }}</h3>
             <div>
-                <img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="">
+                <img src="{{ $apt -> images -> first -> img -> img }}" alt="">
             </div>
             
             <div class="col-md-8">

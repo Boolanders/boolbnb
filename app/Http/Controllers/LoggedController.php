@@ -75,15 +75,17 @@ class LoggedController extends Controller {
 
         $data = $request -> all();
         $apt = Apartment::findOrFail($id);
+        $usrid = Auth::user() -> id;
         $apt-> update($data);
-        return redirect() -> route('profile', $id);
+        return redirect() -> route('profile', $usrid);
     }
 
     public function delete($id) {
 
         $apt= Apartment::findOrFail($id);
+        $usrid = Auth::user() -> id;
         $apt-> delete();
-        return redirect() -> route('profile', $id);
+        return redirect() -> route('profile', $usrid);
     }
 
 

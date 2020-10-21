@@ -17,48 +17,59 @@ class AddForeignKeys extends Migration
             
             $table -> foreign('apartment_id', 'apt-vis')
                    -> references('id')
-                   -> on('apartments');
+                   -> on('apartments')
+                   -> onDelete('cascade');
         });
 
         Schema::table('images', function (Blueprint $table) {
             
             $table -> foreign('apartment_id', 'apt-img')
                    -> references('id')
-                   -> on('apartments');
+                   -> on('apartments')
+                   -> onDelete('cascade');
         });
 
         Schema::table('messages', function (Blueprint $table) {
             
             $table -> foreign('apartment_id', 'apt-msg')
                    -> references('id')
-                   -> on('apartments');
+                   -> on('apartments')
+                   -> onDelete('cascade');
         });
 
         Schema::table('apartments', function (Blueprint $table) {
             
             $table -> foreign('user_id', 'apt-usr')
                    -> references('id')
-                   -> on('users');
+                   -> on('users')
+                   -> onDelete('cascade');
         });
 
         Schema::table('apartment_service', function (Blueprint $table) {
             
             $table -> foreign('apartment_id', 'apt-srv')
                    -> references('id')
-                   -> on('apartments');
+                   -> on('apartments')
+                   -> onDelete('cascade');
+
             $table -> foreign('service_id', 'srv-apt')
                    -> references('id')
-                   -> on('services'); 
+                   -> on('services')
+                   -> onDelete('cascade'); 
         });
 
         Schema::table('sponsorships', function (Blueprint $table) {
             
             $table -> foreign('apartment_id', 'apt-spr')
                    -> references('id')
-                   -> on('apartments');
+                   -> on('apartments')
+                   -> onDelete('cascade');
+
             $table -> foreign('promotion_id', 'spr-pro')
                    -> references('id')
-                   -> on('promotions'); 
+                   -> on('promotions')
+                   -> onDelete('cascade');
+
         });
 
     }
