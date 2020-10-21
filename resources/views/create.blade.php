@@ -1,52 +1,52 @@
 @extends('layouts.main-layout')
 @section('content')
 
-<div class="container">
+<div class="container create-cont">
 
     <div class="form">
 
-        <form action="{{ route('apt-store') }}" enctype="multipart/form-data" method="post">
+        <form action="{{ route('apt-store') }}" enctype="multipart/form-data" method="post" class="form-create-border">
 
             @csrf
             @method ('post')
 
             <div class="form-group">
-                <label for="">title</label>
+                <label for="">Title</label>
                 <input class="form-control" type="text" name="title">
             </div>
 
             <div class="form-group">
-                <label for="">description</label>
+                <label for="">Description</label>
                 <input class="form-control" type="text" name="description">
             </div>
 
             <div class="form-group">
-                <label for="">address</label>
+                <label for="">Address</label>
                 <input class="form-control" type="text" name="address">
             </div>
 
             <div class="form-group">
-                <label for="">room qty</label>
+                <label for="">Room Quantity</label>
                 <input class="form-control" type="text" name="room_qt">
             </div>
 
             <div class="form-group">
-                <label for="">bed qty</label>
+                <label for="">Bed Quantity</label>
                 <input class="form-control" type="text" name="bed_qt">
             </div>
 
             <div class="form-group">
-                <label for="">bathroom qty</label>
+                <label for="">Bathroom Quantity</label>
                 <input class="form-control" type="text" name="bathroom_qt">
             </div>
 
             <div class="form-group">
-                <label for="">square meters</label>
+                <label for="">Square Meters</label>
                 <input class="form-control" type="text" name="mq">
             </div>
 
             <div>
-                <label for="img">Select image:</label>
+                <label for="img">Select Image:</label>
                 <input type="file" id="img" name="img" accept="image/*">
             </div>
 
@@ -57,7 +57,7 @@
             </div>
             @endforeach
 
-            <button class="btn btn-primary" type="submit">Save</button>
+            <button class="btn btn-primary btn-save" type="submit">Save</button>
         </form>
     </div>
 </div>
