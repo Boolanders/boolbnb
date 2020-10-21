@@ -38,4 +38,13 @@
         }
     }
 
+    a.btn{
+        color: white;
+
+        &:hove{
+            color:white;
+            text-decoration: none;
+        }
+    }
+
 }

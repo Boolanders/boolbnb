@@ -11,9 +11,9 @@
         @foreach ($apts as $apt)
         <div class="media border rounded m-2 p-2 ">
                 @if ($apt -> images -> first -> img -> img)
-
-                <img src=" {{ $apt -> images -> first -> img -> img }} " class="mr-3 center-cropped align-self-center" alt="show">
-
+                <a href="{{ route('apt-show', $apt -> id) }}">
+                    <img src=" {{ $apt -> images -> first -> img -> img }} " class="mr-3 center-cropped align-self-center" alt="show">
+                </a>
                 @else
 
                 <img src=" {{ asset('img/image-not-found.png') }} " class="mr-3 center-cropped align-self-center" alt="show">
@@ -36,7 +36,7 @@
                     <label class="custom-control-label" for="visibilitySwitch1">Set Visibility</label>
                 </div>
                 <div>
-                    <button href=" {{ route('apt-edit', $apt -> id) }}" type="button" class="btn btn-primary btn-sm m-1">Edit</button>
+                    <a href=" {{ route('apt-edit', $apt -> id) }}" class="btn btn-primary btn-sm m-1 btn-link">Edit</a>
                     <button type="button" class="btn btn-danger btn-sm m-1">DELETE</button>
                 </div>
             </div>
