@@ -12,11 +12,11 @@
         <div class="media border rounded m-2 p-2 ">
                 @if ($apt -> images -> first -> img -> img)
 
-                <img href="{{ route('apt-show', $apt -> id) }}" src=" {{ $apt -> images -> first -> img -> img }} " class="mr-3 center-cropped align-self-center" alt="show">
+                <img src=" {{ $apt -> images -> first -> img -> img }} " class="mr-3 center-cropped align-self-center" alt="show">
 
                 @else
 
-                <img href="{{ route('apt-show', $apt -> id) }}" src=" {{ asset('img/image-not-found.png') }} " class="mr-3 center-cropped align-self-center" alt="show">
+                <img src=" {{ asset('img/image-not-found.png') }} " class="mr-3 center-cropped align-self-center" alt="show">
 
                 @endif
 
