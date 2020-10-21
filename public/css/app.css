@@ -15511,10 +15511,14 @@ a.text-dark:focus {
   }
 }
 
+img {
+  width: 50%;
+}
+
 .foot-container {
   display: flex;
   width: 100%;
-  height: 30vh;
+  height: 100%;
   background: purple;
 }
 
@@ -15532,16 +15536,18 @@ a.text-dark:focus {
 }
 
 .foot-container > * > .foot-list ul li {
+  cursor: pointer;
   margin-bottom: 20px;
 }
 
 .foot-container > * > .foot-list ul li.first {
+  cursor: default;
   font-weight: bold;
   text-decoration: underline;
 }
 
 .justify-content-center {
-  margin-top: 80px;
+  margin-top: 140px;
 }
 
 h1 {
