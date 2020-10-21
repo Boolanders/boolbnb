@@ -23,7 +23,17 @@
     
                 <div class="form-group">
                     <label for="">Address</label>
-                    <input class="form-control" type="text" name="address">
+                    <input class="form-control" type="search" id="address-input" placeholder="Where are we going?">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Longitude</label>
+                    <input id="longitude" class="form-control" type="text" name="longitude" value="longitude">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Latitude</label>
+                    <input id="latitude" class="form-control" type="text" name="latitude" value="latitude">
                 </div>
     
                 <div class="form-group">
