@@ -1,12 +1,11 @@
 @extends('layouts.main-layout')
 
 @section('content')
-<div class="container">
+<div class="container home margintop">
     <div class="row justify-content-center">
       <h1 class="col-md-12">Appartamenti in evidenza</h1>
       @foreach ($apts as $apt)
         <div class="col-md-4">
-
             <div class="card">
                 <div class="card-header">
                 {{ $apt -> title }}
