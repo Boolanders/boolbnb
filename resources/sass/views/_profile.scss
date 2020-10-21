@@ -2,6 +2,12 @@
 
     margin-top: 100px;
 
+<<<<<<< HEAD
+=======
+    .media img[alt="show"]{
+        cursor: pointer;
+    }
+>>>>>>> 572f3280106360a7721fb54f446d9644b9461cfc
     .center-cropped {
         object-fit: .5; /* Do not scale the image */
         object-position: center; /* Center the image within the element */
@@ -25,5 +31,17 @@
         height: 100px;
     }
     
+<<<<<<< HEAD
+=======
+    a{
+        color: #212529;
+        text-decoration: none;
+
+        &:hover{
+            color: #212529;
+            text-decoration: none;
+        }
+    }
+>>>>>>> 572f3280106360a7721fb54f446d9644b9461cfc
 
 }

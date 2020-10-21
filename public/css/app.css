@@ -15532,6 +15532,7 @@ a.text-dark:focus {
   width: 100%;
 }
 
+<<<<<<< HEAD
 #profile {
   margin-top: 100px;
 }
@@ -15563,6 +15564,8 @@ a.text-dark:focus {
   height: 100px;
 }
 
+=======
+>>>>>>> 572f3280106360a7721fb54f446d9644b9461cfc
 .show h1 {
   text-align: left;
   color: green;
