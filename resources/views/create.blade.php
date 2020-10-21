@@ -5,7 +5,7 @@
 
     <div class="form">
 
-        <form action="{{ route('apt-store') }}" method="post">
+        <form action="{{ route('apt-store') }}" enctype="multipart/form-data" method="post">
 
             @csrf
             @method ('post')
@@ -48,8 +48,14 @@
             <div>
                 <label for="img">Select image:</label>
                 <input type="file" id="img" name="img" accept="image/*">
-                <input type="submit">
             </div>
+
+            @foreach ($srvs as $srv)
+            <div>
+                <label for="{{ $srv -> name }}">{{ $srv -> name }}</label>
+                <input type="checkbox" name="services[]" value="{{ $srv -> id }}">
+            </div>
+            @endforeach
 
             <button class="btn btn-primary" type="submit">Save</button>
         </form>
