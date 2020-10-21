@@ -21,7 +21,7 @@
             @endif
 
             <div class="media-body">
-              <h4 class="mt-0"> {{ $apt -> name }} </h4>
+              <h3 class="mt-0"> {{ $apt -> title }} </h3>
               <div class="txt">
                   {{ $apt -> description }}
               </div>

@@ -10,9 +10,15 @@
     }
 
     .media-body .txt{
-            max-height: calc(100px - 25px - 0.5rem);
-            overflow: hidden;
-            text-overflow: ellipsis;
+        max-height: calc(100px - 25px - 0.5rem);
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .media-body h3{
+        max-height: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .btn-wrapper{
