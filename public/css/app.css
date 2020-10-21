@@ -4608,6 +4608,10 @@ readers do not read off random characters that represent icons */
   font-weight: 900; }
 @charset "UTF-8";
 
+.margintop {
+  margin-top: 120px;
+}
+
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -15511,41 +15515,43 @@ a.text-dark:focus {
   }
 }
 
-img {
-  width: 50%;
+.header .navbar-brand {
+  width: 15%;
 }
 
-.foot-container {
-  display: flex;
+.header img {
   width: 100%;
-  height: 100%;
-  background: purple;
+  height: auto;
 }
 
-.foot-container > * > .foot-list {
-  background: green;
-  height: 100%;
+.home .card {
+  margin: 10px;
+}
+
+.home img {
   width: 100%;
 }
 
-.foot-container > * > .foot-list ul {
-  list-style: none;
-  font-size: 1rem;
-  text-align: center;
-  padding-top: 20px;
+#profile {
+  margin-top: 100px;
 }
 
-.foot-container > * > .foot-list ul li {
+#profile .media img[alt=show] {
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
-.foot-container > * > .foot-list ul li.first {
-  cursor: default;
-  font-weight: bold;
-  text-decoration: underline;
+#profile .center-cropped {
+  -o-object-fit: 0.5;
+     object-fit: 0.5;
+  /* Do not scale the image */
+  -o-object-position: center;
+     object-position: center;
+  /* Center the image within the element */
+  height: 100px;
+  width: 100px;
 }
 
+<<<<<<< HEAD
 .container.create-cont {
   display: flex;
   width: 100%;
@@ -15588,5 +15594,36 @@ button {
   text-align: center;
   width: 100%;
   border-radius: 5px;
+=======
+#profile .media-body .txt {
+  max-height: calc(100px - 25px - 0.5rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#profile .media-body h3 {
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#profile .btn-wrapper {
+  height: 100px;
+}
+
+#profile a {
+  color: #212529;
+  text-decoration: none;
+}
+
+#profile a:hover {
+  color: #212529;
+  text-decoration: none;
+}
+
+.show h1 {
+  text-align: left;
+  color: green;
+>>>>>>> 3e9661b5a6c1757656ca721d9d4a20a8021b7d66
 }
 

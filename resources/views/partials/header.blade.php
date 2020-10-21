@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top header">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="https://imagizer.imageshack.com/img923/1509/Vi0PsM.png" alt="">
+            <img src="{{ asset('./img/stemma.png') }}" alt="not found">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -10,12 +10,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-              <div class="form-group">
-                <input class="form-control" id="luogo" type="text" placeholder="Luogo">
-              </div>
-              <div class="form-group">
-                  <button class="form-control">Cerca</button>
-              </div>
+            <div class="form-group">
+              <div class="input-group md-form form-sm form-2 pl-0">
+                <input class="form-control my-0 py-1 red-border" type="text" placeholder="Inizia la ricerca" aria-label="Search">
+                <div class="input-group-append">
+                  <span class="input-group-text red lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
+                      aria-hidden="true"></i></span>
+                </div>
+            </div>
 
               {{-- <div class="input-group md-form form-sm form-2 pl-0">
                 <input class="form-control my-0 py-1" type="text" name="" placeholder="Search" aria-laber="Search">
