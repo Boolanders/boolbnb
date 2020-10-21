@@ -21,40 +21,4 @@
 @import 'views/show';
 
 
-.justify-content-center{
-  
-    margin-top: 140px;
-}
 
-h1 {
-
-    text-align: center;
-    margin: 50px;
-}
-
-.card {
-
-    background: $orange;
-    margin: 20px;
-
-    .card-header {
-
-        text-align: center;
-        font-weight: bold;
-        font-size: 1.5rem;
-    }
-
-    .card-body {
-
-        img {
-
-            width: 100%;
-        }
-    }
-
-}
-
-.form {
-
-    margin-top: 80px;
-}

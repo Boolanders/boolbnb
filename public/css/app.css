@@ -4608,6 +4608,10 @@ readers do not read off random characters that represent icons */
   font-weight: 900; }
 @charset "UTF-8";
 
+.margintop {
+  margin-top: 120px;
+}
+
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -15546,31 +15550,8 @@ img {
   text-decoration: underline;
 }
 
-.justify-content-center {
-  margin-top: 140px;
-}
-
-h1 {
-  text-align: center;
-  margin: 50px;
-}
-
-.card {
-  background: #f6993f;
-  margin: 20px;
-}
-
-.card .card-header {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.card .card-body img {
-  width: 100%;
-}
-
-.form {
-  margin-top: 80px;
+.show h1 {
+  text-align: left;
+  color: green;
 }
 
