@@ -30,3 +30,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiYW1vc2dpdG8iLCJhIjoiY2tnamdtOG94MHZnZzJ4cW5vY2t5aXhzMiJ9.SFoX4ECpx8qVIgtK9D8hfg';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+    center: [-74.5, 40], // starting position [lng, lat]
+    zoom: 9 // starting zoom
+});
