@@ -15532,9 +15532,12 @@ a.text-dark:focus {
   width: 100%;
 }
 
-<<<<<<< HEAD
 #profile {
   margin-top: 100px;
+}
+
+#profile .media img[alt=show] {
+  cursor: pointer;
 }
 
 #profile .center-cropped {
@@ -15564,8 +15567,16 @@ a.text-dark:focus {
   height: 100px;
 }
 
-=======
->>>>>>> 572f3280106360a7721fb54f446d9644b9461cfc
+#profile a {
+  color: #212529;
+  text-decoration: none;
+}
+
+#profile a:hover {
+  color: #212529;
+  text-decoration: none;
+}
+
 .show h1 {
   text-align: left;
   color: green;
