@@ -1,0 +1,23 @@
+#profile{
+
+    margin-top: 100px;
+
+    .center-cropped {
+        object-fit: .5; /* Do not scale the image */
+        object-position: center; /* Center the image within the element */
+        height: 100px;
+        width: 100px;
+    }
+
+    .media-body .txt{
+            max-height: calc(100px - 25px - 0.5rem);
+            overflow: hidden;
+            text-overflow: ellipsis;
+    }
+
+    .btn-wrapper{
+        height: 100px;
+    }
+    
+
+}
