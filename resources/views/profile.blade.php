@@ -21,8 +21,8 @@
             @endif
 
             <div class="media-body">
-              <h3 class="mt-0"> {{ $apt -> title }} </h3>
-              <div class="txt">
+              <h3 class="mt-0 mr-2"> {{ $apt -> title }} </h3>
+              <div class="txt mr-2">
                   {{ $apt -> description }}
               </div>
             </div>
