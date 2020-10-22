@@ -29,12 +29,12 @@
                     <input class="form-control" type="search" id="address-input" name="address">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group d-none">
                     <label for="">Longitude</label>
                     <input id="longitude" class="form-control" type="text" name="longitude" value="longitude">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group d-none"></div>
                     <label for="">Latitude</label>
                     <input id="latitude" class="form-control" type="text" name="latitude" value="latitude">
                 </div>
