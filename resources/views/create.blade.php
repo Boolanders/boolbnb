@@ -1,7 +1,6 @@
 @extends('layouts.main-layout')
-@section('import')
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>  
-<script src="{{ asset('/js/partials/autocomplete.js')}} "></script>
+@section('import') 
+<script src="{{ asset('/js/partials/create.js')}} "></script>
 @endsection
 @section('content')
 
@@ -62,7 +61,7 @@
     
                 <div>
                     <label for="img">Select Image:</label>
-                    <input type="file" id="img" name="img" accept="image/*">
+                    <input type="file" id="img" name="img" accept="image/*" multiple>
                 </div>
     
                 @foreach ($srvs as $srv)

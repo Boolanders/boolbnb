@@ -24,4 +24,5 @@ function map() {
                 .setLngLat([long, lat])
                 .addTo(map);
 
+
 }

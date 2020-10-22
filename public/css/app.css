@@ -4612,6 +4612,12 @@ readers do not read off random characters that represent icons */
   margin-top: 120px;
 }
 
+@media screen and (max-width: 768) {
+  .margintop {
+    margin-top: 290px;
+  }
+}
+
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -15606,5 +15612,44 @@ a.text-dark:focus {
 .show h1 {
   text-align: left;
   color: green;
+  padding: 20px 0;
+}
+
+.show h3 {
+  padding: 10px 0;
+}
+
+.show h5 {
+  font-weight: bold;
+}
+
+.show ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.show .apt-img {
+  margin-bottom: 50px;
+}
+
+.show .apt-img img {
+  width: 100%;
+}
+
+.show #map {
+  width: 100%;
+  height: 300px;
+}
+
+.show .show-map {
+  width: 100%;
+  height: 100%;
+  margin: 20px 0;
+}
+
+.show .message {
+  width: 100%;
+  height: 100%;
+  margin: 20px 0;
 }
 

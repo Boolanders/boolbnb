@@ -10981,17 +10981,14 @@ window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
 $(document).ready(autocomplete);
 
 function autocomplete() {
-  var placesAutocomplete = places({
+  var placesSearchAutocomplete = places({
     appId: 'pl9FR7QVJTYP',
     apiKey: '8240a6d46c9f2914027ee977cb8aeeb3',
-    container: document.querySelector('#address-input')
-  });
-  placesAutocomplete.on('change', function (e) {
-    var latitude = e.suggestion.latlng.lat;
-    var longitude = e.suggestion.latlng.lng;
-    $('#longitude').val(longitude);
-    $('#latitude').val(latitude);
-  });
+    container: document.querySelector('#search-address-input')
+  }); // placesSearchAutocomplete.on('change', function (e) {
+  //     var latitude = e.suggestion.latlng.lat
+  //     var longitude = e.suggestion.latlng.lng
+  // })
 }
 
 /***/ }),

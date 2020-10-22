@@ -14,45 +14,57 @@
         <h1>{{ $apt -> title }}</h1>
         <h3>{{ $apt -> address }}</h3>
         <div class="col-md-12">
-            @if(count($apt -> images))
-            <img src="{{ $apt -> images -> first -> img -> img }}" alt="">
-            @else
-            <img src="{{ asset('img\image-not-found.png') }}" alt="">
-            @endif
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-4">
-                <p> {{ $apt -> description }}</p>
-            </div>
-
-            <div class="col-md-4">
-                <ul>
-                    @foreach ($apt -> services as $srv)
-
-                    <li>{{ $srv -> name }}</li>
-
-                    @endforeach
-                </ul>
-            </div>
-
-            <div class="col-md-4 ">
-                <ul>
-                    <li> Numeri di letti: {{ $apt -> bed_qt }} </li>
-                    <li> Numeri di Bagni: {{ $apt -> bathroom_qt }} </li>
-                    <li> Dimensione Stanza: {{ $apt -> mq }} </li>
-                    <li> Numeri di posti: {{ $apt -> room_qt }} </li>
-                </ul>
+            <div class="apt-img">
+                @if(count($apt -> images))
+                <img src="{{ $apt -> images -> first -> img -> img }}" alt="">
+                @else
+                <img src="{{ asset('img\image-not-found.png') }}" alt="">
+                @endif
             </div>
         </div>
 
         <div class="row">
-
+            
             <div class="col-md-6">
+                <div class="description">
+                    <h5>Description</h5>
+                    <p> {{ $apt -> description }}</p>
+                </div>
+            </div>
 
-                <div id='map' style='width: 500px; height: 300px;'></div>
+            <div class="col-md-3">
+                <div class="services">
+                    <h5>Services</h5>
+                    <ul>
+                        @foreach ($apt -> services as $srv)
+    
+                        <li>{{ $srv -> name }}</li>
+    
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
 
+            <div class="col-md-3">
+                <div class="features">
+                    <h5>Features</h5>
+                    <ul>
+                        <li> Numeri di letti: {{ $apt -> bed_qt }} </li>
+                        <li> Numeri di Bagni: {{ $apt -> bathroom_qt }} </li>
+                        <li> Dimensione Stanza: {{ $apt -> mq }} </li>
+                        <li> Numeri di posti: {{ $apt -> room_qt }} </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-12 col-md-6 ">
+                <div class="show-map">
+                    <div id='map'></div>
+                </div>
             </div>
 
             <div style="display: none;">
@@ -60,17 +72,18 @@
                 <span id="log-secrt" data-number="{{ $apt -> longitude }}"></span>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-xs-12 col-md-6">
                 <div class="message">
+                    <h5>Contact Host</h5>
                     <form action="">
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Email address</label>
                             <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="name@example.com">
+                                placeholder="Enter your email address">
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                            <label for="exampleFormControlTextarea1">Message</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-warning" href="">Send</button>

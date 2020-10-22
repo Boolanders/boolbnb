@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10970,48 +10970,40 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./resources/js/partials/map.js":
-/*!**************************************!*\
-  !*** ./resources/js/partials/map.js ***!
-  \**************************************/
+/***/ "./resources/js/partials/create.js":
+/*!*****************************************!*\
+  !*** ./resources/js/partials/create.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(document).ready(iniz);
+$(document).ready(create);
 
-function iniz() {
-  map();
-}
-
-function map() {
-  var lat = $('#lat-secrt').data('number');
-
-  var _long = $('#log-secrt').data('number');
-
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYW1vc2dpdG8iLCJhIjoiY2tnamdtOG94MHZnZzJ4cW5vY2t5aXhzMiJ9.SFoX4ECpx8qVIgtK9D8hfg';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    // stylesheet location
-    center: [_long, lat],
-    // starting position [lng, lat]
-    zoom: 9 // starting zoom
-
+function create() {
+  var placesCreateAutocomplete = places({
+    appId: 'pl9FR7QVJTYP',
+    apiKey: '8240a6d46c9f2914027ee977cb8aeeb3',
+    container: document.querySelector('#address-input')
   });
-  var marker = new mapboxgl.Marker().setLngLat([_long, lat]).addTo(map);
+  placesCreateAutocomplete.on('change', function (e) {
+    var latitude = e.suggestion.latlng.lat;
+    var longitude = e.suggestion.latlng.lng;
+    $('#longitude').val(longitude);
+    $('#latitude').val(latitude);
+  });
 }
 
 /***/ }),
 
-/***/ 4:
-/*!********************************************!*\
-  !*** multi ./resources/js/partials/map.js ***!
-  \********************************************/
+/***/ 3:
+/*!***********************************************!*\
+  !*** multi ./resources/js/partials/create.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\micha\Desktop\Corso\boolbnb\resources\js\partials\map.js */"./resources/js/partials/map.js");
+module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\create.js */"./resources/js/partials/create.js");
 
 
 /***/ })
