@@ -91,10 +91,10 @@
                 </div>
             </div>
         </div>
-
-
+            <a class="btn btn-secondary float-right" href="{{ URL::previous() }}">Go Back</a>
     </div>
 </div>
+
 
 @endsection
 
