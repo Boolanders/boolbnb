@@ -75,16 +75,19 @@
             <div class="col-xs-12 col-md-6">
                 <div class="message">
                     <h5>Contact Host</h5>
-                    <form action="">
+                    <form action="{{ route('apt-storemsg', $apt -> id) }}" method="post">
+                    @csrf
+                    @method ('post')
+
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Email address</label>
                             <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="Enter your email address">
+                                placeholder="Enter your email address" name="email">
                         </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Message</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
                         </div>
                         <button type="submit" class="btn btn-warning" href="">Send</button>
                     </form>

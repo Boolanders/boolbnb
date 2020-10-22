@@ -7,6 +7,7 @@ use App\Sponsorship;
 use App\Apartment;
 use App\Image;
 use App\Service;
+use App\Message;
 
 
 class GuestController extends Controller
@@ -44,6 +45,18 @@ class GuestController extends Controller
       $apt = Apartment::findOrFail($id);
       return view ('show', compact('apt'));
    }
+
+ 
+  public function storemsg(request $request, $id){
+
+      $data = $request -> all();
+      $data['apartment_id'] = $id;
+
+      $mail = Message::create($data);
+  
+      return redirect() -> route('home');
+  
+  }
 
 
 }
