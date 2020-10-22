@@ -49728,7 +49728,46 @@ module.exports = function(module) {
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module 'partials/davide'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module 'partials/michael'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module 'partials/michele'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module 'partials/vincenzo'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+$(document).ready(init);
+
+function init() {
+  console.log('ciao');
+  var placesAutocomplete = places({
+    appId: 'pl9FR7QVJTYP',
+    apiKey: '8240a6d46c9f2914027ee977cb8aeeb3',
+    container: document.querySelector('#address-input')
+  });
+  placesAutocomplete.on('change', function (e) {
+    var longitude = e.suggestion.latlng.lat; // document.getElementById('longitude').longitude
+
+    var latitude = e.suggestion.latlng.lng; // document.getElementById('latitude').latitude
+  });
+}
+
+function map() {
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYW1vc2dpdG8iLCJhIjoiY2tnamdtOG94MHZnZzJ4cW5vY2t5aXhzMiJ9.SFoX4ECpx8qVIgtK9D8hfg';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    // stylesheet location
+    center: [-74.5, 40],
+    // starting position [lng, lat]
+    zoom: 9 // starting zoom
+
+  });
+}
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
@@ -49750,16 +49789,6 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-});
-mapboxgl.accessToken = 'pk.eyJ1IjoiYW1vc2dpdG8iLCJhIjoiY2tnamdtOG94MHZnZzJ4cW5vY2t5aXhzMiJ9.SFoX4ECpx8qVIgtK9D8hfg';
-var map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/mapbox/streets-v11',
-  // stylesheet location
-  center: [-74.5, 40],
-  // starting position [lng, lat]
-  zoom: 9 // starting zoom
-
 });
 
 /***/ }),
@@ -49896,8 +49925,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Vincenzo\Desktop\BooleanCareers\Github-project\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Vincenzo\Desktop\BooleanCareers\Github-project\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
