@@ -1,6 +1,7 @@
 @extends('layouts.main-layout')
 @section('import')
-<script src="{{ asset('/js/partials/autocomplete.js')}} "></script> 
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>  
+<script src="{{ asset('/js/partials/autocomplete.js')}} "></script>
 @endsection
 @section('content')
 
