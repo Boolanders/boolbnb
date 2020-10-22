@@ -20,9 +20,9 @@
                     <img src=" {{ $apt -> images -> first -> img -> img }} " class="mr-3 center-cropped align-self-center" alt="show">
                 </a>
                 @else
-
-                <img src=" {{ asset('img/image-not-found.png') }} " class="mr-3 center-cropped align-self-center" alt="show">
-
+                <a href="{{ route('apt-show', $apt -> id) }}">
+                    <img src=" {{ asset('img/image-not-found.png') }} " class="mr-3 center-cropped align-self-center" alt="show">
+                </a>
                 @endif
 
             <div class="media-body">
