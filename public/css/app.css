@@ -15590,7 +15590,7 @@ a.text-dark:focus {
 }
 
 .home .hovereffect:hover .overlay {
-  background-color: rgba(170, 170, 170, 0.4);
+  background-color: rgba(238, 132, 132, 0.4);
 }
 
 .home .hovereffect h2,
@@ -15615,7 +15615,7 @@ a.text-dark:focus {
   position: relative;
   font-size: 17px;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.6);
+  background: #FD044F;
 }
 
 .home .hovereffect a.info {
