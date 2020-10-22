@@ -15547,8 +15547,17 @@ a.text-dark:focus {
   text-decoration: none;
 }
 
+.home {
+  margin-bottom: 50px;
+}
+
 .home .card {
   margin: 10px;
+}
+
+.home h1 {
+  margin-top: 15px;
+  margin-bottom: 50px;
 }
 
 .home img {
