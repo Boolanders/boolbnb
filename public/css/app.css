@@ -15745,3 +15745,10 @@ a.text-dark:focus {
   margin: 20px 0;
 }
 
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
