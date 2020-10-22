@@ -19,8 +19,8 @@ $(document).ready(autocomplete)
     
     placesAutocomplete.on('change', function (e) {
         
-            var longitude = e.suggestion.latlng.lat
-            var latitude = e.suggestion.latlng.lng
+            var latitude = e.suggestion.latlng.lat
+            var longitude = e.suggestion.latlng.lng
 
             $('#longitude').val(longitude);
             $('#latitude').val(latitude);

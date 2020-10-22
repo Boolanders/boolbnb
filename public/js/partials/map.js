@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10970,55 +10970,48 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./resources/js/partials/profile.js":
-/*!******************************************!*\
-  !*** ./resources/js/partials/profile.js ***!
-  \******************************************/
+/***/ "./resources/js/partials/map.js":
+/*!**************************************!*\
+  !*** ./resources/js/partials/map.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(document).ready(profile);
+$(document).ready(iniz);
 
-function profile() {
-  addDeleteBtnListener();
-  addSwitchVisibilityListener();
+function iniz() {
+  map();
 }
 
-function addDeleteBtnListener() {
-  $('#deleteModal').on('show.bs.modal', function (e) {
-    var href = '/delete/' + $(e.relatedTarget).attr('data-id');
-    var title = $(e.relatedTarget).attr('data-title');
-    var target = $('#deleteModal');
-    target.find('#apt-title').text(title);
-    target.find('#confirm-delete-btn').attr('href', href);
+function map() {
+  var lat = $('#lat-secrt').data('number');
+
+  var _long = $('#log-secrt').data('number');
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYW1vc2dpdG8iLCJhIjoiY2tnamdtOG94MHZnZzJ4cW5vY2t5aXhzMiJ9.SFoX4ECpx8qVIgtK9D8hfg';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    // stylesheet location
+    center: [_long, lat],
+    // starting position [lng, lat]
+    zoom: 9 // starting zoom
+
   });
-}
-
-function addSwitchVisibilityListener() {
-  var target = $('.visibilitySwitch');
-  target.change(function () {
-    var visible = 0;
-
-    if ($(this).is(':checked')) {
-      visible = 1;
-    }
-
-    $(this).next('.hidden-data-keeper').val(visible);
-    $(this).parent('form').submit();
-  });
+  var marker = new mapboxgl.Marker().setLngLat([_long, lat]).addTo(map);
 }
 
 /***/ }),
 
-/***/ 1:
-/*!************************************************!*\
-  !*** multi ./resources/js/partials/profile.js ***!
-  \************************************************/
+/***/ 3:
+/*!********************************************!*\
+  !*** multi ./resources/js/partials/map.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\profile.js */"./resources/js/partials/profile.js");
+module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\map.js */"./resources/js/partials/map.js");
 
 
 /***/ })

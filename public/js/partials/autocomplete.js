@@ -10981,16 +10981,15 @@ window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
 $(document).ready(autocomplete);
 
 function autocomplete() {
-  console.log('ciao');
   var placesAutocomplete = places({
     appId: 'pl9FR7QVJTYP',
     apiKey: '8240a6d46c9f2914027ee977cb8aeeb3',
     container: document.querySelector('#address-input')
   });
   placesAutocomplete.on('change', function (e) {
-    var longitude = e.suggestion.latlng.lat;
+    var latitude = e.suggestion.latlng.lat;
+    var longitude = e.suggestion.latlng.lng;
     $('#longitude').val(longitude);
-    var latitude = e.suggestion.latlng.lng;
     $('#latitude').val(latitude);
   });
 }
@@ -11004,7 +11003,7 @@ function autocomplete() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/autocomplete.js */"./resources/js/partials/autocomplete.js");
+module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\autocomplete.js */"./resources/js/partials/autocomplete.js");
 
 
 /***/ })
