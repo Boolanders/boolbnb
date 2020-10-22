@@ -1,8 +1,8 @@
 window.$ = window.jQuery = require('jquery');
 
-$(document).ready(init);
+$(document).ready(profile);
 
-function init(){
+function profile(){
 
     addDeleteBtnListener();
 

@@ -1,4 +1,9 @@
 @extends('layouts.main-layout')
+
+@section('import')
+<script src="{{ asset('/js/partials/profile.js')}} "></script> 
+@endsection
+
 @section('content')
 <div id="profile">
     <div class="container">
