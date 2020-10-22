@@ -10,7 +10,7 @@
         </div>
         @foreach ($apts as $apt)
         <div class="media border rounded m-2 p-2 ">
-                @if ($apt -> images -> first -> img -> img)
+                @if (count($apt -> images))
                 <a href="{{ route('apt-show', $apt -> id) }}">
                     <img src=" {{ $apt -> images -> first -> img -> img }} " class="mr-3 center-cropped align-self-center" alt="show">
                 </a>
@@ -32,35 +32,49 @@
             <div class="btn-wrapper d-flex flex-column justify-content-around align-items-center">
 
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="VisibilitySwitch1">
-                    <label class="custom-control-label" for="visibilitySwitch1">Set Visibility</label>
+                    <form action=" {{ route('apt-update', $apt -> id)}} " method="POST">
+
+                        @csrf
+                        @method('POST')
+                        <input 
+    
+                        @if ($apt -> visible)
+                            checked
+                        @endif
+                        type="checkbox" class="custom-control-input visibilitySwitch"
+                        id="visibilitySwitch{{ $apt -> id }}" >
+                        <input class="hidden-data-keeper" type="number" name="visible" style="display: none;">
+                        <label class="custom-control-label" for="visibilitySwitch{{ $apt -> id }}">Set Visibility</label>
+
+                    </form>
                 </div>
                 <div>
                     <a href=" {{ route('apt-edit', $apt -> id) }}" class="btn btn-primary btn-sm m-1 btn-link">Edit</a>
-                    <button type="button" class="btn btn-danger btn-sm m-1">DELETE</button>
+                    <button type="button" data-id="{{ $apt -> id }}" data-title=" {{ $apt -> title }} " data-toggle="modal" data-target="#deleteModal" class="delete-btn btn btn-danger btn-sm m-1">DELETE</button>
                 </div>
             </div>
         </div>
         @endforeach
-            
-        {{-- <div class="list-group">
-
-            @foreach($apts as $apt)
-            
-                <div class="list-group-item">
-
-                <a href="{{ route('apt-show', $apt -> id) }}" >{{ $apt -> title}}</a>
-                
-                <a class="btn btn-sm btn-primary float-right" href="{{ route('apt-edit', $apt -> id) }}">EDIT</a>
-
-                <a class="btn btn-sm btn-danger float-right mr-2" href="{{route('apt-delete', $apt -> id)}}">DELETE</a>
-
-                </div>
-        
-            @endforeach
-
-        </div> --}}
     </div>
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header border-bottom-0">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to permanently delete apartment <strong><span id="apt-title"></span></strong>?</p>
+        </div>
+        <div class="modal-footer border-top-0">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+          <a type="button" id="confirm-delete-btn" class="btn btn-danger">DELETE</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection
 
