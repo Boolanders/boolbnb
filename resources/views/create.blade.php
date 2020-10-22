@@ -1,7 +1,11 @@
 @extends('layouts.main-layout')
+@section('import')
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>  
+<script src="{{ asset('/js/partials/autocomplete.js')}} "></script>
+@endsection
 @section('content')
 
-<div class="container">
+<div class="container margintop">
 
     <div id="create-cont">
         <div class="form">
@@ -18,12 +22,12 @@
     
                 <div class="form-group">
                     <label for="">Description</label>
-                    <input class="form-control" type="text" name="description">
+                    <textarea class="form-control" name="description"cols="30" rows="10"></textarea>
                 </div>
     
                 <div class="form-group">
                     <label for="">Address</label>
-                    <input class="form-control" type="search" id="address-input" placeholder="Where are we going?">
+                    <input class="form-control" type="search" id="address-input" name="address">
                 </div>
 
                 <div class="form-group">

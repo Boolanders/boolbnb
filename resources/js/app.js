@@ -3,39 +3,9 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-window.$ = require('jquery')
 
 require('./bootstrap')
-require('partials/davide')
-require('partials/michael')
-require('partials/michele')
-require('partials/vincenzo')
 
-$(document).ready(init) 
-
-
-
- function init() { 
-
-    console.log('ciao')
-    
-    var placesAutocomplete = places({
-        appId: 'pl9FR7QVJTYP',
-        apiKey: '8240a6d46c9f2914027ee977cb8aeeb3',
-        container: document.querySelector('#address-input')
-    })
-
-    
-    
-        placesAutocomplete.on('change', function (e) {
-        
-            var longitude = e.suggestion.latlng.lat
-            // document.getElementById('longitude').longitude
-            var latitude = e.suggestion.latlng.lng
-            // document.getElementById('latitude').latitude
-    })
-
- }
     
  function map() { 
 

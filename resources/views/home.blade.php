@@ -1,5 +1,7 @@
 @extends('layouts.main-layout')
-
+@section('import')
+    
+@endsection
 @section('content')
 <div class="container home margintop">
     <div class="row justify-content-center">
