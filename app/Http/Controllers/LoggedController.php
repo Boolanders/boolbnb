@@ -26,7 +26,23 @@ class LoggedController extends Controller {
 
     public function store(request $request){ 
 
-        $data = $request -> all();
+        $data = $request -> validate([
+            'description'  => 'required|min:3|max:1000',                 
+            'title'  => 'required|min:3|max:60',                 
+            'address'  => 'required|min:3',                 
+            'room_qt'  => 'required|numeric|min:1|max:20',                 
+            'bathroom_qt'  => 'required|numeric|min:1|max:8',                 
+            'bed_qt'  => 'required|numeric|min:1|max:50',                   
+            'mq'  => 'required|numeric|min:15|max:5000',
+            'longitude' => 'required|numeric',
+            'latitude' => 'required|numeric',
+            'img' => 'max:5',
+            'img.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'                
+        ],[
+            'img.max' => "Can't upload more than :max images",
+            'img.*.max' => "Images can't be more than 2MB",
+            'img.*.mimes' => 'Only images files are allowed'
+        ]);  
 
         $id = Auth::user() -> id;
 
@@ -39,19 +55,27 @@ class LoggedController extends Controller {
             $newApt -> services() -> attach($data['services']);
 
         }
-        
-        
+
+       
 
         if($request -> hasFile('img')){
 
-            $name = $request -> img -> getClientOriginalName();
-        
-            $url = $request -> img -> storeAs('images' . $newApt -> id, $name, 'public');
+            $imgs = $data['img'];
 
-            $file = Image::create([
-                 'img' => '/storage/' . $url,
-                 'apartment_id' => $newApt -> id
-             ]);
+
+            foreach ($imgs as $img) {
+
+                $name = $img -> getClientOriginalName();
+        
+                $url = $img -> storeAs('images' . $newApt -> id, $name, 'public');
+ 
+                $file = Image::create([
+                     'img' => '/storage/' . $url,
+                     'apartment_id' => $newApt -> id
+                 ]);
+
+            }
+            
         }
         
         
