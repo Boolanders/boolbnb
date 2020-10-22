@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sponsorship;
+use App\Apartment;
 use App\Image;
+use App\Service;
+
 
 class GuestController extends Controller
 {
@@ -34,6 +37,12 @@ class GuestController extends Controller
 
       // apts conterrà una lista di appartamenti con promozione non ancora scaduta e l'url di un immagine nell attributo img
       return view('home', compact('apts'));
+   }
+
+   public function show($id) {
+
+      $apt = Apartment::findOrFail($id);
+      return view ('show', compact('apt'));
    }
 
 

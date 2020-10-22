@@ -79,7 +79,6 @@
             </div>
         </div>
 
-        <a class="btn btn-secondary float-right" href="{{ route('profile', Auth::user() -> id) }}">Go Back</a>
 
     </div>
 </div>

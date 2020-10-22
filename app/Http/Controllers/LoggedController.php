@@ -16,12 +16,6 @@ class LoggedController extends Controller {
     
     }
 
-    public function show($id) {
-
-        $apt = Apartment::findOrFail($id);
-        return view ('show', compact('apt'));
-    }
-
     public function create() {
 
         $srvs = Service::all();

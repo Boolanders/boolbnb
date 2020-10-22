@@ -9,7 +9,7 @@ Auth::routes();
 
 Route::get('/', 'GuestController@index') -> name('home');
 
-Route::get('/show/{id}', 'LoggedController@show') -> name('apt-show');
+Route::get('/show/{id}', 'GuestController@show') -> name('apt-show');
 
 Route::get('/create', 'LoggedController@create')->name('apt-create');
 
