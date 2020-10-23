@@ -25,4 +25,6 @@ Route::get('/profile/{id}', 'LoggedController@profile') -> name('profile');
 
 Route::post('/send/message/{id}', 'GuestController@storemsg' ) -> name('apt-storemsg');
 
-Route::get('/api/search/all', 'ApiController@getAllData') -> name('get-all');
+Route::get('/api/search/all', 'GuestController@getAll') -> name('get-all');
+
+Route::get('/api/search', 'ApiController@search');

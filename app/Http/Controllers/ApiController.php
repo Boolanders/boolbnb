@@ -7,10 +7,10 @@ use App\Apartment;
 
 class ApiController extends Controller
 {
-    public function getAllData() {
+    public function search(request $request){
 
-        $data = Apartment::all();
+        $request -> all();
 
-        return response()->json($data);
+        return response() -> json($request);
     }
 }

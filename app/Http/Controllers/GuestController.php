@@ -58,5 +58,12 @@ class GuestController extends Controller
   
   }
 
+  public function getAll() {
+
+   $all = Apartment::all();
+
+   return view('search', compact('all'));
+  }
+
 
 }
