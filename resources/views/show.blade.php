@@ -80,9 +80,13 @@
                     @method ('post')
 
                         <div class="form-group">
-                            <label for="exampleFormControlInput1">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="Enter your email address" name="email">
+                            @auth 
+                                <label for="exampleFormControlInput1">Email address</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email address" name="email" value="{{ Auth::user()->email }}">
+                            @else
+                                <label for="exampleFormControlInput1">Email address</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email address" name="email">
+                            @endauth
                         </div>
 
                         <div class="form-group">
