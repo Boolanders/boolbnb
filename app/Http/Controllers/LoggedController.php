@@ -29,7 +29,7 @@ class LoggedController extends Controller {
         $data = $request -> validate([
             'description'  => 'required|min:3|max:1000',                 
             'title'  => 'required|min:3|max:60',                 
-            'address'  => 'required|min:3',                 
+            'address'  => 'required|min:3|max:230',                 
             'room_qt'  => 'required|numeric|min:1|max:20',                 
             'bathroom_qt'  => 'required|numeric|min:1|max:8',                 
             'bed_qt'  => 'required|numeric|min:1|max:50',                   
