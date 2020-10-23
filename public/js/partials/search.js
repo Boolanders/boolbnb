@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10970,40 +10970,65 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./resources/js/partials/create.js":
+/***/ "./resources/js/partials/search.js":
 /*!*****************************************!*\
-  !*** ./resources/js/partials/create.js ***!
+  !*** ./resources/js/partials/search.js ***!
   \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(document).ready(create);
+$(document).ready(search);
 
-function create() {
-  var placesCreateAutocomplete = places({
+function search() {
+  autocomplete();
+  sendRequestSearch();
+}
+
+function autocomplete() {
+  var placesSearchAutocomplete = places({
     appId: 'pl9FR7QVJTYP',
     apiKey: '8240a6d46c9f2914027ee977cb8aeeb3',
-    container: document.querySelector('#address-input')
+    container: document.querySelector('#search')
   });
-  placesCreateAutocomplete.on('change', function (e) {
+  placesSearchAutocomplete.on('change', function (e) {
     var latitude = e.suggestion.latlng.lat;
     var longitude = e.suggestion.latlng.lng;
-    $('#longitude').val(longitude);
-    $('#latitude').val(latitude);
+  });
+  return latitude, longitude;
+}
+
+function sendRequestSearch(latitude, longitude) {
+  var title = $('#search');
+  var titleval = title.val();
+  $.ajax({
+    url: '/api/search/all',
+    data: {
+      'latitude': latitude,
+      'longitude': longitude,
+      'address': titleval
+    },
+    method: 'GET',
+    success: function success(data) {
+      var result = data['result'];
+      console.log(data);
+    },
+    error: function error(err) {
+      console.log('err', err);
+    }
   });
 }
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!***********************************************!*\
-  !*** multi ./resources/js/partials/create.js ***!
+  !*** multi ./resources/js/partials/search.js ***!
   \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\create.js */"./resources/js/partials/create.js");
+module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\search.js */"./resources/js/partials/search.js");
 
 
 /***/ })

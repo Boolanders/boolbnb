@@ -6,12 +6,8 @@
                     <img src="{{ asset('./img/stemma.png') }}" alt="not found">
                 </a>
             </div>
-            <div class="col-md-8">
-                <div class="input-group md-form form-sm form-2 pl-0">
-                    <input id="search-address-input" class="form-control my-0 py-1 red-border" type="search" placeholder="Search" aria-label="Search">
-                </div>
-            </div>
-            <div class="col-md-2">
+            
+            <div class="col-md-2 offset-md-8">
             @guest
                     <div class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

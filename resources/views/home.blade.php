@@ -43,6 +43,12 @@
 @section('content')
 <div class="container home margintop">
     <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="input-group md-form form-sm form-2 pl-0">
+                <input id="search-address-input" class="form-control my-0 py-1 red-border" type="search" placeholder="Search" aria-label="Search">
+                <a type="submit" href="{{ route('get-all') }}">Search</a>
+            </div>
+        </div>
         <h1 class="col-md-12">Appartamenti in evidenza</h1>
         @foreach ($apts as $apt)
         <div class="col-xs-6 col-md-4">

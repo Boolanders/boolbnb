@@ -16,6 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/partials/autocomplete.js', 'public/js/partials')
     .js('resources/js/partials/create.js', 'public/js/partials')
     .js('resources/js/partials/map.js', 'public/js/partials')
+    .js('resources/js/partials/search.js', 'public/js/partials')
     .sass('resources/sass/app.scss', 'public/css')
     .copyDirectory('resources/img', 'public/img');
     

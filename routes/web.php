@@ -24,3 +24,5 @@ Route::get('/delete/{id}', 'LoggedController@delete') -> name('apt-delete');
 Route::get('/profile/{id}', 'LoggedController@profile') -> name('profile');
 
 Route::post('/send/message/{id}', 'GuestController@storemsg' ) -> name('apt-storemsg');
+
+Route::get('/api/search/all', 'ApiController@getAllData') -> name('get-all');
