@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Apartment;
 use App\Service;
 use App\Image;
+use App\Message;
 use Illuminate\Support\Facades\Auth;
 
 class LoggedController extends Controller {
@@ -111,5 +112,11 @@ class LoggedController extends Controller {
 
         $apts= Apartment::where('user_id', '=', $id ) -> get();
         return view('profile', compact('apts'));
+    }
+
+    public function messages($id) {
+
+        $apts= Apartment::where('user_id', '=', $id ) -> get();
+        return view('messages', compact('apts'));
     }
 }
