@@ -15522,6 +15522,7 @@ a.text-dark:focus {
 }
 
 .header {
+  background-color: #6cb2eb;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15545,6 +15546,10 @@ a.text-dark:focus {
 
 .header .nav-item a {
   text-decoration: none;
+}
+
+footer {
+  background-color: white;
 }
 
 .home {
@@ -15750,5 +15755,40 @@ a.text-dark:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
