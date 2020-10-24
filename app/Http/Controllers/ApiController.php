@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Sponsorship;
+use App\Image;
 
 class ApiController extends Controller
 {
@@ -16,6 +17,7 @@ class ApiController extends Controller
         $lon = $data['lon'];
         $dist = $data['dist'];
         $servs = $data['servs'];
+        
 
 
         $apts = Apartment::where('visible', '=', '1') -> get();
@@ -31,6 +33,7 @@ class ApiController extends Controller
             $srvs = [];
 
             foreach ($services as $service) {
+
                 $srvs[] = $service['id'];
             }
 
@@ -46,6 +49,17 @@ class ApiController extends Controller
 
                 $apt['sponsorship'] = [false, $endSponsorship];
             }
+
+            $img = Image::where('apartment_id', '=', $apt -> id) -> first();
+
+            if($img){
+
+                $apt['img'] = $img['img'];
+            } else{
+
+                $apt['img'] = "";
+            }
+
         }
 
         $response = $apts -> where('distance', '<', $dist);
