@@ -11,6 +11,11 @@
 
         margin-top: 15px;
         margin-bottom: 50px;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+
     }
 
     img {
@@ -33,7 +38,7 @@
         text-align: center;
         cursor: default;
       }
-      
+
       .hovereffect .overlay {
         width: 100%;
         height: 100%;
@@ -44,31 +49,31 @@
         -webkit-transition: all 0.4s ease-in-out;
         transition: all 0.4s ease-in-out;
       }
-      
+
       .hovereffect:hover .overlay {
         background-color: rgba(238, 132, 132, 0.4);
       }
-      
+
       .hovereffect h2, .hovereffect img {
         -webkit-transition: all 0.4s ease-in-out;
         transition: all 0.4s ease-in-out;
       }
-      
+
       .hovereffect img {
         display: block;
         position: relative;
         -webkit-transform: scale(1.1);
         -ms-transform: scale(1.1);
         transform: scale(1.1);
-        
+
       }
-      
+
       .hovereffect:hover img {
         -webkit-transform: scale(1);
         -ms-transform: scale(1);
         transform: scale(1);
       }
-      
+
       .hovereffect h2 {
         text-transform: uppercase;
         color: #fff;
@@ -78,7 +83,7 @@
         padding: 10px;
         background: #FD044F;
       }
-      
+
       .hovereffect a.info {
         display: inline-block;
         text-decoration: none;
@@ -103,7 +108,7 @@
         left: 8%;
         padding: 70px;
       }
-      
+
       .hovereffect:hover a.info {
         opacity: 1;
         filter: alpha(opacity=100);

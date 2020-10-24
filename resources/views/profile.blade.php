@@ -1,16 +1,17 @@
 @extends('layouts.main-layout')
 
 @section('import')
-<script src="{{ asset('/js/partials/profile.js')}} "></script> 
+<script src="{{ asset('/js/partials/profile.js')}} "></script>
 @endsection
 
 @section('content')
 <div id="profile">
     <div class="container">
-    
+
         <div class="row">
             <div class="col-12 text-center p-3">
-                <a class="btn btn-primary" href="{{route('apt-create') }}">Add Apartment</a>
+                <h1>Add your Apartment</h1>
+                <a class="button btn btn-primary" href="{{route('apt-create') }}">Click here</a>
             </div>
         </div>
         @foreach ($apts as $apt)
@@ -33,7 +34,7 @@
                       {{ $apt -> description }}
                 </div>
             </div>
-            
+
             <div class="btn-wrapper d-flex flex-column justify-content-around align-items-center">
 
                 <div class="custom-control custom-switch">
@@ -41,8 +42,8 @@
 
                         @csrf
                         @method('POST')
-                        <input 
-    
+                        <input
+
                         @if ($apt -> visible)
                             checked
                         @endif
@@ -82,4 +83,3 @@
   </div>
 </div>
 @endsection
-

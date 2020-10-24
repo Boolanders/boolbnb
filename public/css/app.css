@@ -15563,6 +15563,10 @@ footer {
 .home h1 {
   margin-top: 15px;
   margin-bottom: 50px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
 }
 
 .home img {
@@ -15687,6 +15691,12 @@ footer {
   height: 100px;
 }
 
+#profile h1 {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
 #profile a {
   color: #212529;
   text-decoration: none;
@@ -15704,6 +15714,56 @@ footer {
 #profile a.btn:hove {
   color: white;
   text-decoration: none;
+}
+
+#profile .button {
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 20px;
+  letter-spacing: 4px;
+  position: relative;
+  background-color: #16a085;
+  border: none;
+  color: #fff;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  box-shadow: 0 5px 15px #193047;
+  border-radius: 4px;
+  margin-top: 50px;
+}
+
+#profile .button:hover {
+  background: #fff;
+  box-shadow: 0px 2px 10px 5px #1abc9c;
+  color: #000;
+}
+
+#profile .button:after {
+  content: "";
+  background: #1abc9c;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+#profile .button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+#profile .button:focus {
+  outline: 0;
 }
 
 .show h1 {
