@@ -7,6 +7,13 @@ use App\Apartment;
 
 class ApiController extends Controller
 {
+
+    // public function search() {
+
+    //     $data = Apartment::all();
+
+    //     return response() -> json($data);
+    // }
     public function search(request $request){
 
         $request -> all();

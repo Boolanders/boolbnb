@@ -10994,23 +10994,30 @@ function autocomplete() {
   placesSearchAutocomplete.on('change', function (e) {
     var latitude = e.suggestion.latlng.lat;
     var longitude = e.suggestion.latlng.lng;
+    return latitude, longitude;
   });
-  return latitude, longitude;
 }
 
 function sendRequestSearch(latitude, longitude) {
   var title = $('#search');
   var titleval = title.val();
   $.ajax({
-    url: '/api/search/all',
+    url: '/api/search',
     data: {
       'latitude': latitude,
-      'longitude': longitude,
-      'address': titleval
+      'longitude': longitude
     },
     method: 'GET',
     success: function success(data) {
-      var result = data['result'];
+      var target = $('#apts');
+      target.html('');
+
+      for (var i = 0; i < data.length; i++) {
+        var post = data[i];
+        var html = "<li>" + post.title + " " + "</li>" + "<br>" + "<li>" + post.description + " " + "</li>" + "<br>" + "<li>" + post.address + " " + "</li>" + "<br>";
+        target.append(html);
+      }
+
       console.log(data);
     },
     error: function error(err) {

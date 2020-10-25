@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 
-<script id="film-template" type="text/x-handlebars-template">
+<script id="apt-template" type="text/x-handlebars-template">
 
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
@@ -33,19 +33,9 @@
 
     <div id="apt-card" class="row justify-content-center">
 
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="https://image.shutterstock.com/image-photo/old-creepy-wooden-shack-hidden-600w-1484450762.jpg" class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              </div>
-            </div>
-        </div>
+        <ul id="apts">
+
+        </ul>
 
     </div>
 </div>
