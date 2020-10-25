@@ -37,7 +37,9 @@ class LoggedController extends Controller {
             'longitude' => 'required|numeric',
             'latitude' => 'required|numeric',
             'img' => 'max:5',
-            'img.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'                
+            'img.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'services' => 'max:5',
+            'services.*' => 'numeric'              
         ],[
             'img.max' => "Can't upload more than :max images",
             'img.*.max' => "Images can't be more than 2MB",

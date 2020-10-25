@@ -23,7 +23,7 @@ class ApiController extends Controller
         $lat = $data['lat'];
         $lon = $data['lon'];
         $dist = $data['dist'];
-        $servs = $data['servs'];
+        //$servs = $data['servs'];
         
 
 
