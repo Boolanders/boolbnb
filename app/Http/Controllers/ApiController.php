@@ -23,8 +23,15 @@ class ApiController extends Controller
         $lat = $data['lat'];
         $lon = $data['lon'];
         $dist = $data['dist'];
+        $rooms = $data['rooms'];
+        $beds = $data['beds'];
         $servs = $data['servs'];
-        
+
+        if($servs != null){
+            $arrayServs = explode(',', $servs);
+        } else {
+            $arrayServs = [];
+        }
 
 
         $apts = Apartment::where('visible', '=', '1') -> get();
@@ -44,7 +51,9 @@ class ApiController extends Controller
                 $srvs[] = $service['id'];
             }
 
-            $apt['services'] = $srvs;
+            $containsAllValues = !array_diff($arrayServs, $srvs);
+
+            $apt['services'] = $containsAllValues;
 
             $endSponsorship = Sponsorship::where('apartment_id', '=', $apt['id']) -> max('end_date');
 
@@ -69,7 +78,10 @@ class ApiController extends Controller
 
         }
 
-        $response = $apts -> where('distance', '<', $dist);
+        $response = $apts -> where('distance', '<', $dist)
+                            -> where('bed_qt', '>=', $beds)
+                            -> where('room_qt', '>=', $rooms)
+                            -> where('services', '=', true);
 
         $response = $response -> sortBy('distance');
 

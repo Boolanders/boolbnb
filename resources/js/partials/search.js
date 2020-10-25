@@ -1,5 +1,7 @@
 window.$ = window.jQuery = require('jquery');
 
+const Handlebars = require("handlebars");
+
 $(document).ready(search)
 
 function search() {
@@ -7,6 +9,9 @@ function search() {
     autocomplete()
     //sendRequestSearch()
     distanceSlider();
+
+    addSearchButtonListener();
+    addShowListener();
 }
 
 
@@ -25,37 +30,59 @@ function autocomplete() {
         var latitude = e.suggestion.latlng.lat
         var longitude = e.suggestion.latlng.lng
 
-        return latitude, longitude
+        $('#latitude').data('number', latitude);
+        $('#longitude').data('number', longitude);
     })
 
 }
 
+function addSearchButtonListener(){
+
+    $('#search-button').click(sendRequestSearch);
+}
+
 function sendRequestSearch() {
 
-    var title = $('#search')
-    var titleval = title.val()
+   var lat = $('#latitude').data('number');
+   var lon = $('#longitude').data('number');
+
+   var dist = $('#distance').val();
+
+   var services = [];
+
+    $("input[name='service[]']:checked").each(function (){
+
+        services.push($(this).val());
+
+    });
+    
+    servs = services.join();
+
+   var rooms = $('#rooms').val();
+   var beds = $('#beds').val();
+
     
     $.ajax({
 
         url: '/api/search',
         data: {
-            'latitude' : latitude,
-            'longitude': longitude
+            'lat' : lat,
+            'lon': lon,
+            'dist': dist,
+            'servs': servs,
+            'rooms': rooms,
+            'beds': beds
         },
         method: 'GET',
         success: function(data) {
-
-            var target = $('#apts')
-            target.html('')
-
-            for (var i = 0; i < data.length; i++) {
-
-                var post = data[i]
-                var html = "<li>" + post.title + " " + "</li>" + "<br>" + "<li>" + post.description + " " + "</li>" + "<br>" + "<li>" + post.address + " " + "</li>" + "<br>"
-                target.append(html)
-           }
-
             console.log(data);
+            if(data.length == 0){
+                $('#apts').html("no results")
+            } else {
+
+                printCards(data);
+            }
+
         },
         error: function(err) {
 
@@ -72,7 +99,34 @@ function distanceSlider(){
     $valueSpan.html($value.val());
 
     $value.on('input change', function() {
-        console.log($value.val());
+        
         $valueSpan.html($value.val());
     });
+}
+
+function printCards(data){
+
+    var target = $('#apts')
+    target.html('')
+
+    var template = $('#apt-template').html()
+
+    var compiled = Handlebars.compile(template);
+
+    $.each(data, function(index, apt){
+        
+       var html = compiled(apt);
+
+       target.append(html);
+
+    });
+}
+
+function addShowListener(){
+
+   $(document).on('click', '.show-apt-link', function(){
+       var id = $(this).data('id');
+       window.location.href = "/show/" + id;
+   });
+
 }
