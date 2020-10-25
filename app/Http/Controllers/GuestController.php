@@ -60,9 +60,9 @@ class GuestController extends Controller
 
   public function getAll() {
 
-   $all = Apartment::all();
+   $srvs = Service::all();
 
-   return view('search', compact('all'));
+   return view('search', compact('srvs'));
   }
 
 

@@ -5,7 +5,8 @@ $(document).ready(search)
 function search() {
 
     autocomplete()
-    sendRequestSearch()
+    //sendRequestSearch()
+    distanceSlider();
 }
 
 
@@ -29,7 +30,7 @@ function autocomplete() {
 
 }
 
-function sendRequestSearch(latitude, longitude) {
+function sendRequestSearch() {
 
     var title = $('#search')
     var titleval = title.val()
@@ -62,4 +63,16 @@ function sendRequestSearch(latitude, longitude) {
         }
 
     })
+}
+
+function distanceSlider(){
+
+    var $valueSpan = $('.valueSpan');
+    var $value = $('#distance');
+    $valueSpan.html($value.val());
+
+    $value.on('input change', function() {
+        console.log($value.val());
+        $valueSpan.html($value.val());
+    });
 }
