@@ -12,10 +12,10 @@
   <div class="filters">
     <div class="col-md-8 offset-md-2">
         <div class="input-group md-form form-sm form-2 pl-0">
-            <input id="search" class="form-control my-0 py-1 red-border" type="search" placeholder="Search" aria-label="Search" required min="3">
+            <input id="search" class="form-control my-0 py-1 red-border" type="search" placeholder="Search" aria-label="Search" required min="3" value="{{ $data['address']}}">
             <div class="d-none">
-              <span id="latitude" data-number=""></span>
-              <span id="longitude" data-number=""></span>
+              <span id="latitude" data-number="{{ $data['lat']}}"></span>
+              <span id="longitude" data-number="{{ $data['lon']}}"></span>
             </div>
         </div>
     </div>

@@ -44,11 +44,24 @@
 @section('content')
 <div class="container home margintop">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="input-group md-form form-sm form-2 pl-0">
-                <input id="search-address-input" class="form-control my-0 py-1 red-border" type="search" placeholder="Search" aria-label="Search">
-                <a type="submit" href="{{ route('get-all') }}">Search</a>
-            </div>
+        <div class="col-12">
+            
+            <form class="row justify-content-center align-items-center" action="{{ route('to-search') }}" method="POST">
+                @csrf
+                @method('POST')
+                <div class="col-md-8">
+                    <div class="input-group md-form form-sm form-2 pl-0">
+                        <input id="search-address-input" name="address" class="form-control my-0 py-1 red-border" type="search" placeholder="Search" aria-label="Search" required min="3">
+                        <div class="d-none">
+                           <input id="latitude" name="lat" type="text">
+                           <input id="longitude" name="lon" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit"class="btn btn-primary btn-sm">Search</button>
+                </div>
+            </form>
         </div>
         <h1 class="col-md-12">Appartamenti in evidenza</h1>
         @foreach ($apts as $apt)

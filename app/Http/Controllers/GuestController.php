@@ -58,11 +58,13 @@ class GuestController extends Controller
   
   }
 
-  public function getAll() {
+  public function toSearch(request $request) {
 
    $srvs = Service::all();
 
-   return view('search', compact('srvs'));
+   $data = $request -> all();
+
+   return view('search', compact('srvs', 'data'));
   }
 
 

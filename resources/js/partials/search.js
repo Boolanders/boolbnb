@@ -6,12 +6,13 @@ $(document).ready(search)
 
 function search() {
 
-    autocomplete()
-    //sendRequestSearch()
+    autocomplete();
     distanceSlider();
-
+    
     addSearchButtonListener();
     addShowListener();
+    
+    sendRequestSearch();
 }
 
 
@@ -61,7 +62,13 @@ function sendRequestSearch() {
    var rooms = $('#rooms').val();
    var beds = $('#beds').val();
 
-    
+    console.log('lat' , lat,
+                'lon', lon,
+                'dist', dist,
+                'srvs', srvs,
+                'rooms', rooms,
+                'beds', beds);
+
     $.ajax({
 
         url: '/api/search',
@@ -75,11 +82,13 @@ function sendRequestSearch() {
         },
         method: 'GET',
         success: function(data) {
-            
+
+            console.log(data);
+
             if(data.length == 0){
 
-                $('#sponsored').html("no results");
-                $('#standard').html('');
+                $('#sponsored').html('');
+                $('#standard').html('<div class="col-12"><h3 class="py-5 text-primary text-center">No results</h3></div>');
             } else {
 
                 printCards(data);
