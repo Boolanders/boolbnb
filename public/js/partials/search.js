@@ -16094,11 +16094,11 @@ var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebar
 $(document).ready(search);
 
 function search() {
-  autocomplete(); //sendRequestSearch()
-
+  autocomplete();
   distanceSlider();
   addSearchButtonListener();
   addShowListener();
+  sendRequestSearch();
 }
 
 function autocomplete() {
@@ -16127,16 +16127,17 @@ function sendRequestSearch() {
   $("input[name='service[]']:checked").each(function () {
     services.push($(this).val());
   });
-  servs = services.join();
+  srvs = services.join();
   var rooms = $('#rooms').val();
   var beds = $('#beds').val();
+  console.log('lat', lat, 'lon', lon, 'dist', dist, 'srvs', srvs, 'rooms', rooms, 'beds', beds);
   $.ajax({
     url: '/api/search',
     data: {
       'lat': lat,
       'lon': lon,
       'dist': dist,
-      'servs': servs,
+      'srvs': srvs,
       'rooms': rooms,
       'beds': beds
     },
@@ -16145,7 +16146,8 @@ function sendRequestSearch() {
       console.log(data);
 
       if (data.length == 0) {
-        $('#apts').html("no results");
+        $('#sponsored').html('');
+        $('#standard').html('<div class="col-12"><h3 class="py-5 text-primary text-center">No results</h3></div>');
       } else {
         printCards(data);
       }
@@ -16166,11 +16168,19 @@ function distanceSlider() {
 }
 
 function printCards(data) {
-  var target = $('#apts');
-  target.html('');
+  var targetSponsored = $('#sponsored');
+  var targetStandard = $('#standard');
+  targetSponsored.html('');
+  targetStandard.html('');
   var template = $('#apt-template').html();
   var compiled = Handlebars.compile(template);
   $.each(data, function (index, apt) {
+    if (apt['sponsorship'][0] == true) {
+      var target = targetSponsored;
+    } else {
+      var target = targetStandard;
+    }
+
     var html = compiled(apt);
     target.append(html);
   });
@@ -16192,7 +16202,7 @@ function addShowListener() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/search.js */"./resources/js/partials/search.js");
+module.exports = __webpack_require__(/*! C:\Users\Vincenzo\Desktop\BooleanCareers\Github-project\boolbnb\resources\js\partials\search.js */"./resources/js/partials/search.js");
 
 
 /***/ })

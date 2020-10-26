@@ -4,6 +4,9 @@
 // Variables
 @import 'variables';
 
+//Colors
+$primary: #FD044F;
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
@@ -22,10 +25,17 @@
 @import 'views/search';
 
 .app {
-    
+
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+@media screen and (max-width:768) {
+
+    .margintop {
+
+        margin-top: 290px;
+    }
+}

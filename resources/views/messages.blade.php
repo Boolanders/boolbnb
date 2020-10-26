@@ -5,7 +5,7 @@
     <div class="container margintop">
         @foreach( $apts as $apt)
             @foreach ($apt -> messages as $msg)
-                <div class="row  media border rounded m-2 p-2">
+                <div class="row media border rounded m-2 p-2">
                     <div class="col-md-3">
                         <label>email: </label>
                     <h5>{{ $msg -> email }}</h5>
@@ -22,10 +22,9 @@
                     </div>
                 </div>
 
-                
+
             @endforeach
         @endforeach
   </div>
 </div>
 @endsection
-
