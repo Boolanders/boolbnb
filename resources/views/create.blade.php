@@ -1,5 +1,6 @@
 @extends('layouts.main-layout')
 @section('import') 
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>  
 <script src="{{ asset('/js/partials/create.js')}} "></script>
 @endsection
 @section('content')

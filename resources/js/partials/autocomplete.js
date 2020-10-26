@@ -19,11 +19,13 @@ $(document).ready(autocomplete)
     
     
 
-    // placesSearchAutocomplete.on('change', function (e) {
+    placesSearchAutocomplete.on('change', function (e) {
         
-    //     var latitude = e.suggestion.latlng.lat
-    //     var longitude = e.suggestion.latlng.lng
+        var latitude = e.suggestion.latlng.lat
+        var longitude = e.suggestion.latlng.lng
 
-    // })
+        $('#latitude').val(latitude);
+        $('#longitude').val(longitude);
+    })
 
  }
