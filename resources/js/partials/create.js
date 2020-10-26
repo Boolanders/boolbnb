@@ -7,6 +7,8 @@ function create() {
 
     placesCreateAutocomplete();
     frontEndValidation();
+    $('input').each(checkinput);
+    $('textarea').each(checkinput);
     
 }
 
