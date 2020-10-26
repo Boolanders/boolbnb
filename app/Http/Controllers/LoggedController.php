@@ -7,6 +7,8 @@ use App\Apartment;
 use App\Service;
 use App\Image;
 use App\Message;
+use App\Promotion;
+use App\Sponsorship;
 use Illuminate\Support\Facades\Auth;
 
 class LoggedController extends Controller {
@@ -120,5 +122,28 @@ class LoggedController extends Controller {
 
         $apts= Apartment::where('user_id', '=', $id ) -> get();
         return view('messages', compact('apts'));
+    }
+
+    public function promotion($id) {
+
+        $promos = Promotion::all();
+
+        return view ('sponsorship', compact('promos'));
+    }
+
+    public function sponsorship(request $request, $id){
+
+        $data = $request -> all();
+
+        $sponsorship = Sponsorship::where(
+            'promotion_id', '=', 
+            'apartment_id', '=', 
+            'start_date', '=', 
+            'end_date', '=', 
+
+        );
+    
+        return redirect() -> route('profile', $id);
+    
     }
 }

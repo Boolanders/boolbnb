@@ -30,3 +30,7 @@ Route::post('/send/message/{id}', 'GuestController@storemsg' ) -> name('apt-stor
 Route::post('/api/to/search', 'GuestController@toSearch') -> name('to-search');
 
 Route::get('/api/search', 'ApiController@search');
+
+Route::get('/promotion/{id}', 'LoggedController@promotion')->name('apt-promotion');
+
+Route::post('/sponsorship/{id}', 'LoggedController@sponsorship' ) -> name('apt-sponsorship');
