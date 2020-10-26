@@ -1,5 +1,5 @@
 @extends('layouts.main-layout')
-@section('import') 
+@section('import')
 <script src="{{ asset('/js/partials/create.js')}} "></script>
 @endsection
 @section('content')
@@ -10,10 +10,10 @@
         <div class="form">
 
             <form action="{{ route('apt-store') }}" enctype="multipart/form-data" method="post" class="form-create-border">
-    
+
                 @csrf
                 @method ('post')
-    
+
                 <div class="form-group">
                     <label for="">Title</label>
                     <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}">
@@ -23,7 +23,7 @@
                         </span>
                     @enderror
                 </div>
-    
+
                 <div class="form-group">
                     <label for="">Description</label>
                     <textarea class="form-control @error('description') is-invalid @enderror" name="description" cols="30" rows="10" >{{ old('description') }}</textarea>
@@ -33,7 +33,7 @@
                         </span>
                     @enderror
                 </div>
-    
+
                 <div class="form-group">
                     <label for="">Address</label>
                     <input class="form-control @error('address') is-invalid @enderror" type="search" id="address-input" name="address" value="{{ old('address')}}">
@@ -48,7 +48,7 @@
                     <input id="longitude" class="form-control" type="text" name="longitude" value="{{ old('longitude')}}">
                     <input id="latitude" class="form-control" type="text" name="latitude" value="{{ old('latitude')}}">
                 </div>
-    
+
                 <div class="form-group">
                     <label for="">Room Quantity</label>
                     <input class="form-control @error('room_qt') is-invalid @enderror" type="text" name="room_qt" value="{{ old('room_qt') }}">
@@ -58,7 +58,7 @@
                         </span>
                     @enderror
                 </div>
-    
+
                 <div class="form-group">
                     <label for="">Bed Quantity</label>
                     <input class="form-control @error('bed_qt') is-invalid @enderror" type="text" name="bed_qt" value="{{ old('bed_qt') }}">
@@ -68,7 +68,7 @@
                         </span>
                     @enderror
                 </div>
-    
+
                 <div class="form-group">
                     <label for="">Bathroom Quantity</label>
                     <input class="form-control @error('bathroom_qt') is-invalid @enderror" type="text" name="bathroom_qt" value="{{ old('bathroom_qt') }}">
@@ -78,7 +78,7 @@
                         </span>
                     @enderror
                 </div>
-    
+
                 <div class="form-group">
                     <label for="">Square Meters</label>
                     <input class="form-control @error('mq') is-invalid @enderror" type="text" name="mq" value="{{ old('mq') }}">
@@ -88,7 +88,18 @@
                         </span>
                     @enderror
                 </div>
-    
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+
+
                 <div>
                     <label for="img">Select Image:</label>
                     <input class="@error('img') is-invalid @enderror @error('img.*') is-invalid @enderror" type="file" name="img[]" accept="image/*" multiple>
@@ -103,19 +114,27 @@
                         </span>
                     @enderror
                 </div>
-    
-                @foreach ($srvs as $srv)
+
+                {{-- @foreach ($srvs as $srv)
                 <div>
                     <label for="{{ $srv -> name }}">{{ $srv -> name }}</label>
                     <input type="checkbox" name="services[]" value="{{ $srv -> id }}">
                 </div>
-                @endforeach
-    
-                <button class="btn btn-primary btn-save" type="submit">Save</button>
+                @endforeach --}}
+
+
+                @foreach ($srvs as $srv)
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                  <label class="form-check-label" for="defaultCheck1" for="{{ $srv -> name }}">{{ $srv -> name }} </label>
+                </div>
+              @endforeach
+
+                <button type="button" class="btn btn-primary btn-lg btn-block mt-4 mb-2">Create</button>
             </form>
         </div>
     </div>
 </div>
-   
+
 
 @endsection
