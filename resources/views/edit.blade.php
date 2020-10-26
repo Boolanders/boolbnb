@@ -1,6 +1,7 @@
 
 @extends('layouts.main-layout')
 @section('import') 
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>  
 <script src="{{ asset('/js/partials/create.js')}} "></script>
 @endsection
 @section('content')
@@ -14,7 +15,7 @@
     
                 @csrf
                 @method ('post')
-    
+                <h4>Information</h4>
                 <div class="form-group">
                     <label for="">Title</label>
                     <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" minlength="3" maxlength="60" required value="{{ $apt -> title }}">
@@ -96,7 +97,55 @@
                         </span>
                     @enderror
                 </div>
-    
+
+                <h4>Images</h4>
+                
+                @if (count($imgs))
+                <div class="row py-2">
+                    <div class="col-12 border d-flex p-2 align-items-center flex-nowrap flex-sm-row overflow-auto">
+                        @foreach ($imgs as $img)
+                            <div class="p-1 img-wrapper">
+                                <img src="{{ $img -> img }}" alt="">
+                                <div class="text-center p-1">
+                                    <label class="mb-0" for=""><i class="fas fa-trash-alt"></i></label>
+                                    <input type="checkbox" name="imgDel[]" value="{{ $img -> id }}">
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+
+                <div class="py-2">
+                    <label for="img">Select Image:</label>
+                    <input class="@error('img') is-invalid @enderror @error('img.*') is-invalid @enderror" type="file" name="img[]" accept="image/*" multiple>
+                    <span class="validity text-muted">You can upload up to 5 images. Only images files allowed. Not more than 2MB each.</span>
+                    @error('img')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    @error('img.*')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <h4>Services</h4>
+                @foreach ($srvs as $srv)
+                <div>
+
+                    <input 
+                    @if (in_array($srv -> id, $aptSrvs))
+                        checked
+                    @endif
+                    type="checkbox" name="services[]" value="{{ $srv -> id }}">
+
+                    <label for="{{ $srv -> name }}">{{ $srv -> name }}</label>
+                </div>
+                @endforeach
+
                 <button id="create-submit" class="btn btn-primary btn-save" type="submit">Save</button>
             </form>
         </div>
