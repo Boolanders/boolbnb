@@ -1,7 +1,7 @@
 <script id="apt-template" type="text/x-handlebars-template">
 
-
-    <div class="card mb-3 show-apt-link" style="max-width: 540px;" data-id="{{id}}">
+  <div class="col-md-6">
+    <div class="card my-2 show-apt-link rounded" style="max-width: 540px;" data-id="{{id}}">
         <div class="row no-gutters">
           <div class="col-md-4">
             <img src="{{ img }}" class="card-img" alt="...">
@@ -14,6 +14,6 @@
           </div>
         </div>
     </div>
-
+  </div>
 
 </script>

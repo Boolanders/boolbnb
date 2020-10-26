@@ -19,6 +19,7 @@
 @import 'views/home';
 @import 'views/profile';
 @import 'views/show';
+@import 'views/search';
 
 .app {
     
@@ -27,3 +28,4 @@
     flex-direction: column;
     justify-content: space-between;
 }
+

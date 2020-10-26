@@ -56,7 +56,7 @@ function sendRequestSearch() {
 
     });
     
-    servs = services.join();
+    srvs = services.join();
 
    var rooms = $('#rooms').val();
    var beds = $('#beds').val();
@@ -69,15 +69,17 @@ function sendRequestSearch() {
             'lat' : lat,
             'lon': lon,
             'dist': dist,
-            'servs': servs,
+            'srvs': srvs,
             'rooms': rooms,
             'beds': beds
         },
         method: 'GET',
         success: function(data) {
-            console.log(data);
+            
             if(data.length == 0){
-                $('#apts').html("no results")
+
+                $('#sponsored').html("no results");
+                $('#standard').html('');
             } else {
 
                 printCards(data);
@@ -96,6 +98,7 @@ function distanceSlider(){
 
     var $valueSpan = $('.valueSpan');
     var $value = $('#distance');
+
     $valueSpan.html($value.val());
 
     $value.on('input change', function() {
@@ -106,18 +109,29 @@ function distanceSlider(){
 
 function printCards(data){
 
-    var target = $('#apts')
-    target.html('')
+    var targetSponsored = $('#sponsored');
+    var targetStandard = $('#standard');
 
+    targetSponsored.html('');
+    targetStandard.html('');
+   
     var template = $('#apt-template').html()
 
     var compiled = Handlebars.compile(template);
 
     $.each(data, function(index, apt){
-        
-       var html = compiled(apt);
 
-       target.append(html);
+        if(apt['sponsorship'][0] == true){
+
+            var target = targetSponsored;
+        } else {
+
+            var target = targetStandard;
+        }
+
+        var html = compiled(apt);
+
+        target.append(html);
 
     });
 }
@@ -125,6 +139,7 @@ function printCards(data){
 function addShowListener(){
 
    $(document).on('click', '.show-apt-link', function(){
+       
        var id = $(this).data('id');
        window.location.href = "/show/" + id;
    });

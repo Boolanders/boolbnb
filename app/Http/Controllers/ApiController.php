@@ -25,12 +25,12 @@ class ApiController extends Controller
         $dist = $data['dist'];
         $rooms = $data['rooms'];
         $beds = $data['beds'];
-        $servs = $data['servs'];
+        $srvs = $data['srvs'];
 
-        if($servs != null){
-            $arrayServs = explode(',', $servs);
+        if($srvs != null){
+            $arraySrvs = explode(',', $srvs);
         } else {
-            $arrayServs = [];
+            $arraySrvs = [];
         }
 
 
@@ -44,14 +44,14 @@ class ApiController extends Controller
 
             $services = Apartment::findOrFail($apt['id']) -> services() -> get();
 
-            $srvs = [];
+            $aptSrvs = [];
 
             foreach ($services as $service) {
 
-                $srvs[] = $service['id'];
+                $aptSrvs[] = $service['id'];
             }
 
-            $containsAllValues = !array_diff($arrayServs, $srvs);
+            $containsAllValues = !array_diff($arraySrvs, $aptSrvs);
 
             $apt['services'] = $containsAllValues;
 
@@ -73,7 +73,7 @@ class ApiController extends Controller
                 $apt['img'] = $img['img'];
             } else{
 
-                $apt['img'] = "";
+                $apt['img'] = "/img/image-not-found.png";
             }
 
         }
