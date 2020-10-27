@@ -37,7 +37,10 @@
 
                         <div class="overlay rounded">
                            <h2>{{ $apt -> title }}</h2>
-                           <a class="info" href="{{ route('apt-show', $apt -> id) }}">link here</a>
+                           <a class="info" href="{{ route('apt-show', $apt -> id) }}">
+                            link here <br>
+                            {{ $apt -> description }}
+                           </a>
                         </div>
                     </div>
                 </div>
