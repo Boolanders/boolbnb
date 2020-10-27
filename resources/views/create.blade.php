@@ -7,8 +7,8 @@
 
     <div class="container margintop border rounded" style="background-image: url('https://www.vanzi.eu/media/k2/galleries/178/1920/_DSC3612.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
-      <div id="create-cont">
-          <div class="form bg-light text-dark p-3 m-5 rounded z-depth-5 opacity-1">
+      <div id="create-cont" style="width: 90%;">
+          <div class="form panel-transparent p-5 m-5 rounded z-depth-5 w-75" style="background:rgba(255,255,255, 0.8);">
 
               {{-- <form action="{{ route('apt-store') }}" enctype="multipart/form-data" method="post" class="form-create-border">
                 <h1>Create an Apartment</h1>
@@ -133,7 +133,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                           <label for="">Title</label>
-                          <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}" minlength="3" maxlength="60" required>
+                          <input class="form-control w-50 @error('title') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}" minlength="3" maxlength="60" required>
                           <span class="validity text-muted">The title must be 3 - 60 character length</span>
                           @error('title')
                               <span class="invalid-feedback" role="alert">
@@ -144,7 +144,7 @@
 
                       <div class="form-group">
                           <label for="">Address</label>
-                          <input class="form-control @error('address') is-invalid @enderror" type="search" id="address-input" name="address" value="{{ old('address')}}" minlength="3" maxlength="230" required>
+                          <input class="form-control w-50 @error('address') is-invalid @enderror" type="search" id="address-input" name="address" value="{{ old('address')}}" minlength="3" maxlength="230" required>
                           <span class="address validity text-muted">The address must have minimun 3 characters</span>
                           @error('address')
                               <span class="invalid-feedback" role="alert">
@@ -160,7 +160,7 @@
 
                       <div class="form-group">
                           <label for="">Room Quantity</label>
-                          <input class="form-control @error('room_qt') is-invalid @enderror" type="number" name="room_qt" value="{{ old('room_qt') }}" min="1" max="20" required>
+                          <input class="form-control w-50 @error('room_qt') is-invalid @enderror" type="number" name="room_qt" value="{{ old('room_qt') }}" min="1" max="20" required>
                           <span class="validity text-muted">Accepted range of values: 1 - 20</span>
                           @error('room_qt')
                               <span class="invalid-feedback" role="alert">
@@ -171,7 +171,7 @@
 
                       <div class="form-group">
                           <label for="">Bed Quantity</label>
-                          <input class="form-control @error('bed_qt') is-invalid @enderror" type="number" name="bed_qt" value="{{ old('bed_qt') }}" min="1" max="50" required>
+                          <input class="form-control w-50 @error('bed_qt') is-invalid @enderror" type="number" name="bed_qt" value="{{ old('bed_qt') }}" min="1" max="50" required>
                           <span class="validity text-muted">Accepted range of values: 1 - 50</span>
                           @error('bed_qt')
                               <span class="invalid-feedback" role="alert">
@@ -182,7 +182,7 @@
 
                       <div class="form-group">
                           <label for="">Bathroom Quantity</label>
-                          <input class="form-control @error('bathroom_qt') is-invalid @enderror" type="number" name="bathroom_qt" value="{{ old('bathroom_qt') }}" min="1" max="8" required>
+                          <input class="form-control w-50 @error('bathroom_qt') is-invalid @enderror" type="number" name="bathroom_qt" value="{{ old('bathroom_qt') }}" min="1" max="8" required>
                           <span class="validity text-muted">Accepted range of values: 1 - 8</span>
                           @error('bathroom_qt')
                               <span class="invalid-feedback" role="alert">
@@ -193,7 +193,7 @@
 
                       <div class="form-group">
                           <label for="">Square Meters</label>
-                          <input class="form-control @error('mq') is-invalid @enderror" type="number" name="mq" value="{{ old('mq') }}" min="15" max="5000" required>
+                          <input class="form-control w-50 @error('mq') is-invalid @enderror" type="number" name="mq" value="{{ old('mq') }}" min="15" max="5000" required>
                           <span class="validity text-muted">Accepted range of values: 15 - 5000</span>
                           @error('mq')
                               <span class="invalid-feedback" role="alert">
