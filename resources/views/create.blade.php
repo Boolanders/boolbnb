@@ -5,12 +5,10 @@
 @endsection
 @section('content')
 
-<div class="container-bg">
-
-    <div class="container margintop border">
+    <div class="container margintop border rounded" style="background-image: url('https://www.vanzi.eu/media/k2/galleries/178/1920/_DSC3612.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
       <div id="create-cont">
-          <div class="form">
+          <div class="form bg-light text-dark p-3 m-5 rounded z-depth-5 opacity-1">
 
               {{-- <form action="{{ route('apt-store') }}" enctype="multipart/form-data" method="post" class="form-create-border">
                 <h1>Create an Apartment</h1>
@@ -126,12 +124,12 @@
                   <button id="create-submit" class="btn btn-primary btn-save" type="submit">Save</button> --}}
 
               <form action="{{ route('apt-store') }}" enctype="multipart/form-data" method="post" class="form-create-border">
-                <h1>Create an Apartment</h1>
+                <h1 style="font-weight: bold; text-align: center; margin-bottom: 25px;">Create an Apartment</h1>
 
                   @csrf
                   @method ('post')
 
-                  <div class="row">
+                  <div class="row font-weight-bold">
                     <div class="col-md-6">
                       <div class="form-group">
                           <label for="">Title</label>
@@ -229,9 +227,9 @@
 
 
                       @foreach ($srvs as $srv)
-                      <div class="custom-control custom-checkbox">
-                          <label for="{{ $srv -> name }}">{{ $srv -> name }}</label>
-                          <input type="checkbox" name="services[]" value="{{ $srv -> id }}">
+                      <div class="form-check">
+                        <input type="checkbox" name="services[]" value="{{ $srv -> id }}">
+                        <label for="{{ $srv -> name }}">{{ $srv -> name }}</label>
                       </div>
                       @endforeach
 
@@ -245,7 +243,6 @@
           </div>
       </div>
     </div>
-</div>
 
 
 
