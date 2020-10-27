@@ -15812,8 +15812,9 @@ a.text-dark:focus {
   }
 }
 
-.search #sponsored {
-  background-color: rgba(238, 132, 132, 0.4);
+.search #sponsored .card {
+  border: 2px solid;
+  border-color: #ffed4a;
 }
 
 .search .card:hover {
