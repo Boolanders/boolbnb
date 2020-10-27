@@ -209,10 +209,10 @@
                         <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
                       </div>
 
-                      <div>
+                      {{-- <div>
                           <label for="img">Select Image:</label>
                           <input class="@error('img') is-invalid @enderror @error('img.*') is-invalid @enderror" type="file" name="img[]" accept="image/*" multiple>
-                          <span class="validity text-muted">Max 5 files/ 2 Mb</span>
+                          <span class="validity text-muted">Max 5 files / 2 Mb</span>
                           @error('img')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
@@ -223,6 +223,26 @@
                                   <strong>{{ $message }}</strong>
                               </span>
                           @enderror
+                      </div> --}}
+
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input @error('img') is-invalid @enderror @error('img.*') is-invalid @enderror" id="inputGroupFile01 " aria-describedby="inputGroupFileAddon01" type="file" name="img[]" accept="image/*" multiple>
+                          <label class="custom-file-label validity" for="inputGroupFile01">Max 5 files / 2 Mb</label>
+                        </div>
+                        @error('img')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        @error('img.*')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                       </div>
 
 
