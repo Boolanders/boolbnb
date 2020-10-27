@@ -31,17 +31,9 @@
             <a class="home-card" href=" {{ route('apt-show', $apt -> id) }} ">
                 <div class="card">
                     <div class="hovereffect">
-                        @if (($apt -> images))
 
-                        <img src="{{ $apt -> images -> first -> img -> img }}"
+                        <img src="{{ $apt['img'] }}"
                         class="mr-3 center-cropped align-self-center image-responsive" alt="show">
-
-                        @else
-
-                        <img src=" {{ asset('img/image-not-found.png') }} "
-                            class="mr-3 center-cropped align-self-center" alt="show">
-
-                        @endif
 
                         <div class="overlay rounded">
                            <h2>{{ $apt -> title }}</h2>

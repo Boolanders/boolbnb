@@ -33,6 +33,8 @@ class GuestController extends Controller
 
             $apt['img'] = $img -> img; // creo un attributo 'img' nel singolo appartamento e lo valorizzo con l'url dell'immagine ($img contiene anche altri dati tipo id ecc. io prendo solo img che è l'url dell'immagine)
 
+         } else {
+            $apt['img'] = '/img/image-not-found.png';
          }
       }
 
