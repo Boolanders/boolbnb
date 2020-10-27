@@ -29,7 +29,7 @@
         @foreach ($apts as $apt)
         <div class="col-xs-6 col-md-4">
             <a class="home-card" href=" {{ route('apt-show', $apt -> id) }} ">
-                <div class="card w-50">
+                <div class="card">
                     <div class="hovereffect">
 
                         <img src="{{ $apt['img'] }}"
