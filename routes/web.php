@@ -34,3 +34,5 @@ Route::get('/api/search', 'ApiController@search');
 Route::get('/promotion/{id}', 'LoggedController@promotion')->name('apt-promotion');
 
 Route::post('/sponsorship/{id}', 'LoggedController@sponsorship' ) -> name('apt-sponsorship');
+
+Route::get('/stats/{id}', 'LoggedController@stats') -> name('apt-stats');
