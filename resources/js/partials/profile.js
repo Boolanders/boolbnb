@@ -39,9 +39,27 @@ function addSwitchVisibilityListener() {
             visible = 1;
         }
 
-        $(this).next('.hidden-data-keeper').val(visible);
+        var usrId = $(this).data('usrid');
 
-        $(this).parent('form').submit();
+        var aptId = $(this).data('aptid');
+
+        $.ajax({
+            url: '/setVisibility',
+            method: 'GET',
+            data:{
+                'usrId': usrId,
+                'aptId': aptId,
+                'visible': visible,
+            },
+            success: function(data){
+                console.log(data);
+            },
+            error:function(err){
+                console.log(err);
+                alert("Can't change visibility. Try again");
+                location.reload();
+            }
+        });
 
 
     });
