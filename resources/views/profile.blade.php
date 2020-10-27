@@ -37,20 +37,16 @@
             <div class="btn-wrapper d-flex flex-column justify-content-around align-items-center">
 
                 <div class="custom-control custom-switch">
-                    <form action=" {{ route('apt-update', $apt -> id)}} " method="POST">
+                    <form action="">
 
-                        @csrf
-                        @method('POST')
-                        <input 
-    
-                        @if ($apt -> visible)
-                            checked
-                        @endif
-                        type="checkbox" class="custom-control-input visibilitySwitch"
-                        id="visibilitySwitch{{ $apt -> id }}" >
-                        <input class="hidden-data-keeper" type="number" name="visible" style="display: none;">
-                        <label class="custom-control-label" for="visibilitySwitch{{ $apt -> id }}">Set Visibility</label>
+                      <input 
+                      @if ($apt -> visible)
+                          checked
+                      @endif
 
+                      type="checkbox" class="custom-control-input visibilitySwitch"
+                      data-usrId="{{ $apt -> user_id }}" data-aptId="{{ $apt -> id }}" id="visibilitySwitch{{ $apt -> id }}" >
+                      <label class="custom-control-label" for="visibilitySwitch{{ $apt -> id }}">Set Visibility</label>
                     </form>
                 </div>
                 <div>

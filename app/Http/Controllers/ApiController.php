@@ -88,6 +88,23 @@ class ApiController extends Controller
         return response() -> json($response);
     }
 
+    public function setVisibility(request $request){
+
+        $data = $request -> all();
+
+        $aptId = $data['aptId'];
+        $usrId = $data['usrId'];
+        $visible = ['visible' => $data['visible']];
+
+        $apt = Apartment::findOrFail($aptId);
+
+        if($apt -> user_id = $usrId){
+            $apt -> update($visible);
+        }
+
+        return json_encode(['success' => 'success']);
+    }
+
 };
 
 function distance($lat1, $lon1, $lat2, $lon2) { 

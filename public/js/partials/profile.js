@@ -11004,8 +11004,25 @@ function addSwitchVisibilityListener() {
       visible = 1;
     }
 
-    $(this).next('.hidden-data-keeper').val(visible);
-    $(this).parent('form').submit();
+    var usrId = $(this).data('usrid');
+    var aptId = $(this).data('aptid');
+    $.ajax({
+      url: '/setVisibility',
+      method: 'GET',
+      data: {
+        'usrId': usrId,
+        'aptId': aptId,
+        'visible': visible
+      },
+      success: function success(data) {
+        console.log(data);
+      },
+      error: function error(err) {
+        console.log(err);
+        alert("Can't change visibility. Try again");
+        location.reload();
+      }
+    });
   });
 }
 
@@ -11018,7 +11035,7 @@ function addSwitchVisibilityListener() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Vincenzo\Desktop\BooleanCareers\Github-project\boolbnb\resources\js\partials\profile.js */"./resources/js/partials/profile.js");
+module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/profile.js */"./resources/js/partials/profile.js");
 
 
 /***/ })
