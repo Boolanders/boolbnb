@@ -50,6 +50,7 @@
                     </form>
                 </div>
                 <div>
+                    <a href=" {{ route('apt-stats', $apt -> id) }}" class="btn btn-primary btn-sm m-1 btn-link">Stats</a>
                     <a href=" {{ route('apt-promotion', $apt -> id) }}" class="btn btn-primary btn-sm m-1 btn-link">Sponsor</a>
                     <a href=" {{ route('apt-edit', $apt -> id) }}" class="btn btn-primary btn-sm m-1 btn-link">Edit</a>
                     <button type="button" data-id="{{ $apt -> id }}" data-title=" {{ $apt -> title }} " data-toggle="modal" data-target="#deleteModal" class="delete-btn btn btn-danger btn-sm m-1">DELETE</button>

@@ -237,4 +237,9 @@ class LoggedController extends Controller {
         return redirect() -> route('profile', $id);
     
     }
+
+    public function stats() {
+
+        return view('stats');
+    }
 }

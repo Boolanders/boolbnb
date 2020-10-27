@@ -15822,6 +15822,18 @@ a.text-dark:focus {
   transform: scale(1.02);
 }
 
+#stats h2 {
+  margin-bottom: 30px;
+}
+
+#stats h4 {
+  margin-bottom: 20px;
+}
+
+#stats canvas {
+  margin-bottom: 40px;
+}
+
 .app {
   min-height: 100vh;
   display: flex;
