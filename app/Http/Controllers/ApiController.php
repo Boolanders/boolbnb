@@ -47,15 +47,19 @@ class ApiController extends Controller
             $services = Apartment::findOrFail($apt['id']) -> services() -> get();
 
             $aptSrvs = [];
+            $srvsIcons = [];
 
             foreach ($services as $service) {
 
                 $aptSrvs[] = $service['id'];
+                $srvsIcons[] = $service['icon'];
             }
 
             $containsAllValues = !array_diff($arraySrvs, $aptSrvs);
 
-            $apt['services'] = $containsAllValues;
+            $apt['hasAllServices'] = $containsAllValues;
+
+            $apt['srvsIcons'] = $srvsIcons;
 
             $endSponsorship = Sponsorship::where('apartment_id', '=', $apt['id']) -> max('end_date');
 
@@ -83,7 +87,7 @@ class ApiController extends Controller
         $response = $apts -> where('distance', '<', $dist)
                             -> where('bed_qt', '>=', $beds)
                             -> where('room_qt', '>=', $rooms)
-                            -> where('services', '=', true);
+                            -> where('hasAllServices', '=', true);
 
         $response = $response -> sortBy('distance');
 

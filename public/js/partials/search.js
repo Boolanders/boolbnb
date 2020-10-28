@@ -16150,6 +16150,7 @@ function sendRequestSearch() {
         $('#standard').html('<div class="col-12"><h3 class="py-5 text-primary text-center">No results</h3></div>');
       } else {
         printCards(data);
+        printServiceIcon(data);
       }
     },
     error: function error(err) {
@@ -16190,6 +16191,19 @@ function addShowListener() {
   $(document).on('click', '.show-apt-link', function () {
     var id = $(this).data('id');
     window.location.href = "/show/" + id;
+  });
+}
+
+function printServiceIcon(data) {
+  $.each(data, function (index, apt) {
+    var target = $('.show-apt-link[data-id="' + apt['id'] + '"]');
+    var listTarget = target.find('.service-icons-list');
+    var srvsIcons = apt['srvsIcons'];
+
+    for (var i = 0; i < srvsIcons.length; i++) {
+      var icon = '<li class="list-inline-item px-1"><i class="' + srvsIcons[i] + '"></i></li>';
+      listTarget.append(icon);
+    }
   });
 }
 

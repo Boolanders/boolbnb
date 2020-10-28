@@ -92,6 +92,7 @@ function sendRequestSearch() {
             } else {
 
                 printCards(data);
+                printServiceIcon(data);
             }
 
         },
@@ -153,4 +154,25 @@ function addShowListener(){
        window.location.href = "/show/" + id;
    });
 
+}
+
+function printServiceIcon(data){
+
+    $.each(data, function(index, apt){
+
+        var target = $('.show-apt-link[data-id="' + apt['id'] + '"]');
+
+        var listTarget = target.find('.service-icons-list');
+
+        var srvsIcons = apt['srvsIcons'];
+
+        for (var i = 0; i < srvsIcons.length; i++) {
+           
+            var icon = '<li class="list-inline-item px-1"><i class="'+ srvsIcons[i] + '"></i></li>';
+
+            listTarget.append(icon);
+            
+        }
+
+    });
 }

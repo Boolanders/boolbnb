@@ -142,7 +142,7 @@
                     @endif
                     type="checkbox" name="services[]" value="{{ $srv -> id }}">
 
-                    <label for="{{ $srv -> name }}">{{ $srv -> name }}</label>
+                    <label for="{{ $srv -> name }}"><i class="px-1 {{ $srv -> icon}}"></i> {{ $srv -> name }}</label>
                 </div>
                 @endforeach
 

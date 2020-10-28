@@ -38,7 +38,7 @@
                     <ul>
                         @foreach ($apt -> services as $srv)
     
-                        <li>{{ $srv -> name }}</li>
+                        <li><i class="px-1 {{ $srv -> icon }} "></i>  {{ $srv -> name }}</li>
     
                         @endforeach
                     </ul>

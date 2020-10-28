@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <button type="submit"class="btn btn-primary btn-sm rounded-pill">Search</button>
+                    <button type="submit"class="btn btn-warning font-weight-bold rounded-pill">Search</button>
                 </div>
             </form>
         </div>
