@@ -12,7 +12,7 @@
   <div class="filters">
     <div class="col-md-8 offset-md-2">
         <div class="input-group md-form form-sm form-2 pl-0">
-            <input id="search" class="form-control my-0 py-1 red-border" type="search" placeholder="Search" aria-label="Search" required min="3" value="{{ $data['address']}}">
+            <input id="search" class="form-control my-0 py-1 rounded-pill" type="search" placeholder="Search" aria-label="Search" required min="3" value="{{ $data['address']}}">
             <div class="d-none">
               <span id="latitude" data-number="{{ $data['lat']}}"></span>
               <span id="longitude" data-number="{{ $data['lon']}}"></span>
@@ -36,7 +36,7 @@
           @foreach ($srvs as $srv)
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" name="service[]" id="{{ $srv -> name }}" value="{{ $srv -> id}}">
-            <label class="form-check-label" for="{{ $srv -> name }}">{{ $srv -> name }}</label>
+            <label class="form-check-label" for="{{ $srv -> name }}"><i class="px-1 {{ $srv -> icon }} "></i> {{ $srv -> name }}</label>
           </div>     
           @endforeach
         </div>
@@ -59,7 +59,7 @@
           </form>
         </div>
       </div>
-      <button type="button" id="search-button" class="btn btn-primary btn-sm float-right">Search</button>
+      <button type="button" id="search-button" class="btn btn-warning btn-sm font-weight-bold rounded-pill float-right">Search</button>
     </div>
   </div>
   <div class="row rounded" id="sponsored">

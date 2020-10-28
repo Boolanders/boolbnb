@@ -49,10 +49,10 @@
                 <div class="features">
                     <h5>Features</h5>
                     <ul>
-                        <li> Numeri di letti: {{ $apt -> bed_qt }} </li>
-                        <li> Numeri di Bagni: {{ $apt -> bathroom_qt }} </li>
-                        <li> Dimensione Stanza: {{ $apt -> mq }} </li>
-                        <li> Numeri di posti: {{ $apt -> room_qt }} </li>
+                        <li> <i class="px-2 fas fa-bed"></i>Beds: {{ $apt -> bed_qt }} </li>
+                        <li> <i class="px-2 fas fa-shower"></i>Bathrooms: {{ $apt -> bathroom_qt }} </li>
+                        <li> <i class="px-2 fas fa-ruler-combined"></i>Measurement: {{ $apt -> mq }} sm </li>
+                        <li> <i class="px-2 fas fa-couch"></i>Rooms: {{ $apt -> room_qt }} </li>
                     </ul>
                 </div>
                 
@@ -93,7 +93,7 @@
                             <label for="exampleFormControlTextarea1">Message</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-warning" href="">Send</button>
+                        <button type="submit" class="btn btn-warning font-weight-bold rounded-pill" href="">Send</button>
                     </form>
                 </div>
             </div>
