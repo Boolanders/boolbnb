@@ -4,21 +4,49 @@ $(document).ready(table)
 
 function table() {
     
-    addVisitsChart()
-    addMessagesChart()
+    getStats();
+    
 }
 
-function addVisitsChart() {
+function getStats(){
 
+    var id = $('#stats').data('id');
+
+    $.ajax({
+        url: '/getStats',
+        method: 'GET',
+        data:{
+            'id': id,
+        },
+        success: function(data){
+
+            var msg = data['msg'];
+            var vis = data['vis'];
+            console.log(msg);
+            console.log(vis);
+            addVisitsChart(vis);
+            addMessagesChart(msg);
+
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+}
+
+function addVisitsChart(data) {
+
+    // [12, 19, 3, 5, 2, 3, 7, 15, 23, 39, 2]
+    
     var Chart = require('chart.js')
     var ctx = $('#myVisitsChart')
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['January', 'February', 'March', 'April', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             datasets: [{
                 label: '# of Visits',
-                data: [12, 19, 3, 5, 2, 3, 7, 15, 23, 39, 2],
+                data: data,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -62,17 +90,19 @@ function addVisitsChart() {
     })
 }
 
-function addMessagesChart() {
+function addMessagesChart(data) {
+
+    // [12, 19, 3, 5, 2, 3, 7, 15, 23, 39, 2]
 
     var Chart = require('chart.js')
     var ctx = $('#myMessagesChart')
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['January', 'February', 'March', 'April', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             datasets: [{
                 label: '# of Messages',
-                data: [12, 19, 3, 5, 2, 3, 7, 15, 23, 39, 2],
+                data: data,
                 backgroundColor: [
                     
                     'rgba(54, 162, 235, 0.2)'

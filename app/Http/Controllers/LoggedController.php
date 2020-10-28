@@ -238,8 +238,8 @@ class LoggedController extends Controller {
     
     }
 
-    public function stats() {
+    public function stats($id) {
 
-        return view('stats');
+        return view('stats', compact('id'));
     }
 }

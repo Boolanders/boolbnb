@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Apartment;
 use App\Sponsorship;
 use App\Image;
+use App\Visit;
+use App\Message;
 
 class ApiController extends Controller
 {
@@ -105,7 +107,30 @@ class ApiController extends Controller
         return json_encode(['success' => 'success']);
     }
 
+
+    public function getStats(request $request){
+
+        $aptId = $request['id'];
+
+        $response = [];
+
+        for ($i=1; $i < 13; $i++) { 
+
+            $msgs = Message::where('apartment_id', '=', $aptId);
+
+            $visits = Visit::where('apartment_id', '=', $aptId);
+            
+            $response['msg'][] = $msgs -> whereMonth('created_at', $i) -> whereYear('created_at', 2020) -> count();
+
+            $response['vis'][] = $visits -> whereMonth('created_at', $i) -> whereYear('created_at', 2020) -> count();
+        }
+
+    
+        return response() -> json($response);
+    }
 };
+
+
 
 function distance($lat1, $lon1, $lat2, $lon2) { 
     $pi80 = M_PI / 180; 

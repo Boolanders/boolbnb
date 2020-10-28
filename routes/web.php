@@ -38,3 +38,5 @@ Route::get('/setVisibility', 'ApiController@setVisibility');
 Route::post('/sponsorship/{id}', 'LoggedController@sponsorship' ) -> name('apt-sponsorship');
 
 Route::get('/stats/{id}', 'LoggedController@stats') -> name('apt-stats');
+
+Route::get('/getStats', 'ApiController@getStats');

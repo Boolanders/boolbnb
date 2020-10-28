@@ -8,10 +8,12 @@ use App\Apartment;
 use App\Image;
 use App\Service;
 use App\Message;
+use App\Visit;
 
 
 class GuestController extends Controller
 {
+
    public function index(){
 
       $date = date('Y-m-d');
@@ -44,7 +46,12 @@ class GuestController extends Controller
 
    public function show($id) {
 
+      Visit::create([
+         'apartment_id' => $id
+      ]);
+
       $apt = Apartment::findOrFail($id);
+      
       return view ('show', compact('apt'));
    }
 
