@@ -35,29 +35,20 @@
             <h1 class="col-md-12 mt-5">Appartamenti in evidenza</h1>
             @foreach ($apts as $apt)
             <div class="col-xs-6 col-md-4">
-                <a class="home-card" href=" {{ route('apt-show', $apt -> id) }} ">
-                    <div class="card">
-                        <div class="hovereffect">
-    
-                            <img src="{{ $apt['img'] }}"
-                            class="mr-3 center-cropped align-self-center image-responsive" alt="show">
-    
-                            <div class="overlay rounded">
-                               <h2>{{ $apt -> title }}</h2>
-                               <a class="info" href="{{ route('apt-show', $apt -> id) }}">
-                                link here <br>
-                                {{ $apt -> description }}
-                               </a>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-    
+            <a href="{{ route('apt-show', $apt -> id) }}">
+                <div class="card">
+                  <img class="card-img-top" src="{{ $apt['img'] }}" alt="">
+                  <div class="card-img-overlay">
+                    <h4 class="card-title">{{ $apt -> title }}</h4>
+                    <p class="card-text">{{ $apt -> description }}</p>
+                  </div>
+                </div>
+            </a>
             </div>
             @endforeach
         </div>
     </div>
-      </div>
+</div>
     
 @endsection
 {{--
