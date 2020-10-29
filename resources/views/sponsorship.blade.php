@@ -12,7 +12,7 @@
             <h1 class="pb-4 text-center">Promote your apartment</h1>
             <div class="row pb-2">
                 @foreach($promos as $promo)
-                <div class="col-lg-4">
+                <div class="my-3 col-sm-8 offset-sm-2 offset-lg-0 col-lg-4">
                     <div class="card promo" data-price="{{$promo -> price}}" data-hours="{{$promo -> hours}}">
                         <div class="card-body">
                             <h5 class="card-title text-muted text-uppercase text-center">{{$promo -> hours}}h Users</h5>
