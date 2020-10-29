@@ -15652,11 +15652,11 @@ a.text-dark:focus {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-#profile .media img[alt=show] {
+.profile .media img[alt=show] {
   cursor: pointer;
 }
 
-#profile .center-cropped {
+.profile .center-cropped {
   -o-object-fit: 0.5;
      object-fit: 0.5;
   /* Do not scale the image */
@@ -15667,44 +15667,40 @@ a.text-dark:focus {
   width: 100px;
 }
 
-#profile .media-body .txt {
+.profile .media-body .txt {
   max-height: calc(100px - 25px - 0.5rem);
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-#profile .media-body h3 {
+.profile .media-body h3 {
   max-height: 60px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-#profile .btn-wrapper {
-  height: 100px;
-}
-
-#profile a {
+.profile a {
   color: #212529;
   text-decoration: none;
 }
 
-#profile a:hover {
+.profile a:hover {
   color: #212529;
   text-decoration: none;
 }
 
-#profile a.btn {
+.profile a.btn {
   color: white;
 }
 
-#profile a.btn:hover {
+.profile a.btn:hover {
   color: white;
   text-decoration: none;
 }
 
-#profile .custom-control-label::before,
-#profile .custom-control-label::after,
-#profile .custom-control-input {
+.profile .custom-control-label::before,
+.profile .custom-control-label::after,
+.profile .custom-control-input {
   cursor: pointer;
 }
 

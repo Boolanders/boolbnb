@@ -9,6 +9,7 @@ use App\Image;
 use App\Message;
 use App\Promotion;
 use App\Sponsorship;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -200,6 +201,20 @@ class LoggedController extends Controller {
     public function profile($id) {
 
         $apts= Apartment::where('user_id', '=', $id ) -> get();
+
+        foreach ($apts as $apt) {
+
+            $endDate = $apt -> sponsorships -> max('end_date');
+
+
+            if($endDate > date("Y-m-d h:i:sa")){
+
+                $apt['sponsored'] = Carbon::parse($endDate) -> format("d-m-Y H:i");
+            } else {
+
+                $apt['sponsored'] = false;
+            }
+        }
         return view('profile', compact('apts'));
     }
 
@@ -220,23 +235,6 @@ class LoggedController extends Controller {
         return view ('sponsorship', compact('promos','id'));
     }
 
-
-
-    public function sponsorship(request $request, $id){
-
-        $data = $request -> all();
-
-        $sponsorship = Sponsorship::where(
-            'promotion_id', '=', 
-            'apartment_id', '=', 
-            'start_date', '=', 
-            'end_date', '=', 
-
-        );
-    
-        return redirect() -> route('profile', $id);
-    
-    }
 
     public function stats($id) {
 
