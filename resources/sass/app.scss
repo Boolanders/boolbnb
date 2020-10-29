@@ -31,10 +31,16 @@
     justify-content: space-between;
 }
 
-@media screen and (max-width:768) {
+.margintop {
 
+    margin-top: 210px;
+}
+
+
+@include media-breakpoint-up(md) { 
     .margintop {
-
-        margin-top: 290px;
+    
+        margin-top: 120px;
     }
+    
 }

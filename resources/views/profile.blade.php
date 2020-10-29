@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div id="profile">
+<div id="profile margintop">
     <div class="container">
     
         <div class="row">

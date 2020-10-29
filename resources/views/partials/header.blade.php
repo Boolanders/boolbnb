@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top header">
     <div class="container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-sm-8 offset-sm-2 col-md-2 offset-md-0">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('./img/stemma.png') }}" alt="not found">
                 </a>
