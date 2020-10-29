@@ -206,7 +206,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="">Description</label>
-                        <textarea name="description" class="form-control @error('description') is-invalid @enderror" placeholder="Your Message *" style="width: 100%; height: 150px;" name="description" cols="30" rows="10" minlength="3" maxlength="1000" required>{{ old('description') }}</textarea>
+                        <textarea name="description" class="form-control @error('description') is-invalid @enderror" style="width: 100%; height: 150px;" name="description" cols="30" rows="10" minlength="3" maxlength="1000" required>{{ old('description') }}</textarea>
                         <span class="validity text-muted">The description must be 3 - 1000 character length</span>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
@@ -255,7 +255,7 @@
                       @foreach ($srvs as $srv)
                       <div class="form-check">
                         <input type="checkbox" name="services[]" value="{{ $srv -> id }}">
-                        <label for="{{ $srv -> name }}">{{ $srv -> name }}</label>
+                        <label for="{{ $srv -> name }}"><i class="px-1 {{ $srv -> icon}}"></i>  {{ $srv -> name }}</label>
                       </div>
                       @endforeach
 

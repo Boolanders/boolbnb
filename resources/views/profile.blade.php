@@ -5,12 +5,12 @@
 @endsection
 
 @section('content')
-<div id="profile">
+<div id="profile margintop">
     <div class="container">
     
         <div class="row">
             <div class="col-12 text-center p-3">
-                <a class="btn btn-primary" href="{{route('apt-create') }}">Add Apartment</a>
+                <a class="btn btn-warning rounded-pill font-weight-bold" href="{{route('apt-create') }}">Add Apartment</a>
             </div>
         </div>
         @foreach ($apts as $apt)

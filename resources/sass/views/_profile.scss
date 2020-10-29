@@ -1,6 +1,5 @@
 #profile{
 
-    margin-top: 100px;
 
     .media img[alt="show"]{
         cursor: pointer;
@@ -41,10 +40,16 @@
     a.btn{
         color: white;
 
-        &:hove{
+        &:hover{
             color:white;
             text-decoration: none;
         }
+    }
+
+    .custom-control-label::before,
+    .custom-control-label::after,
+    .custom-control-input{
+        cursor: pointer;
     }
 
 } 
