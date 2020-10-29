@@ -9,7 +9,7 @@ class Sponsorship extends Model
     protected $fillable = [
         'start_date',
         'end_date',
-        'aparment_id',
+        'apartment_id',
         'promotion_id'
     ];
 

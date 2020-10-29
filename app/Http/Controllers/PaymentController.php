@@ -6,66 +6,67 @@ use Illuminate\Http\Request;
 use App\Sponsorship;
 use App\Apartment;
 use Carbon\Carbon;
-//require 'vendor/autoload.php';
+use Braintree\Gateway;
+use App\Promotion;
 
 class PaymentController extends Controller
 {
 
-    public function promoForm($id){
-        $apts = Apartment::all();
-        $apt = Apartment::findOrFail($id);
-        $promo = Sponsorship::all();
-        return view('sponsorship', compact('promo', 'apt','apts'));
-    }
-
     public function promoPayment(Request $request, $id){ //id del Flat
-        $data = $request -> all();
-        $data = $request -> validate([
-            'promo' => ['required']
+    
+        $gateway = new Gateway([
+        'environment' => env('BRAINTREE_ENV'),
+        'merchantId' => env('BRAINTREE_MERCHANT_ID'),
+        'publicKey' => env('BRAINTREE_PUBLIC_KEY'),
+        'privateKey' => env('BRAINTREE_PRIVATE_KEY')
+        ]);
+
+        $promoId = $request['promo-id'];
+
+        $promo = Promotion::where('id', '=', $promoId) -> first();
+
+        $price = $promo['price'];
+
+        $hours = $promo['hours'];
+
+        // Metodo di pagamento
+        $nonce = $request->payment_method_nonce;
+
+
+        // Passare tutti i dati relativi al pagamento
+        $result = $gateway->transaction()->sale([
+            'amount' => $price,
+            'paymentMethodNonce' => $nonce,
+            'options' => [
+                'submitForSettlement' => true
+            ]
+        ]);
+
+        // Se la transazione ha avuto successo
+        if ($result->success || !is_null($result->transaction)) {
+            
+            $startDate = Carbon::now();
+
+            $endDate = Carbon::now() -> addHours($hours);
+
+            Sponsorship::create([
+                'start_date' => $startDate,
+                'end_date' => $endDate,
+                'apartment_id' => $id,
+                'promotion_id' => $promoId
             ]);
-        $promo_array = explode('/', $data['promo']);
-        $promoId = $promo_array[0];
-        $promoDur = $promo_array[1];
-        $promo = Sponsorship::findOrFail($promoId);
-        $apt = Apartment::findOrFail($id);
-        $date = Carbon::now();
-        $carbon_date = Carbon::parse($date);
-        $carbon_date->addHours($promoDur);
-        $var1= Carbon::parse($carbon_date);
-        // if ($var1 > $date){
-        //   dd('OK');
-        // }
-        // prende la riga del DB di "Sponsor" e la associa alla riga del DB di Flat
-        $promo-> apts() -> attach($apt, ['date_end'=> $carbon_date]);
-        return redirect() -> route('profile') -> with('status', 'Pagamento approvato!!!');
-    }
-    public function promoFormUpdate($id){
-        $apts = Apartment::all();
-        $apt = Apartment::findOrFail($id);
-        $promo = Sponsorship::all();
-        return view('sponsor_form_update', compact('promo', 'apt','apts'));
-    }
-    public function promoPaymentUpdate(Request $request, $id){ //id del Apt
-        $data = $request -> all();
-        $data = $request -> validate([
-            'promo' => ['required']
-            ]);
-        $promo_array = explode('/', $data['promo']);
-        $promoId = $promo_array[0];
-        $promoDur = $promo_array[1];
-        $promo = Sponsorship::findOrFail($promoId);
-        $apt = Apartment::findOrFail($id);
-        $date = Carbon::now();
-        $carbon_date = Carbon::parse($date);
-        $carbon_date->addHours($promoDur);
-        $var1= Carbon::parse($carbon_date);
-        // if ($var1 > $date){
-        //   dd('OK');
-        // }
-        $apt_promoID = $apt-> Sponsorship-> first()-> pivot-> id;
-        $spoID = $apt-> Sponsorship-> first()-> pivot-> promo_id;
-        // prende la riga del DB di "Sponsor" e la associa alla riga del DB di Flat
-        $apt-> promo()->wherePivot('id',$apt_promoID)->updateExistingPivot($spoID, ['sponsor_id' => $promoId,'date_end' => $carbon_date]);
-        return redirect() -> route('profile') -> with('status', 'Pagamento approvato!!!');
+
+            return redirect() -> route('home');
+
+      
+        }else {
+            $errorString = "";
+
+            foreach($result->errors->deepAll() as $error) {
+                $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+            }
+
+            return response() -> json($errorString);
+        }
     }
 }

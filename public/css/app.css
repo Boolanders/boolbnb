@@ -4608,16 +4608,6 @@ readers do not read off random characters that represent icons */
   font-weight: 900; }
 @charset "UTF-8";
 
-.margintop {
-  margin-top: 120px;
-}
-
-@media screen and (max-width: 768) {
-  .margintop {
-    margin-top: 290px;
-  }
-}
-
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -15662,10 +15652,6 @@ a.text-dark:focus {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-#profile {
-  margin-top: 100px;
-}
-
 #profile .media img[alt=show] {
   cursor: pointer;
 }
@@ -15858,9 +15844,13 @@ a.text-dark:focus {
   justify-content: space-between;
 }
 
-@media screen and (max-width: 768) {
+.margintop {
+  margin-top: 210px;
+}
+
+@media (min-width: 768px) {
   .margintop {
-    margin-top: 290px;
+    margin-top: 120px;
   }
 }
 

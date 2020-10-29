@@ -6,5 +6,6 @@
     "/js/partials/create.js": "/js/partials/create.js",
     "/js/partials/map.js": "/js/partials/map.js",
     "/js/partials/profile.js": "/js/partials/profile.js",
-    "/js/partials/search.js": "/js/partials/search.js"
+    "/js/partials/search.js": "/js/partials/search.js",
+    "/js/partials/sponsorship.js": "/js/partials/sponsorship.js"
 }

@@ -18,8 +18,8 @@ class CreateSponsorshipsTable extends Migration
 
             $table -> bigInteger('apartment_id') -> unsigned();
             $table -> bigInteger('promotion_id') -> unsigned();
-            $table -> date('start_date');
-            $table -> date('end_date');
+            $table -> dateTime('start_date');
+            $table -> dateTime('end_date');
             
             $table->timestamps();
         });

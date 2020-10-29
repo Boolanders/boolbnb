@@ -41,4 +41,4 @@ Route::get('/stats/{id}', 'LoggedController@stats') -> name('apt-stats');
 
 Route::get('/getStats', 'ApiController@getStats');
 
-Route::post('/update/promo/{id}', 'PaymentController@promoPaymentUpdate') -> name('apt-promo');
+Route::post('/update/promo/{id}', 'PaymentController@promoPayment') -> name('apt-promo');

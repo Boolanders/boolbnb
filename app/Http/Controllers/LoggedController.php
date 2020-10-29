@@ -217,7 +217,7 @@ class LoggedController extends Controller {
 
         $promos = Promotion::all();
 
-        return view ('sponsorship', compact('promos'));
+        return view ('sponsorship', compact('promos','id'));
     }
 
 

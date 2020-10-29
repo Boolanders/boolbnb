@@ -20,6 +20,7 @@ class GuestController extends Controller
 
       $apts = Sponsorship::where('end_date', '>', $date) // seleziono solo le sponsorship con date maggiore di now()
                               -> join('apartments', 'apartments.id', '=', 'sponsorships.apartment_id') // join con tabella apartment
+                              -> where('apartments.visible', '=', 1)
                               -> groupBy('apartment_id') // siccome ogni singolo apartment può avere n sponsorizzazioni non ancora scadute raggruppo per id apartment in modo da non aver doppioni
                               -> select('apartments.*') // prendo tutti i dati dell'appartamento
                               -> get();

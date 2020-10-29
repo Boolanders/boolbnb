@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10970,72 +10970,35 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./resources/js/partials/profile.js":
-/*!******************************************!*\
-  !*** ./resources/js/partials/profile.js ***!
-  \******************************************/
+/***/ "./resources/js/partials/sponsorship.js":
+/*!**********************************************!*\
+  !*** ./resources/js/partials/sponsorship.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(document).ready(profile);
+$(document).ready(sponsorship);
 
-function profile() {
-  addDeleteBtnListener();
-  addSwitchVisibilityListener();
-}
-
-function addDeleteBtnListener() {
-  $('#deleteModal').on('show.bs.modal', function (e) {
-    var href = '/delete/' + $(e.relatedTarget).attr('data-id');
-    var title = $(e.relatedTarget).attr('data-title');
-    var target = $('#deleteModal');
-    target.find('#apt-title').text(title);
-    target.find('#confirm-delete-btn').attr('href', href);
-  });
-}
-
-function addSwitchVisibilityListener() {
-  var target = $('.visibilitySwitch');
-  target.change(function () {
-    var visible = 0;
-
-    if ($(this).is(':checked')) {
-      visible = 1;
-    }
-
-    var usrId = $(this).data('usrid');
-    var aptId = $(this).data('aptid');
-    $.ajax({
-      url: '/setVisibility',
-      method: 'GET',
-      data: {
-        'usrId': usrId,
-        'aptId': aptId,
-        'visible': visible
-      },
-      success: function success(data) {
-        console.log(data);
-      },
-      error: function error(err) {
-        console.log(err);
-        alert("Can't change visibility. Try again");
-        location.reload();
-      }
-    });
+function sponsorship() {
+  $('.choose').on('click', function () {
+    var id = $(this).data('id');
+    var target = $('#promo-id');
+    target.val(id);
+    console.log($('input#promo-id').val());
   });
 }
 
 /***/ }),
 
-/***/ 1:
-/*!************************************************!*\
-  !*** multi ./resources/js/partials/profile.js ***!
-  \************************************************/
+/***/ 7:
+/*!****************************************************!*\
+  !*** multi ./resources/js/partials/sponsorship.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/profile.js */"./resources/js/partials/profile.js");
+module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/sponsorship.js */"./resources/js/partials/sponsorship.js");
 
 
 /***/ })
