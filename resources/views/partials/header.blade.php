@@ -1,3 +1,68 @@
+
+<script src="{{ asset('/js/partials/header.js')}}"></script>
+
+
+
+<header id="header">
+    <div class="container-fluid">
+
+      <div class="logo float-left">
+        
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.html"><img src={{ asset('./img/stemma.png') }} alt="" class="img-fluid"></a>
+      </div>
+
+      <button type="button" class="nav-toggle"><i class="bx bx-menu"></i></button>
+      <nav class="nav-menu">
+        <ul>
+            @guest
+                    <li>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="active">
+                       
+                            <i class=" px-1 fas fa-user"></i>
+                            {{ Auth::user()->name }}
+                    </li>
+                    <li>
+                        <a class="" href="{{ route('profile', Auth::user() -> id) }}">
+                            My Profile
+                        </a>
+                    </li> 
+                    <li>
+                        <a class="" href="{{ route('messages', Auth::user() -> id) }}">
+                            My Messages
+                        </a>
+                    </li>  
+                    <li>
+                        <a class="" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>      
+                @endguest
+          
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End #header -->
+
+
+
+
+{{-- 
+
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top header">
     <div class="container">
         <div class="row">
@@ -51,5 +116,5 @@
         </div>
 
     </div>
-</nav>
+</nav> --}}
 

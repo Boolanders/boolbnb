@@ -18,6 +18,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/partials/map.js', 'public/js/partials')
     .js('resources/js/partials/search.js', 'public/js/partials')
     .js('resources/js/partials/chart.js', 'public/js/partials')
+    .js('resources/js/partials/header.js', 'public/js/partials')
     .js('resources/js/partials/sponsorship.js', 'public/js/partials')
     .sass('resources/sass/app.scss', 'public/css')
     .copyDirectory('resources/img', 'public/img');

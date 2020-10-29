@@ -15511,30 +15511,131 @@ a.text-dark:focus {
   }
 }
 
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#header {
+  height: 80px;
+  padding: 20px 0;
+  z-index: 10;
+  position: relative;
+  /*--------------------------------------------------------------
+  # Navigation Menu
+  --------------------------------------------------------------*/
 }
 
-.header .col-md-8,
-.header .col-md-2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#header .logo h1 {
+  font-size: 36px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: 3px;
 }
 
-.header img {
-  width: 100%;
-  height: auto;
-}
-
-.header .input-group {
-  width: 50%;
-}
-
-.header .nav-item a {
+#header .logo h1 a,
+#header .logo h1 a:hover {
+  color: #fff;
   text-decoration: none;
+}
+
+#header .logo img {
+  padding: 0;
+  margin: 0;
+  max-height: 40px;
+}
+
+@media (max-width: 768px) {
+  #header .logo h1 {
+    font-size: 28px;
+    padding: 8px 0;
+  }
+}
+
+#header .nav-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  right: -260px;
+  width: 260px;
+  padding-top: 18px;
+  background: rgba(34, 34, 34, 0.8);
+  transition: 0.4s;
+}
+
+#header .nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#header .nav-menu a {
+  display: block;
+  position: relative;
+  color: #ffd2b7;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+#header .nav-menu a:hover,
+#header .nav-menu .active > a,
+#header .nav-menu li:hover > a {
+  color: #ffa26a;
+  text-decoration: none;
+}
+
+#header .nav-menu .drop-down > a:after {
+  content: "\E9F8";
+  font-family: "boxicons";
+  padding-left: 10px;
+  position: absolute;
+  right: 15px;
+}
+
+#header .nav-menu .active.drop-down > a:after {
+  content: "\E9F8";
+}
+
+#header .nav-menu .drop-down > a {
+  padding-right: 35px;
+}
+
+#header .nav-menu .drop-down ul {
+  display: none;
+  overflow: hidden;
+}
+
+#header .nav-menu .drop-down li {
+  padding-left: 20px;
+}
+
+#header .nav-menu-active {
+  right: 0;
+}
+
+#header .nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  background: rgba(34, 34, 34, 0.5);
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 1;
+  cursor: pointer;
+  text-align: right;
+  padding: 10px 12px;
+  border-radius: 2px;
+}
+
+#header .nav-toggle i {
+  color: #fff;
+  font-size: 18px;
+}
+
+#header .nav-toggle-active {
+  right: 275px;
 }
 
 #edit-cont .img-wrapper {

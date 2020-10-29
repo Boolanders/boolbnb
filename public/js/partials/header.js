@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10970,40 +10970,78 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./resources/js/partials/autocomplete.js":
-/*!***********************************************!*\
-  !*** ./resources/js/partials/autocomplete.js ***!
-  \***********************************************/
+/***/ "./resources/js/partials/header.js":
+/*!*****************************************!*\
+  !*** ./resources/js/partials/header.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(document).ready(autocomplete);
+$(document).ready(header);
 
-function autocomplete() {
-  var placesSearchAutocomplete = places({
-    appId: 'pl9FR7QVJTYP',
-    apiKey: '8240a6d46c9f2914027ee977cb8aeeb3',
-    container: document.querySelector('#search-address-input')
-  });
-  placesSearchAutocomplete.on('change', function (e) {
-    var latitude = e.suggestion.latlng.lat;
-    var longitude = e.suggestion.latlng.lng;
-    $('#latitude').val(latitude);
-    $('#longitude').val(longitude);
-  });
+function header() {
+  console.log('ciao');
+  headerFunciton();
+}
+
+function headerFunciton() {
+  !function ($) {
+    "use strict"; // Toggle nav menu
+
+    $(document).on('click', '.nav-toggle', function (e) {
+      $('.nav-menu').toggleClass('nav-menu-active');
+      $('.nav-toggle').toggleClass('nav-toggle-active');
+      $('.nav-toggle i').toggleClass('bx-x bx-menu');
+    }); // Toogle nav menu drop-down items
+
+    $(document).on('click', '.nav-menu .drop-down > a', function (e) {
+      e.preventDefault();
+      $(this).next().slideToggle(300);
+      $(this).parent().toggleClass('active');
+    }); // Smooth scroll for the navigation menu and links with .scrollto classes
+
+    $(document).on('click', '.nav-menu a, .scrollto', function (e) {
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        e.preventDefault();
+        var target = $(this.hash);
+
+        if (target.length) {
+          var scrollto = target.offset().top;
+
+          if ($(this).attr("href") == '#header') {
+            scrollto = 0;
+          }
+
+          $('html, body').animate({
+            scrollTop: scrollto
+          }, 1500, 'easeInOutExpo');
+
+          if ($(this).parents('.nav-menu').length) {
+            $('.nav-menu .active').removeClass('active');
+            $(this).closest('li').addClass('active');
+            $('.nav-menu').removeClass('nav-menu-active');
+            $('.nav-toggle').removeClass('nav-toggle-active');
+            $('.nav-toggle i').toggleClass('bx-x bx-menu');
+          }
+
+          return false;
+        }
+      }
+    });
+  }(jQuery);
 }
 
 /***/ }),
 
-/***/ 2:
-/*!*****************************************************!*\
-  !*** multi ./resources/js/partials/autocomplete.js ***!
-  \*****************************************************/
+/***/ 7:
+/*!***********************************************!*\
+  !*** multi ./resources/js/partials/header.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\autocomplete.js */"./resources/js/partials/autocomplete.js");
+module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\header.js */"./resources/js/partials/header.js");
 
 
 /***/ })
