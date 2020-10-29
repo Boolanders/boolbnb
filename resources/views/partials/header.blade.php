@@ -1,18 +1,16 @@
 
 <script src="{{ asset('/js/partials/header.js')}}"></script>
 
-
-
 <header id="header">
     <div class="container-fluid">
 
       <div class="logo float-left">
         
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="index.html"><img src={{ asset('./img/stemma.png') }} alt="" class="img-fluid"></a>
+        <a href="{{ url('/') }}"><img src={{ asset('./img/stemma.png') }} alt="" class="img-fluid"></a>
       </div>
 
-      <button type="button" class="nav-toggle"><i class="bx bx-menu"></i></button>
+      <button type="button" class="nav-toggle"><i class="fas fa-bars fa-1x"></i></button>
       <nav class="nav-menu">
         <ul>
             @guest
@@ -26,9 +24,10 @@
                     @endif
                 @else
                     <li class="active">
-                       
+                        <a class="nav-link">
                             <i class=" px-1 fas fa-user"></i>
                             {{ Auth::user()->name }}
+                        </a>
                     </li>
                     <li>
                         <a class="" href="{{ route('profile', Auth::user() -> id) }}">
@@ -58,6 +57,7 @@
     </div>
   </header><!-- End #header -->
 
+  
 
 
 
