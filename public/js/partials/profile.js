@@ -10983,6 +10983,7 @@ $(document).ready(profile);
 function profile() {
   addDeleteBtnListener();
   addSwitchVisibilityListener();
+  disableSponsorButtons();
 }
 
 function addDeleteBtnListener() {
@@ -11023,6 +11024,17 @@ function addSwitchVisibilityListener() {
         location.reload();
       }
     });
+  });
+}
+
+function disableSponsorButtons() {
+  var target = $('.sponsor-button');
+  target.each(function () {
+    var dataSponsor = $(this).data('sponsor');
+
+    if (dataSponsor != "") {
+      $(this).addClass("disabled");
+    }
   });
 }
 
