@@ -15521,32 +15521,16 @@ a.text-dark:focus {
   --------------------------------------------------------------*/
 }
 
-#header .logo h1 {
-  font-size: 36px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 300;
-  letter-spacing: 3px;
-}
-
-#header .logo h1 a,
-#header .logo h1 a:hover {
-  color: #fff;
-  text-decoration: none;
+#header .logo {
+  position: fixed;
+  top: 15px;
+  left: 15px;
 }
 
 #header .logo img {
   padding: 0;
   margin: 0;
-  max-height: 40px;
-}
-
-@media (max-width: 768px) {
-  #header .logo h1 {
-    font-size: 28px;
-    padding: 8px 0;
-  }
+  max-height: 60px;
 }
 
 #header .nav-menu {
@@ -15584,31 +15568,6 @@ a.text-dark:focus {
   text-decoration: none;
 }
 
-#header .nav-menu .drop-down > a:after {
-  content: "\E9F8";
-  font-family: "boxicons";
-  padding-left: 10px;
-  position: absolute;
-  right: 15px;
-}
-
-#header .nav-menu .active.drop-down > a:after {
-  content: "\E9F8";
-}
-
-#header .nav-menu .drop-down > a {
-  padding-right: 35px;
-}
-
-#header .nav-menu .drop-down ul {
-  display: none;
-  overflow: hidden;
-}
-
-#header .nav-menu .drop-down li {
-  padding-left: 20px;
-}
-
 #header .nav-menu-active {
   right: 0;
 }
@@ -15638,6 +15597,11 @@ a.text-dark:focus {
   right: 275px;
 }
 
+footer {
+  background-color: rgba(241, 128, 14, 0.479) !important;
+  margin-top: 20px;
+}
+
 #edit-cont .img-wrapper {
   font-size: 18px;
 }
@@ -15650,7 +15614,6 @@ a.text-dark:focus {
   /*--------------------------------------------------------------
   # Sections General
   --------------------------------------------------------------*/
-  margin-bottom: 50px;
 }
 
 .home #hero {
@@ -15735,14 +15698,26 @@ a.text-dark:focus {
   padding: 80px 0;
 }
 
-.home .ap-icon-pin {
-  display: none;
+.home .img-wrapper {
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.home .img-wrapper img {
+  width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
 }
 
 .home .card {
-  margin: 10px;
-  width: 330px;
-  height: 330px;
+  width: 100%;
+  color: #222;
+  transition: filter 0.5s;
+}
+
+.home .card:hover {
+  filter: grayscale(1);
+  transform: scale(1.01);
 }
 
 .home h1 {
@@ -15750,92 +15725,24 @@ a.text-dark:focus {
   margin-bottom: 50px;
 }
 
-.home img {
+.home .search-wrapper {
   width: 100%;
-  height: 100%;
 }
 
-.home .home-card {
-  text-decoration: none;
-  color: black;
+.home .ap-icon-pin {
+  display: none;
 }
 
-.home .hovereffect {
-  width: 100%;
-  height: 100%;
-  float: left;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  cursor: default;
+@media (min-width: 576px) {
+  .home .search-wrapper {
+    width: 50%;
+  }
 }
 
-.home .hovereffect .overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  transition: all 0.4s ease-in-out;
-}
-
-.home .hovereffect:hover .overlay {
-  background-color: rgba(238, 132, 132, 0.4);
-}
-
-.home .hovereffect h2,
-.home .hovereffect img {
-  transition: all 0.4s ease-in-out;
-}
-
-.home .hovereffect img {
-  display: block;
-  position: relative;
-  transform: scale(1.1);
-}
-
-.home .hovereffect:hover img {
-  transform: scale(1);
-}
-
-.home .hovereffect h2 {
-  text-transform: uppercase;
-  color: #fff;
-  text-align: center;
-  position: relative;
-  font-size: 17px;
-  padding: 10px;
-  background: transparent;
-}
-
-.home .hovereffect a.info {
-  display: inline-block;
-  text-decoration: none;
-  padding: 7px 14px;
-  text-transform: uppercase;
-  color: #fff;
-  border: 1px solid #fff;
-  margin: 100px 0 0 0;
-  background-color: #FD044F;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  transform: scale(1.5);
-  transition: all 0.4s ease-in-out;
-  font-weight: normal;
-  height: 85%;
-  width: 85%;
-  position: absolute;
-  top: -20%;
-  left: 8%;
-  padding: 70px;
-}
-
-.home .hovereffect:hover a.info {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  transform: scale(1);
-  background-color: rgba(0, 0, 0, 0.4);
+@media (min-width: 1200px) {
+  .home .search-wrapper {
+    width: 25%;
+  }
 }
 
 .profile .media img[alt=show] {
@@ -15909,12 +15816,13 @@ a.text-dark:focus {
   padding-left: 0;
 }
 
-.show .apt-img {
+.show .carousel-item {
+  height: 500px;
   margin-bottom: 50px;
 }
 
-.show .apt-img img {
-  width: 100%;
+.show .carousel-item img {
+  height: 100%;
 }
 
 .show #map {

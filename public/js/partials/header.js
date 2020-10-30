@@ -10981,55 +10981,16 @@ window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jqu
 $(document).ready(header);
 
 function header() {
-  console.log('ciao');
   headerFunciton();
 }
 
 function headerFunciton() {
-  !function ($) {
-    "use strict"; // Toggle nav menu
-
-    $(document).on('click', '.nav-toggle', function (e) {
-      $('.nav-menu').toggleClass('nav-menu-active');
-      $('.nav-toggle').toggleClass('nav-toggle-active');
-      $('.nav-toggle i').toggleClass('fa-times');
-    }); // Toogle nav menu drop-down items
-
-    $(document).on('click', '.nav-menu .drop-down > a', function (e) {
-      e.preventDefault();
-      $(this).next().slideToggle(300);
-      $(this).parent().toggleClass('active');
-    }); // Smooth scroll for the navigation menu and links with .scrollto classes
-
-    $(document).on('click', '.nav-menu a, .scrollto', function (e) {
-      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-        e.preventDefault();
-        var target = $(this.hash);
-
-        if (target.length) {
-          var scrollto = target.offset().top;
-
-          if ($(this).attr("href") == '#header') {
-            scrollto = 0;
-          }
-
-          $('html, body').animate({
-            scrollTop: scrollto
-          }, 1500, 'easeInOutExpo');
-
-          if ($(this).parents('.nav-menu').length) {
-            $('.nav-menu .active').removeClass('active');
-            $(this).closest('li').addClass('active');
-            $('.nav-menu').removeClass('nav-menu-active');
-            $('.nav-toggle').removeClass('nav-toggle-active');
-            $('.nav-toggle i').toggleClass('bx-x bx-menu');
-          }
-
-          return false;
-        }
-      }
-    });
-  }(jQuery);
+  // Toggle nav menu
+  $(document).on('click', '.nav-toggle', function (e) {
+    $('.nav-menu').toggleClass('nav-menu-active');
+    $('.nav-toggle').toggleClass('nav-toggle-active');
+    $('.nav-toggle i').toggleClass('fa-times');
+  });
 }
 
 /***/ }),
@@ -11041,7 +11002,7 @@ function headerFunciton() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\header.js */"./resources/js/partials/header.js");
+module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/header.js */"./resources/js/partials/header.js");
 
 
 /***/ })

@@ -11019,7 +11019,7 @@ function appendLeadingZeroes(n) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\sponsorship.js */"./resources/js/partials/sponsorship.js");
+module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/sponsorship.js */"./resources/js/partials/sponsorship.js");
 
 
 /***/ })
