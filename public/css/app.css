@@ -15723,12 +15723,13 @@ a.text-dark:focus {
   padding-left: 0;
 }
 
-.show .apt-img {
+.show .carousel-item {
+  height: 500px;
   margin-bottom: 50px;
 }
 
-.show .apt-img img {
-  width: 100%;
+.show .carousel-item img {
+  height: 100%;
 }
 
 .show #map {
@@ -15841,6 +15842,18 @@ a.text-dark:focus {
 
 #stats canvas {
   margin-bottom: 40px;
+}
+
+#messages label {
+  line-height: 1rem;
+  margin-bottom: 2px;
+  font-weight: bold;
+}
+
+#messages .date {
+  font-size: 15px;
+  margin-bottom: 0;
+  line-height: 1rem;
 }
 
 .app {
