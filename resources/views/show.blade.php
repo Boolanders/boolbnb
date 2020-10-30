@@ -85,16 +85,26 @@
                         <div class="form-group">
                             @auth 
                                 <label for="exampleFormControlInput1">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email address" name="email" value="{{ Auth::user()->email }}">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter your email address" name="email" value="{{ Auth::user()->email }}" required>
                             @else
                                 <label for="exampleFormControlInput1">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email address" name="email">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter your email address" name="email" required >
                             @endauth
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Message</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+                            <textarea class="form-control @error('message') is-invalid @enderror" id="exampleFormControlTextarea1" rows="3" name="message" minlength="3" maxlength="1000" required></textarea>
+                            @error('message')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-warning font-weight-bold rounded-pill" href="">Send</button>
                     </form>

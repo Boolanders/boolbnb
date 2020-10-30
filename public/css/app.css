@@ -15723,13 +15723,12 @@ a.text-dark:focus {
   padding-left: 0;
 }
 
-.show .carousel-item {
-  height: 500px;
+.show .apt-img {
   margin-bottom: 50px;
 }
 
-.show .carousel-item img {
-  height: 100%;
+.show .apt-img img {
+  width: 100%;
 }
 
 .show #map {
@@ -15846,14 +15845,22 @@ a.text-dark:focus {
 
 #messages label {
   line-height: 1rem;
-  margin-bottom: 2px;
   font-weight: bold;
+  margin-bottom: 2px;
+}
+
+#messages h6 {
+  line-height: 1rem;
+  margin-bottom: 0;
 }
 
 #messages .date {
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 0;
-  line-height: 1rem;
+}
+
+#messages .little-text {
+  font-size: 12px;
 }
 
 .app {
