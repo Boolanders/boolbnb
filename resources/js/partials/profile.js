@@ -7,6 +7,8 @@ function profile(){
     addDeleteBtnListener();
 
     addSwitchVisibilityListener();
+
+    disableSponsorButtons();
 }
 
 function addDeleteBtnListener(){
@@ -62,5 +64,20 @@ function addSwitchVisibilityListener() {
         });
 
 
+    });
+}
+
+function disableSponsorButtons(){
+
+    var target = $('.sponsor-button');
+
+    target.each(function(){
+
+        var dataSponsor = $(this).data('sponsor');
+
+        if(dataSponsor != ""){
+
+            $(this).addClass("disabled");
+        }
     });
 }

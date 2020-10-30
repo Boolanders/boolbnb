@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 
-    <div class="container margintop border rounded" style="background-image: url('https://www.vanzi.eu/media/k2/galleries/178/1920/_DSC3612.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="container margintop border rounded" style="background-image: url('{{ asset('/img/create_background.jpg')}}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
       <div id="create-cont" style="width: 90%;">
           <div class="form panel-transparent p-5 m-5 rounded z-depth-5 w-75" style="background:rgba(255,255,255, 0.8);">

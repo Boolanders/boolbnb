@@ -9,6 +9,7 @@ use App\Image;
 use App\Message;
 use App\Promotion;
 use App\Sponsorship;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -85,7 +86,7 @@ class LoggedController extends Controller {
         }
         
         
-        return redirect() -> route('profile', $id);
+        return redirect() -> route('profile', $id) -> with('status', 'Congratulations! Apartment created successfully');;
     }
 
 
@@ -181,7 +182,7 @@ class LoggedController extends Controller {
                 $img -> delete();
             }
         }
-        return redirect() -> route('profile', $usrid);
+        return redirect() -> route('profile', $usrid)-> with('status', 'Apartment updated successfully');
     }
 
 
@@ -191,7 +192,7 @@ class LoggedController extends Controller {
         $apt= Apartment::findOrFail($id);
         $usrid = Auth::user() -> id;
         $apt-> delete();
-        return redirect() -> route('profile', $usrid);
+        return redirect() -> route('profile', $usrid)-> with('status', 'Apartment deleted successfully');
     }
 
 
@@ -200,6 +201,20 @@ class LoggedController extends Controller {
     public function profile($id) {
 
         $apts= Apartment::where('user_id', '=', $id ) -> get();
+
+        foreach ($apts as $apt) {
+
+            $endDate = $apt -> sponsorships -> max('end_date');
+
+
+            if($endDate > date("Y-m-d h:i:sa")){
+
+                $apt['sponsored'] = Carbon::parse($endDate) -> format("d-m-Y H:i");
+            } else {
+
+                $apt['sponsored'] = false;
+            }
+        }
         return view('profile', compact('apts'));
     }
 
@@ -207,8 +222,14 @@ class LoggedController extends Controller {
 
     public function messages($id) {
 
-        $apts= Apartment::where('user_id', '=', $id ) -> get();
-        return view('messages', compact('apts'));
+        $msgs= Message::join('apartments', 'messages.apartment_id', '=', 'apartments.id')
+                        -> join('users', 'apartments.user_id', '=', 'users.id')
+                        -> where('users.id', '=', $id) 
+                        -> select('messages.*', 'apartments.title')
+                        -> orderByDesc('created_at')
+                        -> get();
+
+        return view('messages', compact('msgs'));
     }
 
 
@@ -217,26 +238,11 @@ class LoggedController extends Controller {
 
         $promos = Promotion::all();
 
-        return view ('sponsorship', compact('promos','id'));
+        $apt = Apartment::findOrFail($id);
+
+        return view ('sponsorship', compact('promos','apt'));
     }
 
-
-
-    public function sponsorship(request $request, $id){
-
-        $data = $request -> all();
-
-        $sponsorship = Sponsorship::where(
-            'promotion_id', '=', 
-            'apartment_id', '=', 
-            'start_date', '=', 
-            'end_date', '=', 
-
-        );
-    
-        return redirect() -> route('profile', $id);
-    
-    }
 
     public function stats($id) {
 
