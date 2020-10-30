@@ -222,9 +222,14 @@ class LoggedController extends Controller {
 
     public function messages($id) {
 
-        $apts= Apartment::where('user_id', '=', $id ) -> get();
+        $msgs= Message::join('apartments', 'messages.apartment_id', '=', 'apartments.id')
+                        -> join('users', 'apartments.user_id', '=', 'users.id')
+                        -> where('users.id', '=', $id) 
+                        -> select('messages.*', 'apartments.title')
+                        -> orderByDesc('created_at')
+                        -> get();
 
-        return view('messages', compact('apts'));
+        return view('messages', compact('msgs'));
     }
 
 
