@@ -59,7 +59,11 @@ class GuestController extends Controller
  
   public function storemsg(request $request, $id){
 
-      $data = $request -> all();
+      $data = $request -> validate([
+         'email' => 'required|email',
+         'message' => 'required|min:3|max:1000'
+      ]);
+
       $data['apartment_id'] = $id;
 
       $mail = Message::create($data);
