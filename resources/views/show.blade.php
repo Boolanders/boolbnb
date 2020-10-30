@@ -78,8 +78,8 @@
         <div class="row">
 
             <div class="col-xs-12 col-md-6 ">
-                <div class="show-map">
-                    <div id='map'></div>
+                <div class="show-map ">
+                    <div id='map' class="rounded"></div>
                 </div>
             </div>
 
