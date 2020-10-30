@@ -14,10 +14,10 @@
             </div>
         </div>
         @foreach ($apts as $apt)
-        <div class="media border rounded m-2 p-2 ">
+        <div class="media border rounded m-2 p-2 rounded">
                 @if (count($apt -> images))
                 <a href="{{ route('apt-show', $apt -> id) }}">
-                    <img src=" {{ $apt -> images -> first -> img -> img }} " class="mr-3 center-cropped align-self-center" alt="show">
+                    <img src=" {{ $apt -> images -> first -> img -> img }} " class="mr-3 center-cropped align-self-center rounded" alt="show">
                 </a>
                 @else
                 <a href="{{ route('apt-show', $apt -> id) }}">

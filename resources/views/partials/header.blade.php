@@ -7,7 +7,7 @@
       <div class="logo float-left">
         
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="{{ url('/') }}"><img src={{ asset('./img/stemma.png') }} alt="" class="img-fluid fixed-top"></a>
+        <a href="{{ url('/') }}"><img src={{ asset('./img/stemma.png') }} alt="" class="img-fluid"></a>
       </div>
 
       <button type="button" class="nav-toggle"><i class="fas fa-bars fa-1x"></i></button>

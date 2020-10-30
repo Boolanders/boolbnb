@@ -34,10 +34,10 @@
         <div class="row justify-content-center">
             <h1 class="col-md-12 mt-5">Appartamenti in evidenza</h1>
             @foreach ($apts as $apt)
-            <div class="col-xs-6 col-md-4">
+            <div class="col-xs-12 col-md-4">
             <a href="{{ route('apt-show', $apt -> id) }}">
-                <div class="card">
-                  <img class="card-img-top" src="{{ $apt['img'] }}" alt="">
+                <div class="card color">
+                  <img class="card-img-top rounded" src="{{ $apt['img'] }}" alt="">
                   <div class="card-img-overlay">
                     <h4 class="card-title">{{ $apt -> title }}</h4>
                     <p class="card-text">{{ $apt -> description }}</p>
