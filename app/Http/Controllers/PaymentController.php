@@ -8,11 +8,12 @@ use App\Apartment;
 use Carbon\Carbon;
 use Braintree\Gateway;
 use App\Promotion;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
 
-    public function promoPayment(Request $request, $id){ //id del Flat
+    public function sponsorshipPayment(Request $request, $id){ //id del Flat
     
         $gateway = new Gateway([
         'environment' => env('BRAINTREE_ENV'),
@@ -56,17 +57,20 @@ class PaymentController extends Controller
                 'promotion_id' => $promoId
             ]);
 
-            return redirect() -> route('home');
+
+            $usrId = Auth::user() -> id;
+
+            return redirect() -> route('profile', $usrId)-> with('status', 'Sponsorship created successfully');
 
       
         }else {
-            $errorString = "";
+            $errors = "";
 
             foreach($result->errors->deepAll() as $error) {
-                $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+                $errors .= 'Error: ' . $error->code . ": " . $error->message . "<br>";
             }
 
-            return response() -> json($errorString);
+            return back()-> with('error', $errors);
         }
     }
 }

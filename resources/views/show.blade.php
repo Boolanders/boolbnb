@@ -9,8 +9,11 @@
 @section('content')
 <div class="container">
     <div class="show margintop">
-
-
+        @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade show">
+            {{ session('status') }}
+        </div>
+        @endif
         <h1>{{ $apt -> title }}</h1>
         <h3>{{ $apt -> address }}</h3>
         <div class="col-md-12">

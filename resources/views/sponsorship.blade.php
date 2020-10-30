@@ -9,6 +9,11 @@
 <div class="container margintop">
     <section class="pricing pb-4">
         <div class="container">
+            @if (session('error'))
+                <div class="alert alert-danger alert-dismissible fade show">
+                    {!! session('error') !!}
+                </div>
+            @endif
             <h1 class="pb-4 text-center">Promote your apartment</h1>
             <div class="row pb-2">
                 @foreach($promos as $promo)
@@ -49,7 +54,7 @@
                               </tbody>
                         </table>
                     </div>
-                    <form id="payment-form" action="{{ route('apt-promo', $apt -> id) }}" method="post">
+                    <form id="payment-form" action="{{ route('apt-sponsorship', $apt -> id) }}" method="post">
                         @csrf
                         @method("POST")
                         

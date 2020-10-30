@@ -86,7 +86,7 @@ class LoggedController extends Controller {
         }
         
         
-        return redirect() -> route('profile', $id);
+        return redirect() -> route('profile', $id) -> with('status', 'Congratulations! Apartment created successfully');;
     }
 
 
@@ -182,7 +182,7 @@ class LoggedController extends Controller {
                 $img -> delete();
             }
         }
-        return redirect() -> route('profile', $usrid);
+        return redirect() -> route('profile', $usrid)-> with('status', 'Apartment updated successfully');
     }
 
 
@@ -192,7 +192,7 @@ class LoggedController extends Controller {
         $apt= Apartment::findOrFail($id);
         $usrid = Auth::user() -> id;
         $apt-> delete();
-        return redirect() -> route('profile', $usrid);
+        return redirect() -> route('profile', $usrid)-> with('status', 'Apartment deleted successfully');
     }
 
 
@@ -223,6 +223,7 @@ class LoggedController extends Controller {
     public function messages($id) {
 
         $apts= Apartment::where('user_id', '=', $id ) -> get();
+
         return view('messages', compact('apts'));
     }
 

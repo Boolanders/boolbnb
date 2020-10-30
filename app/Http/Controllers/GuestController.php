@@ -64,7 +64,7 @@ class GuestController extends Controller
 
       $mail = Message::create($data);
   
-      return redirect() -> route('home');
+      return back()-> with('status', 'Message send successfully');
   
   }
 

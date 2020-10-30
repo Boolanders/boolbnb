@@ -8,6 +8,11 @@
 
 <div class="container">
   <div class="profile margintop">
+    @if (session('status'))
+    <div class="alert alert-success alert-dismissible fade show">
+        {{ session('status') }}
+    </div>
+    @endif
     <div class="row">
         <div class="col-12 text-center p-3">
             <a class="btn btn-warning rounded-pill font-weight-bold" href="{{route('apt-create') }}">Add Apartment</a>
