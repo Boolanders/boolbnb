@@ -9,7 +9,7 @@
                     <div class="col-md-3">
                         <div class="py-1">
                             <label>Email: </label>
-                            <a href="mailto:{{ $msg -> email }}" class="m-0"><h6 class="m-0">{{ $msg -> email }}</h6></a>
+                            <a href="mailto:{{ $msg -> email }}" class="m-0"><h6 class="m-0">{{ $msg -> email }} <span class="little-text">(Click here to reply)</span></h6></a>
                         </div>
                         <div class="py-1">
                             <label>Apartment: </label> <br>
