@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -11012,14 +11012,14 @@ function appendLeadingZeroes(n) {
 
 /***/ }),
 
-/***/ 8:
+/***/ 7:
 /*!****************************************************!*\
   !*** multi ./resources/js/partials/sponsorship.js ***!
   \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/sponsorship.js */"./resources/js/partials/sponsorship.js");
+module.exports = __webpack_require__(/*! C:\Users\Vincenzo\Desktop\BooleanCareers\Github-project\boolbnb\resources\js\partials\sponsorship.js */"./resources/js/partials/sponsorship.js");
 
 
 /***/ })
