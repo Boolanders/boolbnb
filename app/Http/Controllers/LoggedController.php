@@ -240,7 +240,19 @@ class LoggedController extends Controller {
 
         $apt = Apartment::findOrFail($id);
 
-        return view ('sponsorship', compact('promos','apt'));
+        $endDate = $apt -> sponsorships -> max('end_date');
+
+        if ($endDate > Carbon::now()) {
+
+            $apt['sponsored'] = true;
+            $startDate = $endDate;
+        } else {
+
+            $apt['sponsored'] = false;
+            $startDate = Carbon::now();
+        }
+
+        return view ('sponsorship', compact('promos','apt', 'startDate'));
     }
 
 

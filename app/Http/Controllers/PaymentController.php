@@ -22,7 +22,7 @@ class PaymentController extends Controller
         'privateKey' => env('BRAINTREE_PRIVATE_KEY')
         ]);
 
-        $promoId = $request['promo-id'];
+        $promoId = $request['promo_id'];
 
         $promo = Promotion::where('id', '=', $promoId) -> first();
 
@@ -46,9 +46,9 @@ class PaymentController extends Controller
         // Se la transazione ha avuto successo
         if ($result->success || !is_null($result->transaction)) {
             
-            $startDate = Carbon::now();
+            $endDate = Carbon::parse($request['start_date']) -> addHours($hours);
 
-            $endDate = Carbon::now() -> addHours($hours);
+            $startDate = $request['start_date'] ;
 
             Sponsorship::create([
                 'start_date' => $startDate,

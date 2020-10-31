@@ -8,7 +8,7 @@ function profile(){
 
     addSwitchVisibilityListener();
 
-    disableSponsorButtons();
+    //disableSponsorButtons();
 }
 
 function addDeleteBtnListener(){
