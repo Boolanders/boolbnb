@@ -1,12 +1,8 @@
 
-<script src="{{ asset('/js/partials/header.js')}}"></script>
-
 <header id="header">
     <div class="container-fluid">
 
       <div class="logo float-left">
-        
-        <!-- Uncomment below if you prefer to use an image logo -->
         <a href="{{ url('/') }}"><img src={{ asset('./img/stemma.png') }} alt="" class="img-fluid"></a>
       </div>
 
