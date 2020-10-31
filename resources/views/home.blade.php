@@ -15,7 +15,7 @@
             @csrf
             @method('POST')
               <div class="d-flex justify-content-center align-items-center">
-                <div class="search-wrapper mr-3 input-group md-form form-sm form-2 pl-0">
+                <div class="search-wrapper mr-3 input-group md-form form-sm form-2 pl-0 text-left">
                     <input id="search-address-input" name="address" class="form-control my-0 py-1 red-border rounded-pill" type="search" placeholder="Search" aria-label="Search" required min="3">
                     <div class="d-none">
                        <input id="latitude" name="lat" type="text">
