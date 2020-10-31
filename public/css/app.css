@@ -15746,19 +15746,16 @@ footer {
   }
 }
 
-.profile .media img[alt=show] {
+.profile .media .image-faker {
   cursor: pointer;
 }
 
-.profile .center-cropped {
-  -o-object-fit: 0.5;
-     object-fit: 0.5;
-  /* Do not scale the image */
-  -o-object-position: center;
-     object-position: center;
-  /* Center the image within the element */
+.profile .image-faker {
   height: 100px;
   width: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .profile .media-body .txt {

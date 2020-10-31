@@ -1,14 +1,16 @@
 .profile{
 
 
-    .media img[alt="show"]{
+    .media .image-faker{
         cursor: pointer;
     }
-    .center-cropped {
-        object-fit: .5; /* Do not scale the image */
-        object-position: center; /* Center the image within the element */
+    .image-faker {
         height: 100px;
         width: 100px;
+
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 
     .media-body .txt{
