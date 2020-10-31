@@ -62,13 +62,6 @@ function sendRequestSearch() {
    var rooms = $('#rooms').val();
    var beds = $('#beds').val();
 
-    console.log('lat' , lat,
-                'lon', lon,
-                'dist', dist,
-                'srvs', srvs,
-                'rooms', rooms,
-                'beds', beds);
-
     $.ajax({
 
         url: '/api/search',
