@@ -10982,8 +10982,7 @@ $(document).ready(profile);
 
 function profile() {
   addDeleteBtnListener();
-  addSwitchVisibilityListener();
-  disableSponsorButtons();
+  addSwitchVisibilityListener(); //disableSponsorButtons();
 }
 
 function addDeleteBtnListener() {

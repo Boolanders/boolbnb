@@ -1,5 +1,7 @@
 @extends('layouts.main-layout')
-
+@section('import')
+<script src="{{ asset('/js/partials/messages.js')}} "></script> 
+@endsection
 @section('content')
 <div id="messages">
     <div class="container margintop">

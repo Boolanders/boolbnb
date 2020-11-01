@@ -40,3 +40,5 @@ Route::get('/stats/{id}', 'LoggedController@stats') -> name('apt-stats');
 Route::get('/getStats', 'ApiController@getStats');
 
 Route::post('/sponsorship/{id}', 'PaymentController@sponsorshipPayment') -> name('apt-sponsorship');
+
+Route::get('/allRead', 'LoggedController@allRead');
