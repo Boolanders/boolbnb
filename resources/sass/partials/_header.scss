@@ -86,7 +86,18 @@
     right: 275px;
   }
 
-  
+  .dot{
+    width: 8px;
+    height: 8px;
+
+    position: absolute;
+
+    top: 0.5rem;
+    right: 0.5rem;
+
+    border-radius: 50%;
+    background-color: $warning;
+  }
 }
 
 

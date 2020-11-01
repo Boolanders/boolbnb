@@ -15597,6 +15597,16 @@ a.text-dark:focus {
   right: 275px;
 }
 
+#header .dot {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border-radius: 50%;
+  background-color: #FD044F;
+}
+
 footer {
   background-color: rgba(241, 128, 14, 0.479) !important;
   margin-top: 20px;

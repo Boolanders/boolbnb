@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10970,67 +10970,43 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./resources/js/partials/sponsorship.js":
-/*!**********************************************!*\
-  !*** ./resources/js/partials/sponsorship.js ***!
-  \**********************************************/
+/***/ "./resources/js/partials/messages.js":
+/*!*******************************************!*\
+  !*** ./resources/js/partials/messages.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(document).ready(sponsorship);
+$(document).ready(messages);
 
-function sponsorship() {
-  $('.choose').on('click', choosePromotion);
+function messages() {
+  allRead();
 }
 
-function choosePromotion() {
-  // mostro graficamente quale promozione è stata scelta
-  $('.card.promo').removeClass('fixed-hover');
-  $(this).parents('.card.promo').addClass('fixed-hover'); // valorizzo l'input nascosto con l'id della promozione selezionata
-
-  var id = $(this).data('id');
-  var targetId = $('#promo_id');
-  targetId.val(id); // stampo la card con i dettagli dell'ordine
-
-  var targetPrice = $('#details-price');
-  var targetDate = $('#details-ending');
-  var price = $(this).parents('.promo').data('price');
-  var hours = $(this).parents('.promo').data('hours');
-  var endDate = getEndDate(hours);
-  targetPrice.text(price);
-  targetDate.text(endDate);
-  $('#order-container').removeClass('d-none');
+function allRead() {
+  $.ajax({
+    url: '/allRead',
+    method: 'GET',
+    success: function success(data) {
+      console.log(data);
+    },
+    error: function error(err) {
+      console.log(err);
+    }
+  });
 }
-
-function getEndDate(hours) {
-  var startDate = $('#start_date').val();
-  var endDate = new Date(startDate);
-  endDate.setHours(endDate.getHours() + hours);
-  var formattedEndDate = appendLeadingZeroes(endDate.getDate()) + "/" + appendLeadingZeroes(endDate.getMonth() + 1) + "/" + endDate.getFullYear() + " " + appendLeadingZeroes(endDate.getHours()) + ":" + appendLeadingZeroes(endDate.getMinutes());
-  return formattedEndDate;
-}
-
-function appendLeadingZeroes(n) {
-  if (n <= 9) {
-    return "0" + n;
-  }
-
-  return n;
-}
-
-;
 
 /***/ }),
 
-/***/ 8:
-/*!****************************************************!*\
-  !*** multi ./resources/js/partials/sponsorship.js ***!
-  \****************************************************/
+/***/ 9:
+/*!*************************************************!*\
+  !*** multi ./resources/js/partials/messages.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/sponsorship.js */"./resources/js/partials/sponsorship.js");
+module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/messages.js */"./resources/js/partials/messages.js");
 
 
 /***/ })

@@ -260,4 +260,23 @@ class LoggedController extends Controller {
 
         return view('stats', compact('id'));
     }
+
+    public function allRead(){
+
+        $usrId = Auth::user() -> id;
+
+        $apts = Apartment::where('user_id', '=', $usrId) -> get();
+
+        $aptsId = [];
+
+        foreach ($apts as $apt) {
+
+            $aptsId[] = $apt -> id;
+        }
+
+        $msgs = Message::whereIn('apartment_id', $aptsId) -> update(['read' => 1]);
+
+
+        return response() -> json(['success' => 'success']);
+    }
 }

@@ -18,6 +18,7 @@ class CreateMessagesTable extends Migration
 
             $table -> text('message');
             $table -> string('email');
+            $table -> boolean('read') -> default(0);
             $table -> bigInteger('apartment_id') -> unsigned();
 
             $table -> timestamps();
