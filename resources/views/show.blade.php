@@ -12,28 +12,37 @@
         @if (session('status'))
         <div class="alert alert-success alert-dismissible fade show">
             {{ session('status') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         @endif
         <h1>{{ $apt -> title }}</h1>
         <h3>{{ $apt -> address }}</h3>
         <div class="col-md-12">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{ $apt -> images -> first -> img -> img }}" alt="">
-                </div>
-                @foreach($apt->images as $img)
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ $img -> img }}" alt="">
-                </div>
-                @endforeach
+            <div id="carouselExampleControls" class="carousel slide" role="listbox" data-ride="carousel">
+              <div class="carousel-inner my-5">
+                @if (count($imgs))
+                    @foreach($imgs as $img)
+                    <div class="carousel-item 
+                        @if($loop -> first) 
+                            active
+                        @endif
+                        " style="background-image: url('{{ $img -> img }}')">
+                            {{-- <img class="d-block w-100" src="{{ $img -> img }}" alt=""> --}}
+                    </div>
+                    @endforeach 
+                @else
+                    <div class="carousel-item active" style="background-image: url('/img/image-not-found.png')">
+                    </div> 
+                @endif
               </div>
               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fas fa-angle-left"></i></span>
                 <span class="sr-only">Previous</span>
               </a>
               <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="carousel-control-next-icon" aria-hidden="true"><i class="fas fa-angle-right"></i></span>
                 <span class="sr-only">Next</span>
               </a>
             </div>

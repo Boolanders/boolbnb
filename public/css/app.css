@@ -15826,11 +15826,24 @@ footer {
 
 .show .carousel-item {
   height: 500px;
-  margin-bottom: 50px;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
-.show .carousel-item img {
-  height: 100%;
+.show .carousel-control-prev-icon,
+.show .carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  background-size: 100%, 100%;
+  background-image: none;
+}
+
+.show .carousel-control-next-icon,
+.show .carousel-control-prev-icon {
+  font-size: 55px;
+  color: #6c757d;
 }
 
 .show #map {

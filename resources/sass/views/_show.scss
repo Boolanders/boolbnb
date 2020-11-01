@@ -27,14 +27,29 @@
     .carousel-item {
 
         height: 500px ;
+        width: 100%;
 
-        img {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
 
-            height: 100%;
-        }
-
-        margin-bottom: 50px;
     }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    background-size: 100%, 100%;
+
+    background-image: none;
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon{
+    font-size: 55px;
+    color: $secondary;
+    }
+
 
     #map {
 
