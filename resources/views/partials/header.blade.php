@@ -1,13 +1,15 @@
 
-@php
-    $usrId = Auth::user() -> id;
+@auth  
+    @php
+        $usrId = Auth::user() -> id;
 
-    $msgs = App\Apartment::where('user_id', '=', $usrId) 
-            -> join('messages', 'messages.apartment_id', '=', 'apartments.id')
-            -> where('messages.read', '=', '0')
-            -> count();
+        $msgs = App\Apartment::where('user_id', '=', $usrId) 
+                -> join('messages', 'messages.apartment_id', '=', 'apartments.id')
+                -> where('messages.read', '=', '0')
+                -> count();
 
-@endphp
+    @endphp
+@endauth
 <header id="header">
     <div class="container-fluid">
 
