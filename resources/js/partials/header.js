@@ -6,7 +6,7 @@ $(document).ready(header)
 function header() {
 
     headerFunciton()
-    
+    scrollLogo()
 }
 
 
@@ -23,4 +23,20 @@ function headerFunciton() {
         });
       
 
+}
+
+function scrollLogo() {
+
+    $( window ).scroll(function() {
+
+      if($(window).scrollTop() > 10) {
+
+        $( "#logo1" ).fadeOut()
+        $("#logo2").show()
+      }else {
+
+        $( "#logo1" ).fadeIn()
+        $("#logo2").hide()
+      }
+  })
 }
