@@ -24,6 +24,7 @@
         </div>
         <canvas id="myMessagesChart"></canvas>
     </div>
+    <a class="btn btn-secondary float-right" href="{{ URL::previous() }}">Go Back</a>
 </div>
 
 @endsection
