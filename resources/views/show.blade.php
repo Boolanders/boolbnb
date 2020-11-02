@@ -22,14 +22,21 @@
         <div class="col-md-12">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
+                @if (count($imgs))
+                    @foreach($imgs as $img)
+                    <div class="carousel-item
+                        @if($loop -> first)
+                        active
+                        @endif
+                    ">
+                        <img class="d-block w-80 mx-auto" src="{{ $img -> img }}" alt="">
+                    </div>
+                    @endforeach  
+                @else
                 <div class="carousel-item active">
-                    <img class="d-block w-80 mx-auto" src="{{ $apt -> images -> first -> img -> img }}" alt="">
+                    <img class="d-block w-80 mx-auto" src="/img/image-not-found.png" alt="">
                 </div>
-                @foreach($apt->images as $img)
-                <div class="carousel-item">
-                    <img class="d-block w-80 mx-auto" src="{{ $img -> img }}" alt="">
-                </div>
-                @endforeach
+                @endif
               </div>
               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
