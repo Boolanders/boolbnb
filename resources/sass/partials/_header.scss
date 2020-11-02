@@ -8,7 +8,7 @@
 
   .logo{
     //background-color: rgba(34, 34, 34, 0.5);
-    position: fixed;
+    position: absolute;
     top: 15px;
     left: 15px;
   }
@@ -98,7 +98,16 @@
     border-radius: 50%;
     background-color: $warning;
   }
+
+  @include media-breakpoint-up(md) { 
+      .logo {
+      
+          position: fixed;
+      }
+      
+  }
 }
+
 
 
 

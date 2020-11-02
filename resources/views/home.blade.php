@@ -22,7 +22,7 @@
                        <input id="longitude" name="lon" type="text">
                     </div>
                 </div>
-                <button type="submit"class="btn btn-warning font-weight-bold rounded-pill">Search</button>
+                <button type="submit"class="btn btn-warning font-weight-bold rounded-pill border-white">Search</button>
 
               </div>
 
