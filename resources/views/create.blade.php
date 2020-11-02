@@ -9,6 +9,7 @@
 
       <div id="create-cont" style="width: 90%; margin: 20px;">
           <div class="form panel-transparent p-5 rounded z-depth-5 w-75" style="background:rgba(255,255,255, 0.8);">
+
               <form action="{{ route('apt-store') }}" enctype="multipart/form-data" method="post" class="form-create-border">
                 <h1 style="font-weight: bold; text-align: center; margin-bottom: 25px;">Create an Apartment</h1>
 

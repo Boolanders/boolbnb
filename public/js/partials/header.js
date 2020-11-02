@@ -10990,6 +10990,7 @@ function headerFunciton() {
     $('.nav-menu').toggleClass('nav-menu-active');
     $('.nav-toggle').toggleClass('nav-toggle-active');
     $('.nav-toggle i').toggleClass('fa-times');
+    $('#hamburger-dot').toggle();
   });
 }
 

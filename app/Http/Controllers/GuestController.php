@@ -52,8 +52,10 @@ class GuestController extends Controller
       ]);
 
       $apt = Apartment::findOrFail($id);
+
+      $imgs = Image::where('apartment_id', '=', $id) -> get();
       
-      return view ('show', compact('apt'));
+      return view ('show', compact('apt', 'imgs'));
    }
 
  

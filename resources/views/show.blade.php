@@ -2,7 +2,7 @@
 
 @section('import')
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' /> 
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 <script src="{{ asset('/js/partials/map.js')}}"></script>
 @endsection
 
@@ -12,6 +12,9 @@
         @if (session('status'))
         <div class="alert alert-success alert-dismissible fade show">
             {{ session('status') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         @endif
         <h1>{{ $apt -> title }}</h1>
@@ -19,14 +22,21 @@
         <div class="col-md-12">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
+                @if (count($imgs))
+                    @foreach($imgs as $img)
+                    <div class="carousel-item
+                        @if($loop -> first)
+                        active
+                        @endif
+                    ">
+                        <img class="d-block w-80 mx-auto" src="{{ $img -> img }}" alt="">
+                    </div>
+                    @endforeach
+                @else
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{ $apt -> images -> first -> img -> img }}" alt="">
+                    <img class="d-block w-80 mx-auto" src="/img/image-not-found.png" alt="">
                 </div>
-                @foreach($apt->images as $img)
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ $img -> img }}" alt="">
-                </div>
-                @endforeach
+                @endif
               </div>
               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -40,7 +50,7 @@
         </div>
 
         <div class="row">
-            
+
             <div class="col-md-6">
                 <div class="description">
                     <h5>Description</h5>
@@ -53,9 +63,9 @@
                     <h5>Services</h5>
                     <ul>
                         @foreach ($apt -> services as $srv)
-    
+
                         <li><i class="px-1 {{ $srv -> icon }} "></i>  {{ $srv -> name }}</li>
-    
+
                         @endforeach
                     </ul>
                 </div>
@@ -71,7 +81,7 @@
                         <li> <i class="px-2 fas fa-couch"></i>Rooms: {{ $apt -> room_qt }} </li>
                     </ul>
                 </div>
-                
+
             </div>
         </div>
 
@@ -88,7 +98,7 @@
                 <span id="log-secrt" data-number="{{ $apt -> longitude }}"></span>
             </div>
 
-            <div class="col-xs-12 col-md-6">
+              <div class="col-xs-12 col-md-6 card">
                 <div class="message">
                     <h5>Contact Host</h5>
                     <form action="{{ route('apt-storemsg', $apt -> id) }}" method="post">
@@ -96,7 +106,7 @@
                     @method ('post')
 
                         <div class="form-group">
-                            @auth 
+                            @auth
                                 <label for="exampleFormControlInput1">Email address</label>
                                 <input type="email" class="form-control @error('email') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter your email address" name="email" value="{{ Auth::user()->email }}" required>
                             @else
@@ -121,17 +131,13 @@
                         </div>
                         <button type="submit" class="btn btn-warning font-weight-bold rounded-pill" href="">Send</button>
                     </form>
+                  </div>
                 </div>
-            </div>
+
         </div>
-            <a class="btn btn-secondary float-right" href="{{ URL::previous() }}">Go Back</a>
+            <a class="btn btn-secondary float-right mt-3 btnContact" href="{{ URL::previous() }}">Go Back</a>
     </div>
 </div>
 
 
 @endsection
-
-
-
-
-

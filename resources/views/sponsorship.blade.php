@@ -12,9 +12,17 @@
             @if (session('error'))
                 <div class="alert alert-danger alert-dismissible fade show">
                     {!! session('error') !!}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             @endif
-            <h1 class="pb-4 text-center">Promote your apartment</h1>
+            @if ($apt -> sponsored)
+                <h1 class="pb-4 text-center">This apartment is already sponsored until: {{ Carbon\Carbon::parse($startDate) -> format("d/m/Y H:i") }}</h1>
+                <h1 class="pb-4 text-center">Add More Hours!</h1>
+                @else
+                <h1 class="pb-4 text-center">Promote your apartment</h1>
+            @endif
             <div class="row pb-2">
                 @foreach($promos as $promo)
                 <div class="my-3 col-sm-8 offset-sm-2 offset-lg-0 col-lg-4">
@@ -59,7 +67,8 @@
                         @method("POST")
                         
                         <div id="bt-dropin"></div>
-                        <input type="number" name="promo-id" id="promo-id" class="d-none" required>
+                        <input type="number" name="promo_id" id="promo_id" class="d-none" required>
+                        <input type="text" name='start_date' id="start_date" class="d-none" value="{{ $startDate }} " required>
                         <input id="nonce" name="payment_method_nonce" type="hidden">
                     
                         <button class="btn btn-warning rounded-pill" type="submit">

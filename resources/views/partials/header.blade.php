@@ -1,4 +1,15 @@
 
+@auth  
+    @php
+        $usrId = Auth::user() -> id;
+
+        $msgs = App\Apartment::where('user_id', '=', $usrId) 
+                -> join('messages', 'messages.apartment_id', '=', 'apartments.id')
+                -> where('messages.read', '=', '0')
+                -> count();
+
+    @endphp
+@endauth
 <header id="header">
     <div class="container-fluid">
 
@@ -6,7 +17,17 @@
         <a href="{{ url('/') }}"><img src={{ asset('./img/stemma.png') }} alt="" class="img-fluid"></a>
       </div>
 
-      <button type="button" class="nav-toggle"><i class="fas fa-bars fa-1x"></i></button>
+      <button type="button" class="nav-toggle"><i class="fas fa-bars fa-1x"></i>
+    
+        @auth
+
+            @if ($msgs)
+                <div id="hamburger-dot" class="dot"></div>
+            @endif
+            
+        @endauth
+    
+      </button>
       <nav class="nav-menu">
         <ul>
             @guest
@@ -31,8 +52,15 @@
                         </a>
                     </li> 
                     <li>
-                        <a class="" href="{{ route('messages', Auth::user() -> id) }}">
+                        <a class="d-inline-block" href="{{ route('messages', Auth::user() -> id) }}">
                             My Messages
+                            @auth
+
+                                @if ($msgs)
+                                    <div class="dot"></div>
+                                @endif
+                                
+                            @endauth
                         </a>
                     </li>  
                     <li>

@@ -27,7 +27,7 @@ Route::get('/messages/{id}', 'LoggedController@messages') -> name('messages');
 
 Route::post('/send/message/{id}', 'GuestController@storemsg' ) -> name('apt-storemsg');
 
-Route::post('/api/to/search', 'GuestController@toSearch') -> name('to-search');
+Route::get('/api/to/search', 'GuestController@toSearch') -> name('to-search');
 
 Route::get('/api/search', 'ApiController@search');
 
@@ -40,3 +40,5 @@ Route::get('/stats/{id}', 'LoggedController@stats') -> name('apt-stats');
 Route::get('/getStats', 'ApiController@getStats');
 
 Route::post('/sponsorship/{id}', 'PaymentController@sponsorshipPayment') -> name('apt-sponsorship');
+
+Route::get('/allRead', 'LoggedController@allRead');

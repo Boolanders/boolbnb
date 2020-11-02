@@ -13,6 +13,8 @@ function search() {
     addShowListener();
     
     sendRequestSearch();
+
+    addResizeListener();
 }
 
 
@@ -62,13 +64,6 @@ function sendRequestSearch() {
    var rooms = $('#rooms').val();
    var beds = $('#beds').val();
 
-    console.log('lat' , lat,
-                'lon', lon,
-                'dist', dist,
-                'srvs', srvs,
-                'rooms', rooms,
-                'beds', beds);
-
     $.ajax({
 
         url: '/api/search',
@@ -83,8 +78,6 @@ function sendRequestSearch() {
         method: 'GET',
         success: function(data) {
 
-            console.log(data);
-
             if(data.length == 0){
 
                 $('#sponsored').html('');
@@ -93,6 +86,7 @@ function sendRequestSearch() {
 
                 printCards(data);
                 printServiceIcon(data);
+                resizeImages();
             }
 
         },
@@ -175,4 +169,21 @@ function printServiceIcon(data){
         }
 
     });
+}
+
+function resizeImages(){
+
+    var target = $('.image-faker');
+
+    target.each(function(){
+        
+        var w = $(this).width();
+
+        $(this).css('min-height', w);
+    });
+}
+
+function addResizeListener(){
+
+    $(window).resize(resizeImages);
 }

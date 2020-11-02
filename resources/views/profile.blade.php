@@ -11,6 +11,9 @@
     @if (session('status'))
     <div class="alert alert-success alert-dismissible fade show">
         {{ session('status') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     @endif
     <div class="row">
@@ -26,18 +29,20 @@
           <div class="media align-items-stretch p-1" >
             @if (count($apt -> images))
             <a href="{{ route('apt-show', $apt -> id) }}">
-                <img src=" {{ $apt -> images -> first -> img -> img }} " class="mr-3 center-cropped align-self-center rounded" alt="show">
+              <div class="image-faker" style="background-image: url('{{ $apt -> images -> first -> img -> img }}')">
+              </div>
             </a>
             @else
             <a href="{{ route('apt-show', $apt -> id) }}">
-                <img src=" {{ asset('img/image-not-found.png') }} " class="mr-3 center-cropped align-self-center rounded" alt="show">
+              <div class="image-faker" style="background-image: url('{{ asset('img/image-not-found.png') }}')">
+              </div>
             </a>
             @endif
 
-            <div class="media-body d-flex flex-column justify-content-between">
+            <div class="media-body pl-2 d-flex flex-column justify-content-between">
               <a href=" {{ route('apt-show', $apt -> id) }} ">
-                  <h3 class="mt-0 mb-1 mr-2"> {{ $apt -> title }} </h3>
-                  <div class="txt mr-3">
+                  <h3 class="mt-0 mb-1 mr-2 text-capitalize"> {{ $apt -> title }} </h3>
+                  <div class="txt mr-3 font-italic">
                         {{ $apt -> address }}
                   </div>
               </a>
