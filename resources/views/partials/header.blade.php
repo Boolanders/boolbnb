@@ -14,7 +14,7 @@
     <div class="container-fluid">
 
       <div class="logo float-left">
-        <a href="{{ url('/') }}"><img src={{ asset('./img/stemma.png') }} alt="" class="img-fluid"></a>
+        <a href="{{ url('/') }}"><img src={{ asset('./img/logo.png') }} alt="" class="img-fluid"></a>
       </div>
 
       <button type="button" class="nav-toggle"><i class="fas fa-bars fa-1x"></i>
