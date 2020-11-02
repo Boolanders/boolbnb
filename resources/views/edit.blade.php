@@ -19,7 +19,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                       <label for="">Title</label>
-                      <input class="form-control  @error('title') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}" minlength="3" maxlength="60" required>
+                      <input class="form-control  @error('title') is-invalid @enderror" type="text" name="title" value="{{ $apt -> title }}" minlength="3" maxlength="60" required>
                       <span class="validity text-muted">The title must be 3 - 60 character length</span>
                       @error('title')
                           <span class="invalid-feedback" role="alert">
@@ -93,7 +93,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="">Description</label>
-                  <textarea name="description" class="form-des form-control @error('description') is-invalid @enderror" name="description" cols="30" rows="10" minlength="3" maxlength="1000" required>{{ old('description') }}</textarea>
+                  <textarea name="description" class="form-des form-control @error('description') is-invalid @enderror" name="description" cols="30" rows="10" minlength="3" maxlength="1000" required>{{ $apt -> description }}</textarea>
                   <span class="validity text-muted">The description must be 3 - 1000 character length</span>
                   @error('description')
                       <span class="invalid-feedback" role="alert">
