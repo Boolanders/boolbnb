@@ -31,12 +31,11 @@ function scrollLogo() {
 
       if($(window).scrollTop() > 10) {
 
-        $( "#logo1" ).fadeOut()
-        $("#logo2").show()
+        $( "#logo2" ).fadeOut()
+        
       }else {
 
-        $( "#logo1" ).fadeIn()
-        $("#logo2").hide()
+        $( "#logo2" ).fadeIn()   
       }
   })
 }

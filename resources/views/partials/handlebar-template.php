@@ -1,7 +1,7 @@
 <script id="apt-template" type="text/x-handlebars-template">
 
   <div class="col-md-6">
-    <div class="card my-2 show-apt-link rounded" style="max-width: 540px;" data-id="{{id}}">
+    <div class="card my-2 show-apt-link rounded shadow bg-white p-2" style="max-width: 540px;" data-id="{{id}}">
         <div class="row no-gutters">
           <div class="col-lg-4 p-1">
           <div class="image-faker rounded" style="background-image: url('{{ img }}')"></div>

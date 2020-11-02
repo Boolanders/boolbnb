@@ -15,8 +15,8 @@
 
       <div class="logo float-left">
         <a href="{{ url('/') }}">
-            <img src={{ asset('./img/stemma.png') }} alt="" id="logo1" class="img-fluid">
-            <img src={{ asset('./img/stemmino.png') }} alt="" id="logo2" calss="img-fluid">
+            <img src={{ asset('./img/stemmino.png') }} alt="" id="logo1" class="img-fluid">
+            <img src={{ asset('./img/scritta.png') }} alt="" id="logo2" calss="img-fluid d-none">
         </a>
       </div>
 

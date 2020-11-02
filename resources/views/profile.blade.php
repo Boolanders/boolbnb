@@ -23,7 +23,7 @@
     </div>
 
     @foreach ($apts as $apt)
-      <div class="row border rounded m-3">
+      <div class="row border rounded m-3 p-2 shadow bg-white">
         <div class="col-md-8 px-1">
 
           <div class="media align-items-stretch p-1" >
