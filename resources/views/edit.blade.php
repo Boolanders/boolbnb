@@ -1,43 +1,33 @@
-
 @extends('layouts.main-layout')
-@section('import') 
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>  
+@section('import')
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script src="{{ asset('/js/partials/create.js')}} "></script>
 @endsection
 @section('content')
 
-<div class="container margintop">
+ <div class="container margintop border rounded" style="background-image: url('{{ asset('/img/create_background.jpg')}}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
-    <div id="edit-cont">
-        <div class="form">
+    <div id="edit-cont" style="width: 90%; margin: 20px;">
+        <div class="form panel-transparent p-5 rounded z-depth-5 w-75" style="background:rgba(255,255,255, 0.8);">
 
             <form action="{{ route('apt-update', $apt -> id) }}" enctype="multipart/form-data" method="post" class="form-create-border">
-    
+              <h1 style="font-weight: bold; text-align: center; margin-bottom: 25px;">Edit your Apartment</h1>
+
                 @csrf
                 @method ('post')
-                <h4>Information</h4>
-                <div class="form-group">
-                    <label for="">Title</label>
-                    <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" minlength="3" maxlength="60" required value="{{ $apt -> title }}">
-                    <span class="validity text-muted">The title must be 3 - 60 character length</span>
-                    @error('title')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-    
-                <div class="form-group">
-                    <label for="">Description</label>
-                    <textarea class="form-control @error('description') is-invalid @enderror" name="description" cols="30" rows="10" minlength="3" maxlength="1000" required >{{ $apt -> description }}</textarea>
-                    <span class="validity text-muted">The description must be 3 - 1000 character length</span>
-                    @error('description')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-    
+              <div class="row font-weight-bold">
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="">Title</label>
+                      <input class="form-control  @error('title') is-invalid @enderror" type="text" name="title" value="{{ old('title') }}" minlength="3" maxlength="60" required>
+                      <span class="validity text-muted">The title must be 3 - 60 character length</span>
+                      @error('title')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                  </div>
+
                 <div class="form-group">
                     <label for="">Address</label>
                     <input class="form-control @error('address') is-invalid @enderror" type="search" id="address-input" name="address" minlength="3" maxlength="230" required value="{{ $apt -> address }}">
@@ -53,7 +43,7 @@
                     <input id="longitude" class="form-control" type="text" name="longitude" value="{{ $apt -> longitude }}">
                     <input id="latitude" class="form-control" type="text" name="latitude" value="{{ $apt -> latitude }}">
                 </div>
-    
+
                 <div class="form-group">
                     <label for="">Room Quantity</label>
                     <input class="form-control @error('room_qt') is-invalid @enderror" type="number" name="room_qt" min="1" max="20" required value="{{ $apt -> room_qt }}">
@@ -64,7 +54,7 @@
                         </span>
                     @enderror
                 </div>
-    
+
                 <div class="form-group">
                     <label for="">Bed Quantity</label>
                     <input class="form-control @error('bed_qt') is-invalid @enderror" type="number" name="bed_qt" min="1" max="50" required value="{{ $apt -> bed_qt }}">
@@ -75,10 +65,10 @@
                         </span>
                     @enderror
                 </div>
-    
+
                 <div class="form-group">
                     <label for="">Bathroom Quantity</label>
-                    <input class="form-control @error('bathroom_qt') is-invalid @enderror" type="number" name="bathroom_qt" min="1" max="8" required value="{{ $apt -> bathroom_qt }}"> 
+                    <input class="form-control @error('bathroom_qt') is-invalid @enderror" type="number" name="bathroom_qt" min="1" max="8" required value="{{ $apt -> bathroom_qt }}">
                     <span class="validity text-muted">Accepted range of values: 1 - 8</span>
                     @error('bathroom_qt')
                         <span class="invalid-feedback" role="alert">
@@ -86,7 +76,7 @@
                         </span>
                     @enderror
                 </div>
-    
+
                 <div class="form-group">
                     <label for="">Square Meters</label>
                     <input class="form-control @error('mq') is-invalid @enderror" type="number" name="mq"  min="15" max="5000" required value="{{ $apt -> mq }}">
@@ -98,8 +88,21 @@
                     @enderror
                 </div>
 
-                <h4>Images</h4>
-                
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Description</label>
+                  <textarea name="description" class="form-control @error('description') is-invalid @enderror" style="width: 100%; height: 150px;" name="description" cols="30" rows="10" minlength="3" maxlength="1000" required>{{ old('description') }}</textarea>
+                  <span class="validity text-muted">The description must be 3 - 1000 character length</span>
+                  @error('description')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+                </div>
+
+
                 @if (count($imgs))
                 <div class="row py-2">
                     <div class="col-12 border d-flex p-2 align-items-center flex-nowrap flex-sm-row overflow-auto">
@@ -119,7 +122,7 @@
                 <div class="py-2">
                     <label for="img">Select Image:</label>
                     <input class="@error('img') is-invalid @enderror @error('img.*') is-invalid @enderror" type="file" name="img[]" accept="image/*" multiple>
-                    <span class="validity text-muted">You can upload up to 5 images. Only images files allowed. Not more than 2MB each.</span>
+                    <span class="validity text-muted">Max 5 files / 2 Mb</span>
                     @error('img')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -132,11 +135,10 @@
                     @enderror
                 </div>
 
-                <h4>Services</h4>
                 @foreach ($srvs as $srv)
                 <div>
 
-                    <input 
+                    <input
                     @if (in_array($srv -> id, $aptSrvs))
                         checked
                     @endif
@@ -146,12 +148,15 @@
                 </div>
                 @endforeach
 
-                <button id="create-submit" class="btn btn-primary btn-save" type="submit">Save</button>
-            </form>
+                <button id="create-submit" class="btn btn-primary btn-save btnContact btn-block btn-sm" type="submit"><span class="glyphicon glyphicon-share"></span>Save</button>
+
+              </div>
+            </div>
+
+          </form>
         </div>
     </div>
 </div>
-   
+
 
 @endsection
-

@@ -27,7 +27,7 @@
               </div>
 
         </form>
-          
+
         </div>
       </section><!-- #hero -->
       <div class="container">
@@ -53,7 +53,7 @@
         </div>
     </div>
 </div>
-    
+
 @endsection
 {{--
 a questo link ci sono diversi effetti carini tra cui scegliere
