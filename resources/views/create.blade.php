@@ -121,7 +121,7 @@
                         @enderror
                       </div>
 
-                      @foreach ($srvs as $srv)
+                      {{-- @foreach ($srvs as $srv)
                       <div class="container form-check">
                         <ul class="ks-cboxtags">
                           <li>
@@ -130,16 +130,16 @@
                           </li>
                         </ul>
                       </div>
-                      @endforeach
+                      @endforeach --}}
 
-                      {{-- @foreach ($srvs as $srv)
+                      @foreach ($srvs as $srv)
                       <div class="form-check">
                         <input type="checkbox" name="services[]" value="{{ $srv -> id }}">
                         <label for="{{ $srv -> name }}"><i class="px-1 {{ $srv -> icon}}"></i>  {{ $srv -> name }}</label>
                       </div>
-                      @endforeach --}}
+                      @endforeach
 
-                      <button id="create-submit" class="btn btn-primary btn-save btnContact btn-block btn-sm" type="submit"><span class="glyphicon glyphicon-share"></span>Save</button>
+                      <button id="create-submit" class="btn btn-primary btn-save btnContact btn-block btn-sm mt-3" type="submit"><span class="glyphicon glyphicon-share"></span>Save</button>
 
                     </div>
                   </div>
