@@ -11,9 +11,9 @@
         <div class="hero-container">
           <h1>Welcome to BoolBnB</h1>
           <h2>Please, give credit to the back-end developers!</h2>
-          <form class="w-100 px-3" action="{{ route('to-search') }}" method="POST">
+          <form class="w-100 px-3" action="{{ route('to-search') }}" method="GET">
             @csrf
-            @method('POST')
+            @method('GET')
               <div class="d-flex justify-content-center align-items-center">
                 <div class="search-wrapper mr-3 input-group md-form form-sm form-2 pl-0 text-left">
                     <input id="search-address-input" name="address" class="form-control my-0 py-1 red-border rounded-pill" type="search" placeholder="Search" aria-label="Search" required min="3">
