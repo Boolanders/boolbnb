@@ -7,11 +7,11 @@
 
  <div class="container margintop border rounded" style="background-image: url('{{ asset('/img/create_background.jpg')}}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
-    <div id="edit-cont" style="width: 70%; margin: auto; padding: 50px 0 50px 0">
-        <div class="form panel-transparent p-5 rounded z-depth-5 w-100" style="background:rgba(255,255,255, 0.8);">
+    <div id="edit-cont">
+        <div class="form panel-transparent p-5 rounded z-depth-5 w-100">
 
             <form action="{{ route('apt-update', $apt -> id) }}" enctype="multipart/form-data" method="post" class="form-create-border">
-              <h1 style="font-weight: bold; text-align: center; margin-bottom: 25px;">Edit your Apartment</h1>
+              <h1>Edit your Apartment</h1>
 
                 @csrf
                 @method ('post')
@@ -93,7 +93,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="">Description</label>
-                  <textarea name="description" class="form-control @error('description') is-invalid @enderror" style="width: 100%; height: 150px;" name="description" cols="30" rows="10" minlength="3" maxlength="1000" required>{{ old('description') }}</textarea>
+                  <textarea name="description" class="form-des form-control @error('description') is-invalid @enderror" name="description" cols="30" rows="10" minlength="3" maxlength="1000" required>{{ old('description') }}</textarea>
                   <span class="validity text-muted">The description must be 3 - 1000 character length</span>
                   @error('description')
                       <span class="invalid-feedback" role="alert">

@@ -11003,7 +11003,7 @@ function headerFunciton() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/header.js */"./resources/js/partials/header.js");
+module.exports = __webpack_require__(/*! C:\Users\Vincenzo\Desktop\BooleanCareers\Github-project\boolbnb\resources\js\partials\header.js */"./resources/js/partials/header.js");
 
 
 /***/ })
