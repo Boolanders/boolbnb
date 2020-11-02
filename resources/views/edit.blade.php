@@ -7,8 +7,8 @@
 
  <div class="container margintop border rounded" style="background-image: url('{{ asset('/img/create_background.jpg')}}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
-    <div id="edit-cont" style="width: 90%; margin: 20px;">
-        <div class="form panel-transparent p-5 rounded z-depth-5 w-75" style="background:rgba(255,255,255, 0.8);">
+    <div id="edit-cont" style="width: 70%; margin: auto; padding: 50px 0 50px 0">
+        <div class="form panel-transparent p-5 rounded z-depth-5 w-100" style="background:rgba(255,255,255, 0.8);">
 
             <form action="{{ route('apt-update', $apt -> id) }}" enctype="multipart/form-data" method="post" class="form-create-border">
               <h1 style="font-weight: bold; text-align: center; margin-bottom: 25px;">Edit your Apartment</h1>
