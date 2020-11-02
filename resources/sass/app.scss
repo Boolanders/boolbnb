@@ -14,7 +14,7 @@
 @import 'partials/header';
 @import 'partials/footer';
 
-//@import 'views/create';
+@import 'views/create';
 @import 'views/edit';
 @import 'views/home';
 @import 'views/profile';
@@ -38,10 +38,10 @@
 // }
 
 
-// @include media-breakpoint-up(md) { 
+// @include media-breakpoint-up(md) {
 //     .margintop {
-    
+
 //         margin-top: 120px;
 //     }
-    
+
 // }
