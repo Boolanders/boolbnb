@@ -7,8 +7,8 @@
 
     <div class="container margintop border rounded" style="background-image: url('{{ asset('/img/create_background.jpg')}}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
-      <div id="create-cont" style="width: 90%; margin: 20px;">
-          <div class="form panel-transparent p-5 rounded z-depth-5 w-75" style="background:rgba(255,255,255, 0.8);">
+      <div id="create-cont" style="width: 70%; margin: auto; padding: 50px 0 50px 0">
+          <div class="form panel-transparent p-5 rounded w-100" style="background:rgba(255,255,255, 0.8);">
 
               <form action="{{ route('apt-store') }}" enctype="multipart/form-data" method="post" class="form-create-border">
                 <h1 style="font-weight: bold; text-align: center; margin-bottom: 25px;">Create an Apartment</h1>
@@ -121,17 +121,6 @@
                             </span>
                         @enderror
                       </div>
-
-                      {{-- @foreach ($srvs as $srv)
-                      <div class="container form-check">
-                        <ul class="ks-cboxtags">
-                          <li>
-                            <input type="checkbox" name="services[]" value="Fluttershy {{ $srv -> id }}">
-                            <label for= "{{ $srv -> name }}"><i class="px-1 {{ $srv -> icon}}"></i>  {{ $srv -> name }}</label>
-                          </li>
-                        </ul>
-                      </div>
-                      @endforeach --}}
 
                       @foreach ($srvs as $srv)
                       <div class="form-check">
