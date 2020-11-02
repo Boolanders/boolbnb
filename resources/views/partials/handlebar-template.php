@@ -3,8 +3,9 @@
   <div class="col-md-6">
     <div class="card my-2 show-apt-link rounded" style="max-width: 540px;" data-id="{{id}}">
         <div class="row no-gutters">
-          <div class="col-lg-4 p-1 d-flex align-items-center">
-            <img src="{{ img }}" class="card-img" alt="...">
+          <div class="col-lg-4 p-1">
+          <div class="image-faker" style="background-image: url('{{ img }}')"></div>
+            <!-- <img src="{{ img }}" class="card-img" alt="..."> -->
           </div>
           <div class="col-lg-8">
             <div class="card-body p-2 h-100 d-flex flex-column justify-content-around">

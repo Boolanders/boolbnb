@@ -16099,6 +16099,7 @@ function search() {
   addSearchButtonListener();
   addShowListener();
   sendRequestSearch();
+  addResizeListener();
 }
 
 function autocomplete() {
@@ -16142,14 +16143,13 @@ function sendRequestSearch() {
     },
     method: 'GET',
     success: function success(data) {
-      console.log(data);
-
       if (data.length == 0) {
         $('#sponsored').html('');
         $('#standard').html('<div class="col-12"><h3 class="py-5 text-primary text-center">No results</h3></div>');
       } else {
         printCards(data);
         printServiceIcon(data);
+        resizeImages();
       }
     },
     error: function error(err) {
@@ -16204,6 +16204,18 @@ function printServiceIcon(data) {
       listTarget.append(icon);
     }
   });
+}
+
+function resizeImages() {
+  var target = $('.image-faker');
+  target.each(function () {
+    var w = $(this).width();
+    $(this).css('min-height', w);
+  });
+}
+
+function addResizeListener() {
+  $(window).resize(resizeImages);
 }
 
 /***/ }),

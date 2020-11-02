@@ -13,6 +13,8 @@ function search() {
     addShowListener();
     
     sendRequestSearch();
+
+    addResizeListener();
 }
 
 
@@ -76,8 +78,6 @@ function sendRequestSearch() {
         method: 'GET',
         success: function(data) {
 
-            console.log(data);
-
             if(data.length == 0){
 
                 $('#sponsored').html('');
@@ -86,6 +86,7 @@ function sendRequestSearch() {
 
                 printCards(data);
                 printServiceIcon(data);
+                resizeImages();
             }
 
         },
@@ -168,4 +169,21 @@ function printServiceIcon(data){
         }
 
     });
+}
+
+function resizeImages(){
+
+    var target = $('.image-faker');
+
+    target.each(function(){
+        
+        var w = $(this).width();
+
+        $(this).css('min-height', w);
+    });
+}
+
+function addResizeListener(){
+
+    $(window).resize(resizeImages);
 }
