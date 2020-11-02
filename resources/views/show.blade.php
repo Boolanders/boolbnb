@@ -23,11 +23,11 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{ $apt -> images -> first -> img -> img }}" alt="">
+                    <img class="d-block w-80 mx-auto" src="{{ $apt -> images -> first -> img -> img }}" alt="">
                 </div>
                 @foreach($apt->images as $img)
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ $img -> img }}" alt="">
+                    <img class="d-block w-80 mx-auto" src="{{ $img -> img }}" alt="">
                 </div>
                 @endforeach
               </div>
