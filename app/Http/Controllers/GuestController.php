@@ -10,10 +10,11 @@ use App\Service;
 use App\Message;
 use App\Visit;
 
-
+// il guest controller è dedicato agli utenti non registrati (le pagine sono accessibili anche ad utenti registrati)
 class GuestController extends Controller
 {
 
+   // questa funzione restituisce la home del sito con delle card con gli appartamenti sponsorizzati
    public function index(){
 
       $date = date('Y-m-d');
@@ -45,38 +46,42 @@ class GuestController extends Controller
       return view('home', compact('apts'));
    }
 
+
+   // ritorna la pagina che mostra i dettagli di un appartamento
    public function show($id) {
 
       Visit::create([
          'apartment_id' => $id
-      ]);
+      ]); // ad ogni accesso prima di restituire la view creo un record della visita. associo l'id dell'appartamento laravel in automatico associa data e ora della creazione del record
 
       $apt = Apartment::findOrFail($id);
 
-      $imgs = Image::where('apartment_id', '=', $id) -> get();
+      $imgs = Image::where('apartment_id', '=', $id) -> get(); // mando al front anche le immagini dell'appartamento
       
       return view ('show', compact('apt', 'imgs'));
    }
 
  
+   //funzione che gestisce la creazione di un messaggio
   public function storemsg(request $request, $id){
 
       $data = $request -> validate([
          'email' => 'required|email',
          'message' => 'required|min:3|max:1000'
-      ]);
+      ]); // valido i dati in arrivo mail del mittente e testo del messaggio
 
       $data['apartment_id'] = $id;
 
-      $mail = Message::create($data);
+      Message::create($data); // salvo il messaggio nel db. la colonna read (messaggio letto) di default è settata su false
   
-      return back()-> with('status', 'Message send successfully');
+      return back()-> with('status', 'Message send successfully'); // aggiorno la pagina segnalando che il messaggio è stato mandato correttamente
   
   }
 
+  // questa funzione restituisce la view della ricerca. mando i dati ricercati nell'input della pagina home (verranno stampati nella pagina di ricerca e con js verrà lanciata una prima ricerca con filtri settati su valori di default)
   public function toSearch(request $request) {
 
-   $srvs = Service::all();
+   $srvs = Service::all(); // i servizi vengono mandati in modo da creare una serie di input checkbox per il filtro degli appartamenti
 
    $data = $request -> all();
 
