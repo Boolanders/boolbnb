@@ -31,7 +31,7 @@ function choosePromotion(){
     var price = $(this).parents('.promo').data('price');
     var hours = $(this).parents('.promo').data('hours');
     
-    var endDate = getEndDate(hours)
+    var endDate = getEndDate(hours);
     
     targetPrice.text(price);
 
@@ -41,19 +41,22 @@ function choosePromotion(){
 }
 
 
+// questa funzione prende la start date (che è stampata in un input nascosto e può essere oggi o la fine della sponsorizzazione ancora attiva) e ci somma le ore della promozione selezionata restituendo la data di fine della promozione scelta
 function getEndDate(hours){
 
     var startDate = $('#start_date').val();
 
-    var endDate = new Date(startDate);
+    var endDate = new Date(startDate); // trasforma la stinga in un istanza dell'oggetto Date in modo da poter usare i metodi getMonth e così
 
-    endDate.setHours( endDate.getHours() + hours );
+    endDate.setHours( endDate.getHours() + hours ); // aggiungo le ore
 
+    // formattedEndDate compone una stringa con la data bella da visualizzare a schermo
     var formattedEndDate =  appendLeadingZeroes(endDate.getDate()) + "/" +  appendLeadingZeroes(endDate.getMonth() + 1) + "/" + endDate.getFullYear() + " " +  appendLeadingZeroes(endDate.getHours()) + ":" +  appendLeadingZeroes(endDate.getMinutes());
        
     return formattedEndDate;
 }
 
+// questa funzione aggiunge uno zero davanti a un numero < 9. la uso per avere date 01/05/2020 invece di 1/5/2020
 function appendLeadingZeroes(n){
     if(n <= 9){
       return "0" + n;
