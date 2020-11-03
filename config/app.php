@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'Europe/Rome',
+    'timezone' => 'Europe/Rome',  // ------------ NOTE: di default questo è settato su UTF. la best practice sarebbe tenere quel set e ogni volta che si mostra la data o l'ora all'utente convertire nella timezone corretta. In questo caso per facilità tutte le date e ore saranno del fuso di Roma. In un caso reale se uno si collegasse dalle filippine vedrebbe l'ora di roma ma per questo caso specifico va bene così
 
     /*
     |--------------------------------------------------------------------------

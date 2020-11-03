@@ -10,7 +10,7 @@
     <section id="hero">
         <div class="hero-container">
           <h1>Welcome to BoolBnB</h1>
-          <h2>Please, give credit to the back-end developers!</h2>
+          <h2>Find an apartment, become a Host.. or Both!</h2>
           <form class="w-100 px-3" action="{{ route('to-search') }}" method="GET">
             @csrf
             @method('GET')

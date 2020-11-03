@@ -1,6 +1,7 @@
 
 @auth  
     @php
+    // se l'utente è loggato si esegue questo piccolo php che serve a cercare se ci sono messaggi dell'utente non letti. a partire dall'id dell'utente loggato si fa una semplice query sui suoi appartamenti e sui messaggi dove la colonna read ha valore '0'. con count() si salva nella variabile $msgs il numero di messaggi non letti poi più sotto si farà un if($msgs) che sarà falso se i messaggi non letti sono 0 e vero per qualsiasi numero diverso da 0. così si mostrerà o no la notifica messaggi non letti (pallino su menu hamburger e voce messaggi del menu). Scrivere il php qua permette di non dover riscriverlo in ogni controller
         $usrId = Auth::user() -> id;
 
         $msgs = App\Apartment::where('user_id', '=', $usrId) 
@@ -83,65 +84,3 @@
 
     </div>
   </header><!-- End #header -->
-
-  
-
-
-
-{{-- 
-
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top header">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-8 offset-xs-2 col-sm-6 offset-sm-3 col-md-2 offset-md-0">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('./img/stemma.png') }}" alt="not found">
-                </a>
-            </div>
-            
-            <div class="col-md-2 offset-md-8">
-            @guest
-                    <div class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </div>
-                    @if (Route::has('register'))
-                        <div class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </div>
-                    @endif
-                @else
-                    <div class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <i class=" px-1 fas fa-user"></i>
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                            <a class="dropdown-item" href="{{ route('profile', Auth::user() -> id) }}">
-                                My Profile
-                            </a>
-
-                            <a class="dropdown-item" href="{{ route('messages', Auth::user() -> id) }}">
-                                My Messages
-                            </a>
-
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </div>
-                @endguest
-            </div>
-
-        </div>
-
-    </div>
-</nav> --}}
-

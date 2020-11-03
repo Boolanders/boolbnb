@@ -10983,7 +10983,8 @@ $(document).ready(header);
 function header() {
   headerFunciton();
   scrollLogo();
-}
+} // questa funzione mostra/nasconde il menu del profilo al click sul tasto menu hamburger, cambia l'icona, toglie la notifica nuovo messaggio 
+
 
 function headerFunciton() {
   // Toggle nav menu
@@ -10993,9 +10994,11 @@ function headerFunciton() {
     $('.nav-toggle i').toggleClass('fa-times');
     $('#hamburger-dot').toggle();
   });
-}
+} // questa funzione allo scroll della pagina cambia il logo
+
 
 function scrollLogo() {
+  // il logo è composto da due immagini loghino più scritta. allo scroll della finestra (window) se scrollTop() cioè quanti pixel ho scrollato dall'alto è >10 nascondo la scritta. se è <10 cioè son tornato su ricompare la scritta
   $(window).scroll(function () {
     if ($(window).scrollTop() > 10) {
       $("#logo2").fadeOut();
@@ -11014,7 +11017,7 @@ function scrollLogo() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\header.js */"./resources/js/partials/header.js");
+module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/header.js */"./resources/js/partials/header.js");
 
 
 /***/ })

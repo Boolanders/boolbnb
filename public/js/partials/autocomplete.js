@@ -10977,15 +10977,19 @@ return jQuery;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // importa la libreria jquery
+
 $(document).ready(autocomplete);
 
 function autocomplete() {
+  // crea l'autocompletamento fornito con la libreria di algolia places sull'input '#search-address-input'
   var placesSearchAutocomplete = places({
     appId: 'pl9FR7QVJTYP',
     apiKey: '8240a6d46c9f2914027ee977cb8aeeb3',
     container: document.querySelector('#search-address-input')
-  });
+  }); // ad ogni cambiamento dell'input con l'autocompletamento va a salvare in due input nascosti i valori di latitutdine e longitudine.
+  // e.suggestion.latlng serve per prendere gli attributi con i valori di lat e lon dall'oggetto creato da algolia places
+
   placesSearchAutocomplete.on('change', function (e) {
     var latitude = e.suggestion.latlng.lat;
     var longitude = e.suggestion.latlng.lng;
@@ -11003,7 +11007,7 @@ function autocomplete() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\autocomplete.js */"./resources/js/partials/autocomplete.js");
+module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/autocomplete.js */"./resources/js/partials/autocomplete.js");
 
 
 /***/ })

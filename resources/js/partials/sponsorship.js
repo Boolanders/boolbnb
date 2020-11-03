@@ -44,10 +44,11 @@ function choosePromotion(){
 // questa funzione prende la start date (che è stampata in un input nascosto e può essere oggi o la fine della sponsorizzazione ancora attiva) e ci somma le ore della promozione selezionata restituendo la data di fine della promozione scelta
 function getEndDate(hours){
 
-    var startDate = $('#start_date').val();
+    var startDate = $('#start_date').val(); // questa data e ora passati dal backend hanno formato yyyy-mm-dd H:i
 
-    var forFirefoxDate = startDate.replace(/-/g, '/');
-    var endDate = new Date(forFirefoxDate);
+    var forFirefoxDate = startDate.replace(/-/g, '/'); // usando firefox non ti permette con Date(startDate) di ottenere l'istanza dell'oggetto Date perchè non gli piace il formato yyyy-mm-dd (in chrome funzionerebbe tutto tranquillamente!) allora con replace cambio la stringa di startDate da yyyy-mm-dd a yyyy/mm/dd (replace sostituisce nella stringa con /-/g sostituisce TUTTI i "-" se avessi scritto replace('-', '/') sostituiva solo il primo.) Il formato yyyy/mm/dd piace sia a firefox che a chrome. Non si poteva stamparlo così direttamente dal backend perchè poi quasta data torna al backend attraverso il form e il backend invece non riconosce il formato con / al posto di -
+
+    var endDate = new Date(forFirefoxDate); // new Date crea un oggetto Data di js. Date() senza argomenti crea un oggetto data e ora di adesso. passandogli una stringa si crea l'oggetto della data e ora passata con la stringa e si può utilizzare per esempio per scrivere se quel giorno è un lunedì o un giovedì (e un milione di altri casi d'uso)
 
 
     endDate.setHours( endDate.getHours() + hours ); // aggiungo le ore

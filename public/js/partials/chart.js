@@ -48768,10 +48768,12 @@ $(document).ready(table);
 
 function table() {
   getStats();
-}
+} // la funzione fa una chiamata ajax all'url /getStats. manda come dato l'id dell'appartamento in questione. il controller ApiController risponderà con un json con due array con le visite e i messaggi divisi per mese di quell'appartamento.
+
 
 function getStats() {
-  var id = $('#stats').data('id');
+  var id = $('#stats').data('id'); // l'id lo prendo da data-id="" del id="stats" dove ho stampato l'id dell'appartamento senza mostrarlo all'utente che non gli interessa
+
   $.ajax({
     url: '/getStats',
     method: 'GET',
@@ -48780,9 +48782,8 @@ function getStats() {
     },
     success: function success(data) {
       var msg = data['msg'];
-      var vis = data['vis'];
-      console.log(msg);
-      console.log(vis);
+      var vis = data['vis']; // le due funzioni stamperanno i grafici
+
       addVisitsChart(vis);
       addMessagesChart(msg);
     },
@@ -48794,6 +48795,7 @@ function getStats() {
 
 function addVisitsChart(data) {
   // [12, 19, 3, 5, 2, 3, 7, 15, 23, 39, 2]
+  // si utilizza la libreria charts per stampare il grafico. in questo caso è un grafico a colonne è possibile specificare delle opzioni tipo colore colonne, quante colonne, le label ecc
   var Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
 
   var ctx = $('#myVisitsChart');
@@ -48859,7 +48861,7 @@ function addMessagesChart(data) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\chart.js */"./resources/js/partials/chart.js");
+module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/chart.js */"./resources/js/partials/chart.js");
 
 
 /***/ })

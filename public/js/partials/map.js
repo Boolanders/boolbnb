@@ -10982,9 +10982,11 @@ $(document).ready(iniz);
 
 function iniz() {
   map();
-}
+} // questa funzione crea in pagina la mappa. Utilizza la libreria gratuita mapbox
+
 
 function map() {
+  // latitudine e longitudine sono messe in un data-number di due span nascosti in pagina. li prendo da lì e li passo alla creazione dell'oggetto mappa in modo che la mappa sia centrata su quel punto.
   var lat = $('#lat-secrt').data('number');
 
   var _long = $('#log-secrt').data('number');
@@ -10998,7 +11000,8 @@ function map() {
     // starting position [lng, lat]
     zoom: 9 // starting zoom
 
-  });
+  }); // il marker sempre sulle coordinate latitudine e longitudine crea sulla mappa un indicatore della posizione dell'appartamento
+
   var marker = new mapboxgl.Marker().setLngLat([_long, lat]).addTo(map);
 }
 
@@ -11011,7 +11014,7 @@ function map() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\map.js */"./resources/js/partials/map.js");
+module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/map.js */"./resources/js/partials/map.js");
 
 
 /***/ })

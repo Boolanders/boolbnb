@@ -10982,7 +10982,8 @@ $(document).ready(messages);
 
 function messages() {
   allRead();
-}
+} // questa funzione fa una chiamata ajax alla url /allRead. Il controller prenderà grazie alla Auth:user() l'id dell'utente loggato in questo momento e setterà il valore di read di tutti i messaggi di tutti gli appartamenti di quell'utente su 1 (true). Così tutti i messaggi di quell'utente risulteranno letti.
+
 
 function allRead() {
   $.ajax({
@@ -11006,7 +11007,7 @@ function allRead() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\messages.js */"./resources/js/partials/messages.js");
+module.exports = __webpack_require__(/*! /home/mcurtaz/Documents/Boolean/Corso/Esercitazioni/boolbnb/resources/js/partials/messages.js */"./resources/js/partials/messages.js");
 
 
 /***/ })
