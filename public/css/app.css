@@ -15618,7 +15618,8 @@ a.text-dark:focus {
 }
 
 footer {
-  background-color: rgba(241, 128, 14, 0.411) !important;
+  background: #fea845;
+  background: linear-gradient(0deg, #fea845 0%, #f8fafc 86%);
   margin-top: 20px;
 }
 

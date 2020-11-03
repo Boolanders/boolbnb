@@ -11005,7 +11005,8 @@ function choosePromotion() {
 
 function getEndDate(hours) {
   var startDate = $('#start_date').val();
-  var endDate = new Date(startDate);
+  var forFirefoxDate = startDate.replace(/-/g, '/');
+  var endDate = new Date(forFirefoxDate);
   endDate.setHours(endDate.getHours() + hours);
   var formattedEndDate = appendLeadingZeroes(endDate.getDate()) + "/" + appendLeadingZeroes(endDate.getMonth() + 1) + "/" + endDate.getFullYear() + " " + appendLeadingZeroes(endDate.getHours()) + ":" + appendLeadingZeroes(endDate.getMinutes());
   return formattedEndDate;
@@ -11030,7 +11031,7 @@ function appendLeadingZeroes(n) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Vincenzo\Desktop\BooleanCareers\Github-project\boolbnb\resources\js\partials\sponsorship.js */"./resources/js/partials/sponsorship.js");
+module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\sponsorship.js */"./resources/js/partials/sponsorship.js");
 
 
 /***/ })

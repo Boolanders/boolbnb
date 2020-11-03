@@ -11046,7 +11046,7 @@ function disableSponsorButtons() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Vincenzo\Desktop\BooleanCareers\Github-project\boolbnb\resources\js\partials\profile.js */"./resources/js/partials/profile.js");
+module.exports = __webpack_require__(/*! C:\Users\Am0squ1t0\Desktop\Esercizi-Boolean\Git\boolbnb\resources\js\partials\profile.js */"./resources/js/partials/profile.js");
 
 
 /***/ })

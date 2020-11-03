@@ -11,10 +11,22 @@
 
       <!-- Grid column -->
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">Company name</h6>
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <h6 class="text-uppercase mb-4 font-weight-bold">ABOUT</h6>
+        <p>
+          <a href="#!">How Boolbnb works</a>
+        </p>
+        <p>
+          <a href="#!">Boolbnb Plus</a>
+        </p>
+        <p>
+          <a href="#!">Boolbnb Luxe</a>
+        </p>
+        <p>
+          <a href="#!">Boolbnb for Work</a>
+        </p>
+        <p>
+          <a href="#!">Careers</a>
+        </p>
       </div>
       <!-- Grid column -->
 
@@ -22,18 +34,18 @@
 
       <!-- Grid column -->
       <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+        <h6 class="text-uppercase mb-4 font-weight-bold">COMMUNITY</h6>
         <p>
-          <a href="#!">MDBootstrap</a>
+          <a href="#!">Accessibility</a>
         </p>
         <p>
-          <a href="#!">MDWordPress</a>
+          <a href="#!">Diversity & Belonging</a>
         </p>
         <p>
-          <a href="#!">BrandFlow</a>
+          <a href="#!">Boolbnb Associates</a>
         </p>
         <p>
-          <a href="#!">Bootstrap Angular</a>
+          <a href="#!">Invite friends</a>
         </p>
       </div>
       <!-- Grid column -->
@@ -42,18 +54,18 @@
 
       <!-- Grid column -->
       <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+        <h6 class="text-uppercase mb-4 font-weight-bold">HOST</h6>
         <p>
-          <a href="#!">Your Account</a>
+          <a href="#!">Host your home</a>
         </p>
         <p>
           <a href="#!">Become an Affiliate</a>
         </p>
         <p>
-          <a href="#!">Shipping Rates</a>
+          <a href="#!">Responsible hosting</a>
         </p>
         <p>
-          <a href="#!">Help</a>
+          <a href="#!">Resource Centre</a>
         </p>
       </div>
 
@@ -62,15 +74,15 @@
 
       <!-- Grid column -->
       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+        <h6 class="text-uppercase mb-4 font-weight-bold">SUPPORT</h6>
         <p>
-          <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+          <i class="fab fa-facebook-square mr-3"></i> Michele Curtaz</p>
         <p>
-          <i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+          <i class="fab fa-facebook-square mr-3"></i> Michael Cinus</p>
         <p>
-          <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+          <i class="fab fa-facebook-square mr-3"></i> Vincenzo Megna</p>
         <p>
-          <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+          <i class="fab fa-facebook-square mr-3"></i> Davide Carpani</p>
       </div>
       <!-- Grid column -->
 
@@ -88,7 +100,7 @@
         <!--Copyright-->
         <p class="text-center text-md-left">© 2020 Copyright:
           <a href="https://mdbootstrap.com/">
-            <strong> MDBootstrap.com</strong>
+            <strong> Boolbnb.com</strong>
           </a>
         </p>
 

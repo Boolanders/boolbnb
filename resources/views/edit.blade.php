@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 
- <div class="container margintop border rounded" style="background-image: url('{{ asset('/img/create_background.jpg')}}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+ <div class="container margintop border rounded" style="background-image: url('{{ asset('/img/edit_background.jpg')}}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
 
     <div id="edit-cont">
         <div class="form panel-transparent p-5 rounded z-depth-5 w-100">

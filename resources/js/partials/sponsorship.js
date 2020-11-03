@@ -46,7 +46,9 @@ function getEndDate(hours){
 
     var startDate = $('#start_date').val();
 
-    var endDate = new Date(startDate); // trasforma la stinga in un istanza dell'oggetto Date in modo da poter usare i metodi getMonth e così
+    var forFirefoxDate = startDate.replace(/-/g, '/');
+    var endDate = new Date(forFirefoxDate);
+
 
     endDate.setHours( endDate.getHours() + hours ); // aggiungo le ore
 
