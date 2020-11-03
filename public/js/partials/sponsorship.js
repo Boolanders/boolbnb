@@ -11005,7 +11005,8 @@ function choosePromotion() {
 
 function getEndDate(hours) {
   var startDate = $('#start_date').val();
-  var endDate = new Date(startDate);
+  var forFirefoxDate = startDate.replace(/-/g, '/');
+  var endDate = new Date(forFirefoxDate);
   endDate.setHours(endDate.getHours() + hours);
   var formattedEndDate = appendLeadingZeroes(endDate.getDate()) + "/" + appendLeadingZeroes(endDate.getMonth() + 1) + "/" + endDate.getFullYear() + " " + appendLeadingZeroes(endDate.getHours()) + ":" + appendLeadingZeroes(endDate.getMinutes());
   return formattedEndDate;

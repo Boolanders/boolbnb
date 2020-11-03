@@ -44,8 +44,8 @@ function choosePromotion(){
 function getEndDate(hours){
 
     var startDate = $('#start_date').val();
-
-    var endDate = new Date(startDate);
+    var forFirefoxDate = startDate.replace(/-/g, '/');
+    var endDate = new Date(forFirefoxDate);
 
     endDate.setHours( endDate.getHours() + hours );
 
