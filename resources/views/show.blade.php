@@ -106,6 +106,7 @@
                     @method ('post')
 
                         <div class="form-group">
+                            {{-- se l'utente è loggato viene impostata di default la sua mail --}}
                             @auth
                                 <label for="exampleFormControlInput1">Email address</label>
                                 <input type="email" class="form-control @error('email') is-invalid @enderror" id="exampleFormControlInput1" placeholder="Enter your email address" name="email" value="{{ Auth::user()->email }}" required>

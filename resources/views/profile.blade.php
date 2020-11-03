@@ -85,7 +85,7 @@
     @endforeach
   </div>
 </div>
-<!-- Modal -->
+<!-- Modale di conferma per il delete dell'appartamento -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

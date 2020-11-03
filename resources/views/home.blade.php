@@ -55,6 +55,3 @@
 </div>
 
 @endsection
-{{--
-a questo link ci sono diversi effetti carini tra cui scegliere
-https://miketricking.github.io/bootstrap-image-hover/ --}}

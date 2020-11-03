@@ -9,6 +9,7 @@
 <div class="container margintop">
     <section class="pricing pb-4">
         <div class="container">
+            {{-- stampo errori se nella session viene valorizzato un attributo errore (nel controller si fa return ->with('error', 'messaggio di errore')) --}}
             @if (session('error'))
                 <div class="alert alert-danger alert-dismissible fade show">
                     {!! session('error') !!}
@@ -42,6 +43,7 @@
                 @endforeach
             </div>
             <div class="row pt-5">
+                {{-- questo contenitore contiene la stampa grafica dei dettagli dell'ordine e il form per inserire i dettagli della carta di credito. viene mostrato solo alla selezione di una delle promozioni --}}
                 <div class="col-md-8 offset-md-2 d-none" id="order-container">
                     <div>
                         <h4>Order Details</h4>
@@ -67,8 +69,11 @@
                         @method("POST")
                         
                         <div id="bt-dropin"></div>
+                        {{-- alla selezione di una promozione viene valorizzato il valore di questo input nascosto con l'id della promozione scelta --}}
                         <input type="number" name="promo_id" id="promo_id" class="d-none" required>
+                        {{-- la data di inizio viene inviata dal controller a seconda se ci sono ancora sponsorizzazioni attive --}}
                         <input type="text" name='start_date' id="start_date" class="d-none" value="{{ $startDate }} " required>
+                        {{-- questo input viene valorizzato con i dettagli della carta di credito (sono dettagli creati da Braintree) --}}
                         <input id="nonce" name="payment_method_nonce" type="hidden">
                     
                         <button class="btn btn-warning rounded-pill" type="submit">
@@ -82,7 +87,9 @@
 </div>
 
 <script>
-    var form = document.querySelector('#payment-form');
+
+    // questo script crea il form di inserimento dei dati della carta di credito
+    var form = document.querySelector('#payment-form'); // questo è il form completo di tutti i dati che invierà il pagamento
     var client_token = "{{ Braintree\ClientToken::generate() }}";
     
     braintree.dropin.create({
@@ -102,7 +109,7 @@
                         console.log('Request Payment Method Error', err);
                         return;
                     }
-                    // Add the nonce to the form and submit
+                    // se i dati di pagamento sono validi aggiungo i dettagli del metodo di pagamento in un input nascosto del form e poi lo invio (form.submit())
                     document.querySelector('#nonce').value = payload.nonce;
                     form.submit();
                 });

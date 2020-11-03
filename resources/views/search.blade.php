@@ -5,6 +5,7 @@
 @endsection
 @section('content')
 
+{{-- il template di handlebar va in conflitto mettendo {{ }} con blade. Per questo l'ho messo a parte in un file con estensione .php e non .blade.php --}}
 @include('partials.handlebar-template')
 
 

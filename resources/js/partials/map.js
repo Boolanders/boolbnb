@@ -6,9 +6,11 @@ function iniz() {
 
     map()
 }
-        
+       
+// questa funzione crea in pagina la mappa. Utilizza la libreria gratuita mapbox
 function map() { 
 
+    // latitudine e longitudine sono messe in un data-number di due span nascosti in pagina. li prendo da lì e li passo alla creazione dell'oggetto mappa in modo che la mappa sia centrata su quel punto.
     var lat = $('#lat-secrt').data('number')
     var long = $('#log-secrt').data('number')
 
@@ -20,6 +22,7 @@ function map() {
         zoom: 9 // starting zoom
     })
 
+    // il marker sempre sulle coordinate latitudine e longitudine crea sulla mappa un indicatore della posizione dell'appartamento
     var marker = new mapboxgl.Marker()
                 .setLngLat([long, lat])
                 .addTo(map);

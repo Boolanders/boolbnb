@@ -1,4 +1,4 @@
-window.$ = window.jQuery = require('jquery');
+window.$ = window.jQuery = require('jquery'); // importa la libreria jquery
 
 $(document).ready(autocomplete) 
 
@@ -8,7 +8,7 @@ $(document).ready(autocomplete)
 
     
     
-
+    // crea l'autocompletamento fornito con la libreria di algolia places sull'input '#search-address-input'
     var placesSearchAutocomplete = places({
 
         appId: 'pl9FR7QVJTYP',
@@ -18,7 +18,8 @@ $(document).ready(autocomplete)
     })
     
     
-
+    // ad ogni cambiamento dell'input con l'autocompletamento va a salvare in due input nascosti i valori di latitutdine e longitudine.
+    // e.suggestion.latlng serve per prendere gli attributi con i valori di lat e lon dall'oggetto creato da algolia places
     placesSearchAutocomplete.on('change', function (e) {
         
         var latitude = e.suggestion.latlng.lat
