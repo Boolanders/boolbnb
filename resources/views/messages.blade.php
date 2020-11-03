@@ -7,7 +7,11 @@
     <div class="container margintop">
         @if (count($msgs))
             @foreach ($msgs as $msg)
-                <div class="row media border shadow bg-white rounded m-2 p-2">
+                <div class="row media border shadow bg-white 
+                @if(!$msg -> read)
+                border-warning
+                @endif
+                rounded m-2 p-2">
                     <div class="col-md-3">
                         <div class="py-1">
                             <label>Email: </label>

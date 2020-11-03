@@ -19,8 +19,12 @@
                 <div class="col-md-6">
                   <div class="form-group">
                       <label for="">Title</label>
+                      {{-- questi ccommenti valgono per tutti gli input --}}
+                      {{-- per il frontend i limiti di validazione sono iseriti direttamente nell'input con require min max min-lengh ecc --}}
                       <input class="form-control  @error('title') is-invalid @enderror" type="text" name="title" value="{{ $apt -> title }}" minlength="3" maxlength="60" required>
-                      <span class="validity text-muted">The title must be 3 - 60 character length</span>
+                      {{-- attraverso il js cambio il colore di questo span a seconda della validità dell'input --}}
+                      <span class="validity text-muted">The title must be 3 - 60 character length</span> 
+                      {{-- quest @error mostra (se ci sono) errori creati dalla validate del controller --}}
                       @error('title')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
