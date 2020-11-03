@@ -8,9 +8,10 @@ function table() {
     
 }
 
+// la funzione fa una chiamata ajax all'url /getStats. manda come dato l'id dell'appartamento in questione. il controller ApiController risponderà con un json con due array con le visite e i messaggi divisi per mese di quell'appartamento.
 function getStats(){
 
-    var id = $('#stats').data('id');
+    var id = $('#stats').data('id'); // l'id lo prendo da data-id="" del id="stats" dove ho stampato l'id dell'appartamento senza mostrarlo all'utente che non gli interessa
 
     $.ajax({
         url: '/getStats',
@@ -22,8 +23,8 @@ function getStats(){
 
             var msg = data['msg'];
             var vis = data['vis'];
-            console.log(msg);
-            console.log(vis);
+            
+            // le due funzioni stamperanno i grafici
             addVisitsChart(vis);
             addMessagesChart(msg);
 
@@ -38,6 +39,7 @@ function addVisitsChart(data) {
 
     // [12, 19, 3, 5, 2, 3, 7, 15, 23, 39, 2]
     
+    // si utilizza la libreria charts per stampare il grafico. in questo caso è un grafico a colonne è possibile specificare delle opzioni tipo colore colonne, quante colonne, le label ecc
     var Chart = require('chart.js')
     var ctx = $('#myVisitsChart')
     var myChart = new Chart(ctx, {

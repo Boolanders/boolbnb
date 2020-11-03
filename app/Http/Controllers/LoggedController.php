@@ -202,20 +202,29 @@ class LoggedController extends Controller {
     // la funzione delete cancella un appartamento. per come è impostato il database dove ci sono delle chiavi esterne si elimina tutto (onDelete('cascade')). quindi eliminando un appartamento si eliminano servizi, immagini, messaggi ecc associati all'appartamento
     public function delete($id) {
 
-        $apt= Apartment::findOrFail($id);
-
-        $imgs = Image::where('apartment_id', '=', $id) -> get();
-
-        // le righe dalla tabella immagini si eliminano automaticamente all'eliminazione dell'appartamento. con questo foreach elimino anche i file
-        foreach ($imgs as $img) {
-            unlink(public_path($img -> img));
-        }
-
-        $apt-> delete();
-        
         $usrid = Auth::user() -> id;
 
-        return redirect() -> route('profile', $usrid)-> with('status', 'Apartment deleted successfully');
+        $apt= Apartment::findOrFail($id);
+
+        if($apt -> user_id == $usrid){ // controllo che l'utente loggato sia effettivamente il proprietario dell'appartamento. (questo evita che uno si metta a cancellare appartamenti di altri mettendo nell'url /delete/{id a caso})
+
+            $imgs = Image::where('apartment_id', '=', $id) -> get();
+    
+            // le righe dalla tabella immagini si eliminano automaticamente all'eliminazione dell'appartamento. con questo foreach elimino anche i file
+            foreach ($imgs as $img) {
+                unlink(public_path($img -> img));
+            }
+    
+            $apt-> delete();
+            
+    
+            return redirect() -> route('profile', $usrid)-> with('status', 'Apartment deleted successfully');
+
+        } else {
+
+            return redirect() -> route('profile', $usrid)-> with('status', 'Deleted Impossible');
+        }
+
     }
 
 
