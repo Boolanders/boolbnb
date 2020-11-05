@@ -36,7 +36,7 @@
                                 <li><span class="fa-li"><i class="fas fa-check"></i></span>Always First Results</li>
                                 <li><span class="fa-li"><i class="fas fa-check"></i></span>Guaranteed Visibility</li>
                             </ul>
-                            <button data-id="{{ $promo -> id }}" class="btn btn-block btn-warning text-uppercase choose">Choose</button>
+                            <button data-id="{{ $promo -> id }}" class="btn btn-block btn-secondary text-uppercase choose">Choose</button>
                         </div>
                     </div>
                 </div>
@@ -76,14 +76,14 @@
                         {{-- questo input viene valorizzato con i dettagli della carta di credito (sono dettagli creati da Braintree) --}}
                         <input id="nonce" name="payment_method_nonce" type="hidden">
                     
-                        <button class="btn btn-warning rounded-pill" type="submit">
+                        <button class="btn btn-secondary rounded-pill" id="payment-submit-button" type="submit">
                             Submit Payment
                         </button>
                     </form>
                 </div>
             </div>
     </section>
-    <a class="btn btn-secondary float-right" href="{{ URL::previous() }}">Go Back</a>
+    <a class="btn btn-primary float-right" href="{{ URL::previous() }}">Go Back</a>
 </div>
 
 <script>
@@ -111,6 +111,7 @@
                     }
                     // se i dati di pagamento sono validi aggiungo i dettagli del metodo di pagamento in un input nascosto del form e poi lo invio (form.submit())
                     document.querySelector('#nonce').value = payload.nonce;
+                    $('#payment-submit-button').prop("disabled", true);
                     form.submit();
                 });
             });

@@ -130,13 +130,13 @@
                             </span>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-warning font-weight-bold rounded-pill" href="">Send</button>
+                        <button type="submit" class="btn btn-secondary font-weight-bold rounded-pill" href="">Send</button>
                     </form>
                   </div>
                 </div>
 
         </div>
-            <a class="btn btn-secondary float-right mt-3 btnContact" href="{{ URL::previous() }}">Go Back</a>
+            <a class="btn btn-primary float-right mt-3 btnContact" href="{{ URL::previous() }}">Go Back</a>
     </div>
 </div>
 

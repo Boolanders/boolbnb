@@ -18,7 +18,7 @@
     @endif
     <div class="row">
         <div class="col-12 text-center p-3">
-            <a class="btn btn-warning rounded-pill font-weight-bold" href="{{route('apt-create') }}">Add Apartment</a>
+            <a class="btn btn-secondary rounded-pill font-weight-bold" href="{{route('apt-create') }}">Add Apartment</a>
         </div>
     </div>
 

@@ -60,7 +60,7 @@
           </form>
         </div>
       </div>
-      <button type="button" id="search-button" class="btn btn-warning btn-sm font-weight-bold rounded-pill float-right">Search</button>
+      <button type="button" id="search-button" class="btn btn-secondary btn-sm font-weight-bold rounded-pill float-right">Search</button>
     </div>
   </div>
   <div class="row rounded" id="sponsored">

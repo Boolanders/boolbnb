@@ -9,7 +9,7 @@
 <div class="home margintop">
     <section id="hero">
         <div class="hero-container">
-          <h1>Welcome to BoolBnB</h1>
+          <h1 class="font-weight-bold">Welcome to BoolBnB</h1>
           <h2>Find an apartment, become a Host.. or Both!</h2>
           <form class="w-100 px-3" action="{{ route('to-search') }}" method="GET">
             @csrf
@@ -22,7 +22,7 @@
                        <input id="longitude" name="lon" type="text">
                     </div>
                 </div>
-                <button type="submit"class="btn btn-warning font-weight-bold rounded-pill border-white">Search</button>
+                <button type="submit"class="btn btn-secondary font-weight-bold rounded-pill border-white">Search</button>
 
               </div>
 
@@ -32,7 +32,7 @@
       </section><!-- #hero -->
       <div class="container">
         <div class="row justify-content-center align-items-stretch">
-            <h1 class="col-md-12 mt-5 text-center">Our Suggestions</h1>
+            <h2 class="font-weight-bold mb-3 col-md-12 mt-5 text-center">Our Suggestions</h2>
             @foreach ($apts as $apt)
             <div class="col-xs-12 col-sm-6 col-lg-4 align-items-stretch">
               <div class="card-wrapper p-2 h-100">

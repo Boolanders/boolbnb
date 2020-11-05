@@ -1,149 +1,146 @@
-<!-- Footer -->
+
 <footer class="page-footer font-small pt-4">
 
-  <!-- Footer Links -->
+  
   <div class="container text-center text-md-left">
   <hr>
 
 
-    <!-- Footer links -->
+   
     <div class="row text-center text-md-left mt-3 pb-3">
 
-      <!-- Grid column -->
+     
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">ABOUT</h6>
         <p>
-          <a href="#!">How Boolbnb works</a>
+          How Boolbnb works
         </p>
         <p>
-          <a href="#!">Boolbnb Plus</a>
+          Boolbnb Plus
         </p>
         <p>
-          <a href="#!">Boolbnb Luxe</a>
+          Boolbnb Luxe
         </p>
         <p>
-          <a href="#!">Boolbnb for Work</a>
+          Boolbnb for Work
         </p>
         <p>
-          <a href="#!">Careers</a>
+          Careers
         </p>
       </div>
-      <!-- Grid column -->
+   
 
       <hr class="w-100 clearfix d-md-none">
 
-      <!-- Grid column -->
+     
       <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">COMMUNITY</h6>
         <p>
-          <a href="#!">Accessibility</a>
+          Accessibility
         </p>
         <p>
-          <a href="#!">Diversity & Belonging</a>
+          Diversity & Belonging
         </p>
         <p>
-          <a href="#!">Boolbnb Associates</a>
+          Boolbnb Associates
         </p>
         <p>
-          <a href="#!">Invite friends</a>
+          Invite friends
         </p>
       </div>
-      <!-- Grid column -->
+     
 
       <hr class="w-100 clearfix d-md-none">
 
-      <!-- Grid column -->
+     
       <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">HOST</h6>
         <p>
-          <a href="#!">Host your home</a>
+          Host your home
         </p>
         <p>
-          <a href="#!">Become an Affiliate</a>
+          Become an Affiliate
         </p>
         <p>
-          <a href="#!">Responsible hosting</a>
+          Responsible hosting
         </p>
         <p>
-          <a href="#!">Resource Centre</a>
+          Resource Centre
         </p>
       </div>
 
-      <!-- Grid column -->
+     
       <hr class="w-100 clearfix d-md-none">
 
-      <!-- Grid column -->
+     
       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">SUPPORT</h6>
         <p>
-          <i class="fab fa-facebook-square mr-3"></i> Michele Curtaz</p>
+          <a class="font-weight-bold" href="https://github.com/mcurtaz">
+            <i class="fab fa-github mr-1"></i> Michele Curtaz</p>
+          </a>
         <p>
-          <i class="fab fa-facebook-square mr-3"></i> Michael Cinus</p>
+          <a class="font-weight-bold" href="https://github.com/michaelcinus">
+            <i class="fab fa-github mr-1"></i> Michael Cinus</p>
+          </a>
         <p>
-          <i class="fab fa-facebook-square mr-3"></i> Vincenzo Megna</p>
+          <a class="font-weight-bold" href="https://github.com/paciGit">
+            <i class="fab fa-github mr-1"></i> Vincenzo Megna</p>
+          </a>
         <p>
-          <i class="fab fa-facebook-square mr-3"></i> Davide Carpani</p>
+          <a class="font-weight-bold" href="https://github.com/Amosgito">
+            <i class="fab fa-github mr-1"></i> Davide Carpani</p>
+          </a>
       </div>
-      <!-- Grid column -->
 
     </div>
-    <!-- Footer links -->
+
 
     <hr>
 
-    <!-- Grid row -->
+    
     <div class="row d-flex align-items-center">
 
-      <!-- Grid column -->
+      
       <div class="col-md-7 col-lg-8">
 
-        <!--Copyright-->
+        
         <p class="text-center text-md-left">© 2020 Copyright:
-          <a href="https://mdbootstrap.com/">
             <strong> Boolbnb.com</strong>
-          </a>
         </p>
 
       </div>
-      <!-- Grid column -->
+      
 
-      <!-- Grid column -->
+      
       <div class="col-md-5 col-lg-4 ml-lg-0">
 
-        <!-- Social buttons -->
+        
         <div class="text-center text-md-right">
           <ul class="list-unstyled list-inline">
             <li class="list-inline-item">
-              <a class="btn-floating btn-sm rgba-white-slight mx-1">
                 <i class="fab fa-facebook-f"></i>
-              </a>
             </li>
             <li class="list-inline-item">
-              <a class="btn-floating btn-sm rgba-white-slight mx-1">
                 <i class="fab fa-twitter"></i>
-              </a>
             </li>
             <li class="list-inline-item">
-              <a class="btn-floating btn-sm rgba-white-slight mx-1">
                 <i class="fab fa-google-plus-g"></i>
-              </a>
             </li>
             <li class="list-inline-item">
-              <a class="btn-floating btn-sm rgba-white-slight mx-1">
                 <i class="fab fa-linkedin-in"></i>
-              </a>
             </li>
           </ul>
         </div>
 
       </div>
-      <!-- Grid column -->
+      
 
     </div>
-    <!-- Grid row -->
+    
 
   </div>
-  <!-- Footer Links -->
+  
 
 </footer>
-<!-- Footer -->
+

@@ -9,7 +9,7 @@
             @foreach ($msgs as $msg)
                 <div class="row media border shadow bg-white 
                 @if(!$msg -> read)
-                border-warning
+                border-secondary
                 @endif
                 rounded m-2 p-2">
                     <div class="col-md-3">
