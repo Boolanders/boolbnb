@@ -1,4 +1,4 @@
-![Logo](https://res.cloudinary.com/mcstorage/image/upload/v1604482237/Preview%20GitHub%20Repositories/stemino_feqwed.png)
+![Logo](https://res.cloudinary.com/mcstorage/image/upload/v1604593941/Preview%20GitHub%20Repositories/stemino_yw5s4u.png)
 
 ## About
 
